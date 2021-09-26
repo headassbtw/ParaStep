@@ -1,0 +1,5 @@
+
+#compiled builds
+/ParaStep/bin/
+#rider stuff
+/ParaStep/.idea/
