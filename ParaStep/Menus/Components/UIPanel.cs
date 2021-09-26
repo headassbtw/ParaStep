@@ -46,7 +46,8 @@ namespace ParaStep.Menus.Components
                 x += (int)component.Size.X;
             }
             //since i don't plan for grids yet, this just averages the massively wide X width
-            x /= Children.Count;
+            if (manualX != 0 || manualY != 0)//this check is here because i tried to cheese a dumb effect earlier
+                x /= Children.Count;
             x += _padding*2;
             //override X and Y, because i contradicted myself from 2 lines up
             x = (manualX != 0) ? manualX : x;

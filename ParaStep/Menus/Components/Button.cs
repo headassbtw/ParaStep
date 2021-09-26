@@ -12,13 +12,15 @@ namespace ParaStep.Menus.Components
 
         private MouseState _currentMouse;
 
-        private SpriteFont _font;
+        private SpriteFont _mainFont;
+        private SpriteFont _subFont;
 
         private bool _isHovering;
 
         private MouseState _previousMouse;
 
-        //public Vector2 Position = new Vector2();
+        private Color _color;
+        private Color _hoverColor;
         
         private Texture2D _texture;
 
@@ -41,16 +43,29 @@ namespace ParaStep.Menus.Components
         }
 
         public string Text { get; set; }
+        public string SubText { get; set; }
 
         #endregion
 
         #region Methods
 
-        public Button(Texture2D texture, SpriteFont font)
+        public Button(Texture2D texture, SpriteFont font, SpriteFont bigFont, Color color)
         {
+            _color = color;
+            float r;
+            float g;
+            float b;
+            _color.Deconstruct(out r, out g, out b);
+            r = (r / 20.0f) * 6.0f; 
+            g = (g / 20.0f) * 6.0f; 
+            b = (b / 20.0f) * 6.0f;
+
+            _hoverColor = new Color(r, g, b, _color.A);
+            
             _texture = texture;
 
-            _font = font;
+            _subFont = font;
+            _mainFont = bigFont;
 
             PenColor = Color.Black;
         }
@@ -58,19 +73,26 @@ namespace ParaStep.Menus.Components
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
         {
             Position = LocalPosition + parentOffset;
-            var colour = Color.White;
+            var color = _color;
             Rectangle rect = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
             if (_isHovering)
-                colour = Color.Gray;
-            spriteBatch.Draw(_texture, rect, colour);
+                color = _hoverColor;
+            spriteBatch.Draw(_texture, rect, color);
 
-            if (!string.IsNullOrEmpty(Text))
+            if (!string.IsNullOrEmpty(Text) && SubText == null)
             {
-                var x = (rect.X + (rect.Width / 2)) - (_font.MeasureString(Text).X / 2);
-                var y = (rect.Y + (rect.Height / 2)) - (_font.MeasureString(Text).Y / 2);
+                var x = (rect.X + (rect.Width / 2)) - (_mainFont.MeasureString(Text).X / 2);
+                var y = (rect.Y + (rect.Height / 2)) - (_mainFont.MeasureString(Text).Y / 2);
 
                 var pos = new Vector2(x, y);
-                spriteBatch.DrawString(_font, Text, pos, PenColor);
+                spriteBatch.DrawString(_mainFont, Text, pos, PenColor);
+            }
+            else if (!string.IsNullOrEmpty(Text) && !string.IsNullOrEmpty(SubText))
+            {
+                var x = (rect.X + 10);
+                var y = rect.Y + 5;
+                spriteBatch.DrawString(_mainFont, Text, new Vector2(x, y), PenColor);
+                spriteBatch.DrawString(_subFont, SubText, new Vector2(x, y + 34), PenColor);
             }
         }
 

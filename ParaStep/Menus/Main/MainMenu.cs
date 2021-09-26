@@ -24,6 +24,7 @@ namespace ParaStep.Menus.Main
 
             var buttonTexture = whiteRectangle;
             var buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
+            var buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
             var titleFont = _content.Load<SpriteFont>("Fonts/Kremlin");
             var titleimage = _content.Load<Texture2D>("yourmother_t");
 
@@ -32,7 +33,7 @@ namespace ParaStep.Menus.Main
                 LocalPosition = new Vector2(0,0),
             };
             
-            var newGameButton = new Button(buttonTexture, buttonFont)
+            var newGameButton = new Button(buttonTexture, buttonFont,buttonFont2x, Color.DarkOrchid)
             {
                 LocalPosition = new Vector2(0, titleimage.Height + 10),
                 Size = new Vector2(300,50),
@@ -41,7 +42,7 @@ namespace ParaStep.Menus.Main
 
             newGameButton.Click += NewGameButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
+            var loadGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
             {
                 LocalPosition = new Vector2(0, titleimage.Height + 70),
                 Size = new Vector2(300,50),
@@ -50,7 +51,7 @@ namespace ParaStep.Menus.Main
 
             loadGameButton.Click += LoadGameButton_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var quitGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
             {
                 LocalPosition = new Vector2(0, titleimage.Height + 130),
                 Size = new Vector2(300,50),
@@ -68,12 +69,13 @@ namespace ParaStep.Menus.Main
                 quitGameButton,
                 titleLabel
             };
-            UIPanel menuButtonsPanel = new UIPanel(whiteRectangle, 10, false, 35, Color.Transparent)
+            UIPanel menuButtonsPanel = new UIPanel(whiteRectangle, 10, false, 35, new Color(0,0,0,160))
             {
                 Children = menuButtons,
                 LocalPosition = new Vector2(150,350),
             };
-            menuButtonsPanel.CalculateSize();
+            menuButtonsPanel.CalculateSize(438);
+
             _panels = new List<UIPanel>();
             _panels.Add(menuButtonsPanel);
 

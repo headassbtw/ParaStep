@@ -26,6 +26,13 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Kremlin.spritefont
 
+#begin Fonts/Unlockstep_2x.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Unlockstep_2x.spritefont
+
 #begin Fonts/Unlockstep.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

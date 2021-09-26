@@ -12,6 +12,7 @@ namespace ParaStep.Menus
     {
         private SpriteFont _kremlin;
         private SpriteFont _unlockstep;
+        private SpriteFont _unlockstep2x;
         private List<UIPanel> _panels;
         public SettingsMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
             : base(game, graphicsDevice, content)
@@ -21,6 +22,7 @@ namespace ParaStep.Menus
             
             _kremlin = content.Load<SpriteFont>("Fonts/kremlin");
             _unlockstep = content.Load<SpriteFont>("Fonts/unlockstep");
+            _unlockstep2x = content.Load<SpriteFont>("Fonts/unlockstep_2x");
             Slider previewVolumeSlider = new Slider(whiteRectangle, _kremlin)
             {
                 value = game.settings.PreviewVolume,
@@ -46,7 +48,7 @@ namespace ParaStep.Menus
                 Size = new Vector2(400,80)
             };
             sliderPanel.CalculateSize();
-            Button backButton =    new Button(whiteRectangle, _unlockstep)
+            Button backButton =    new Button(whiteRectangle, _unlockstep,_unlockstep2x, Color.LightGray)
             {
                 LocalPosition = new Vector2(0,0),
                 PenColor = Color.Black,

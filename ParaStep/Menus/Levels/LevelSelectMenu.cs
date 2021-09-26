@@ -33,6 +33,7 @@ namespace ParaStep.Menus.Levels
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
             var buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
+            var buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
             var headerFont = _content.Load<SpriteFont>("Fonts/Kremlin");
 
             List<Component> levelButtons = new List<Component>();
@@ -46,18 +47,19 @@ namespace ParaStep.Menus.Levels
             {
                 for (int i = 0; i < Simfiles.Count; i++)
                 {
-                    Button levelButton = new Button(whiteRectangle, buttonFont)
+                    Button levelButton = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
                     {
                         LocalPosition = new Vector2(0,80*i),
                         PenColor = Color.Black,
-                        Size = new Vector2(300,70),
-                        Text = $"{Simfiles[i].Title}\n{Simfiles[i].Artist}"
+                        Size = new Vector2(500,70),
+                        Text = Simfiles[i].Title,
+                        SubText = Simfiles[i].Artist
                     };
                     levelButton.Click += (sender, args) =>
                     {
                         if(simfilePreview != null) simfilePreview.vorbis.Dispose();
                         _panels.Remove(_simfilePreviewPanel);
-                        Button play = new Button(whiteRectangle, buttonFont)
+                        Button play = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.Yellow)
                         {
                             LocalPosition = new Vector2(0,0),
                             PenColor = Color.Black,
@@ -106,7 +108,7 @@ namespace ParaStep.Menus.Levels
             List<Component> backButtonPanelComponents = new List<Component>();
             
                 
-            Button backButton =    new Button(whiteRectangle, buttonFont)
+            Button backButton =    new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
             {
                 LocalPosition = new Vector2(0,0),
                 PenColor = Color.Black,
