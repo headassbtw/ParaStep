@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using ParaStep.Menus.Components;
 using ParaStep.Menus.Main;
@@ -59,8 +60,7 @@ namespace ParaStep.Menus
             backButton.Click += (sender, args) =>
             {
                 game.settings.PreviewVolume = previewVolumeSlider.value;
-                Dispose();
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                _back();
             };
             List<Component> backButtonPanelComponents = new List<Component>();
             backButtonPanelComponents.Add(backButton);
@@ -79,8 +79,15 @@ namespace ParaStep.Menus
 
         }
 
+        private void _back()
+        {
+            Dispose();
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+        }
+        
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            _graphicsDevice.Clear(Color.Firebrick);
             spriteBatch.Begin();
             foreach(UIPanel panel in _panels)
                 panel.Draw(gameTime, spriteBatch, new Vector2(0,0));
@@ -97,6 +104,8 @@ namespace ParaStep.Menus
 
         public override void Update(GameTime gameTime)
         {
+            if (_game.ShouldGoBack)
+                _back();
             foreach (UIPanel panel in _panels)
                 panel.Update(gameTime);
         }

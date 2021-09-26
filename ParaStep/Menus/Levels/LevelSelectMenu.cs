@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using ParaStep.Gameplay;
 using ParaStep.Menus.Components;
 using ParaStep.Menus.Main;
@@ -118,8 +119,7 @@ namespace ParaStep.Menus.Levels
 
             backButton.Click += (sender, args) =>
             {
-                Dispose();
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+                _back();
             };
             backButtonPanelComponents.Add(backButton);
             
@@ -143,6 +143,13 @@ namespace ParaStep.Menus.Levels
             spriteBatch.End();
         }
 
+        private void _back()
+        {
+            Dispose();
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+        }
+        
+
         public override void PostUpdate(GameTime gameTime)
         {
             
@@ -150,6 +157,8 @@ namespace ParaStep.Menus.Levels
 
         public override void Update(GameTime gameTime)
         {
+            if (_game.ShouldGoBack)
+                _back();
             List<UIPanel> cachePanels = _panels.GetRange(0, _panels.Count);
             foreach(UIPanel panel in cachePanels)
                 panel.Update(gameTime);

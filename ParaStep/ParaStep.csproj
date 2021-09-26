@@ -10,6 +10,7 @@
         <Company>headassbtw</Company>
     </PropertyGroup>
     <PropertyGroup>
+        <PublishSingleFile>true</PublishSingleFile>
     </PropertyGroup>
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>

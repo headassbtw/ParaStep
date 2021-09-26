@@ -18,9 +18,9 @@ namespace ParaStep.Simfile
         {
             _placeholderBanner = content.Load<Texture2D>("yourmother");
             _graphicsDevice = graphicsDevice;
-            _SongsPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Songs");
+            _SongsPath = Path.Combine(Directory.GetCurrentDirectory(), "Songs");
             if (!Directory.Exists(_SongsPath)) Directory.CreateDirectory(_SongsPath);
-
+            Console.WriteLine($"Songs Directory: \"{_SongsPath}\"");
             return true;
         }
         

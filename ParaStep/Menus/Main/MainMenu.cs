@@ -84,7 +84,7 @@ namespace ParaStep.Menus.Main
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            _graphicsDevice.Clear(Color.DimGray);
+            //_graphicsDevice.Clear(Color.DimGray);
             _currentMouse = Mouse.GetState();
             spriteBatch.Begin();
 
@@ -115,7 +115,12 @@ namespace ParaStep.Menus.Main
 
         public override void Update(GameTime gameTime)
         {
-            foreach (var panel in _panels)
+            if (_game.ShouldGoBack)
+            {
+                SettingsIO.Save(_game.settings);
+                _game.Exit();
+            }
+                foreach (var panel in _panels)
             {
                 panel.Update(gameTime);
             }
