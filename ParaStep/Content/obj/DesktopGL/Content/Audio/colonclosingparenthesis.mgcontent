@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/Audio/colonclosingparenthesis.mp3</SourceFile>
+  <SourceTime>2021-09-24T22:04:50.523969-07:00</SourceTime>
+  <DestFile>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/bin/DesktopGL/Content/Audio/colonclosingparenthesis.xnb</DestFile>
+  <DestTime>2021-09-25T17:14:19.8545018-07:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2020-08-10T09:17:54-07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/bin/DesktopGL/Content/Audio/colonclosingparenthesis.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>
