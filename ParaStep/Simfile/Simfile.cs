@@ -53,12 +53,12 @@ namespace ParaStep.Simfile
     public class Measure
     {
         public int Tempo;
-        public List<Note[]> Notes;
+        public List<char[]> Notes;
 
         public Measure()
         {
             this.Tempo = 1;
-            this.Notes = new List<Note[]>();
+            this.Notes = new List<char[]>();
         }
     }
     

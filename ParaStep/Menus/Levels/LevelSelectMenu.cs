@@ -73,7 +73,7 @@ namespace ParaStep.Menus.Levels
                         play.Click += (o, eventArgs) =>
                         {
                             if(simfilePreview != null) simfilePreview.vorbis.Dispose();
-                            _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)].Path, _controls));
+                            _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], _controls));
                         };
                         simfilePreview = new SimfilePreview(whiteRectangle, headerFont, buttonFont, Simfiles[levelButtons.IndexOf(levelButton)])
                         {

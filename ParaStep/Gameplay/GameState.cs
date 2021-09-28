@@ -25,10 +25,10 @@ namespace ParaStep.Gameplay
         private Controls _controls;
         private TimeSpan _elapsedTime = TimeSpan.Zero;
         private int MPS;
-        public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, string simfilePath, Controls controls) 
+        public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile, Controls controls) 
             : base(game, graphicsDevice, content)
         {
-            _simfile = LevelSelectMenu._simfileLoader.Load(simfilePath);
+            _simfile = simfile;
             float bpm;
             _simfile.BPMs.TryGetValue(0.000f, out bpm);
             MPS = (int)(bpm / 4)/60;
@@ -45,7 +45,6 @@ namespace ParaStep.Gameplay
 
             foreach (var measure in _simfile.Measures)
             {
-                Console.WriteLine();
                 foreach (var row in measure.Notes)
                 {
                     foreach (var note in row)

@@ -38,8 +38,9 @@ namespace ParaStep.Simfile
             int notesHeaderPos = 0;
 
             List<Measure> measures = new List<Measure>();
-            List<Note[]> measure = new List<Note[]>();
-            List<Note> row = new List<Note>();
+            List<char[]> measure = new List<char[]>();
+//            List<char> row = new List<char>();
+            char[] row = new char[] { };
             
             while (!streamReader.EndOfStream)
             {
@@ -163,27 +164,11 @@ namespace ParaStep.Simfile
                     Console.WriteLine("reading notes");
                     if (!line.Contains(",") && !line.Contains(";") && line.Length == 4)
                     {
-                        
-                        foreach (char note in line.ToCharArray())
-                        {
-                            Console.Write(note.ToString());
-                            switch (note.ToString())
-                            {
-                                case "0": row.Add(Note.None); break;
-                                case "1": row.Add(Note.Normal); break;
-                                case "2": row.Add(Note.HoldHead); break;
-                                case "3": row.Add(Note.HoldRailTail); break;
-                                case "4": row.Add(Note.RollHead); break;
-                                case "M": row.Add(Note.Mine); break;
-                            }
-                            
-                        }
-                        Console.Write("\n");
-                        
-                        Console.WriteLine($"Committing row with {row.Count} notes");
+
+                        row = line.ToCharArray();
+                        Console.WriteLine($"Committing row with {row.Length} notes");
                         Console.WriteLine($"{row[0].ToString()},{row[1].ToString()},{row[2].ToString()},{row[3].ToString()}");
-                        if (row.Count / 4 != 0 || row.Count > 0)  measure.Add(row.ToArray());
-                        row.Clear();
+                        if (row.Length / 4 != 0 || row.Length > 0)  measure.Add(row.ToArray());
                     }
                     else if(line.Contains(","))
                     {
