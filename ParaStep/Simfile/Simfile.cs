@@ -54,12 +54,6 @@ namespace ParaStep.Simfile
     {
         public int Tempo;
         public List<char[]> Notes;
-
-        public Measure()
-        {
-            this.Tempo = 1;
-            this.Notes = new List<char[]>();
-        }
     }
     
     public enum Note

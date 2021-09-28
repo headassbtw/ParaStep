@@ -170,13 +170,15 @@ namespace ParaStep.Simfile
                         Console.WriteLine($"{row[0].ToString()},{row[1].ToString()},{row[2].ToString()},{row[3].ToString()}");
                         if (row.Length / 4 != 0 || row.Length > 0)  measure.Add(row.ToArray());
                     }
-                    else if(line.Contains(","))
+                    if(line.Contains(",") || line.Contains(";"))
                     {
-                        if (measure.Count / 4 != 0) measures.Add(new Measure()
+                        Measure _toAdd = new Measure()
                         {
                             Notes = measure,
                             Tempo = measure.Count / 4
-                        });
+                        };
+                        if (measure.Count / 4 != 0) measures.Add(_toAdd);
+                        
                         Console.WriteLine($"ended measure, tempo was {measure.Count/4}, had {measure.Count} rows");
                         measure.Clear();
                     }

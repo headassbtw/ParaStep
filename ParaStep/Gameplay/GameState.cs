@@ -43,15 +43,21 @@ namespace ParaStep.Gameplay
             List<Note> notes = new List<Note>();
             Console.WriteLine($"simfile has {_simfile.Measures.Count} measures");
 
-            foreach (var measure in _simfile.Measures)
+            for (int m = 0; m < _simfile.Measures.Count; m++)
             {
-                foreach (var row in measure.Notes)
+                Measure measure = _simfile.Measures[m];
+                Console.WriteLine($"Measure {m} has {measure.Notes.Count} rows");
+                for (int r = 0; r < measure.Notes.Count; r++)
                 {
-                    foreach (var note in row)
+                    char[] row = measure.Notes[r];
+                    for (int n = 0; n < row.Length; n++)
                     {
-                        Console.Write(note);
+                        Note newNote = new Note(n, content, Simfile.Note.Normal)
+                        {
+                            LocalPosition = new Vector2(50 + 148*n, 50 + (r * 138) + (r * 138 * m))
+                        };
+                        notes.Add(newNote);
                     }
-                    Console.WriteLine("\n");
                 }
             }
             
