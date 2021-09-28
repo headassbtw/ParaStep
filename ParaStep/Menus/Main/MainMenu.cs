@@ -28,8 +28,7 @@ namespace ParaStep.Menus.Main
             var buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
             var buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
             var titleFont = _content.Load<SpriteFont>("Fonts/Kremlin");
-//            var titleimage = _content.Load<Texture2D>("yourmother_t");
-            var titleimage = whiteRectangle;
+            var titleimage = _content.Load<Texture2D>("yourmother_t");
 
             var titleLabel = new Image(titleimage)
             {

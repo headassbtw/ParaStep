@@ -24,14 +24,16 @@ namespace ParaStep.Gameplay
         private SpriteFont _kremlin;
         private Controls _controls;
         private TimeSpan _elapsedTime = TimeSpan.Zero;
-        private int MPS;
+        private float MPS;
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile, Controls controls) 
             : base(game, graphicsDevice, content)
         {
             _simfile = simfile;
-            float bpm;
-            _simfile.BPMs.TryGetValue(0.000f, out bpm);
-            MPS = (int)(bpm / 4)/60;
+            float bpm = _simfile.BPMs.Values.First();
+            //_simfile.BPMs.TryGetValue(0.000f, out bpm);
+            Console.WriteLine($"BPM:{bpm}");
+            MPS = (bpm / 4)/60;
+            Console.WriteLine($"MPS:{MPS}");
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
             _controls = controls;
@@ -41,20 +43,34 @@ namespace ParaStep.Gameplay
             _song.Play();
             
             List<Note> notes = new List<Note>();
-            Console.WriteLine($"simfile has {_simfile.Measures.Count} measures");
+            Console.WriteLine($"simfile has {_simfile.Diffs[0].Measures.Count} measures");
 
-            for (int m = 0; m < _simfile.Measures.Count; m++)
+            for (int m = 0; m < _simfile.Diffs[0].Measures.Count; m++)
             {
-                Measure measure = _simfile.Measures[m];
+                Measure measure = _simfile.Diffs[0].Measures[m];
                 Console.WriteLine($"Measure {m} has {measure.Notes.Count} rows");
                 for (int r = 0; r < measure.Notes.Count; r++)
                 {
                     char[] row = measure.Notes[r];
                     for (int n = 0; n < row.Length; n++)
                     {
-                        Note newNote = new Note(n, content, Simfile.Note.Normal)
+                        Simfile.Note _noteType = Simfile.Note.None;
+                        switch (row[n])
                         {
-                            LocalPosition = new Vector2(50 + 148*n, 50 + (r * 138) + (r * 138 * m))
+                            case '0': _noteType = Simfile.Note.None; break;
+                            case '1': _noteType = Simfile.Note.Normal; break;
+                            case '2': _noteType = Simfile.Note.HoldHead; break;
+                            case '3': _noteType = Simfile.Note.HoldRailTail; break;
+                            case '4': _noteType = Simfile.Note.RollHead; break;
+                            case 'M': _noteType = Simfile.Note.Mine; break;
+                        }
+                        
+                        
+                        
+                        
+                        Note newNote = new Note(n, content, _noteType)
+                        {
+                            LocalPosition = new Vector2(50 + 148*n, 50 + (r * (2204/8)) + (r * (2204/8) * m))
                         };
                         notes.Add(newNote);
                     }
@@ -87,7 +103,7 @@ namespace ParaStep.Gameplay
             foreach(Receptor receptor in receptors)
                 receptor.Draw(gameTime, spriteBatch, Vector2.Zero);
             foreach(NotePanel panel in _noteLanes)
-                panel.Draw(gameTime, spriteBatch, new Vector2(0, -(int)((_elapsedTime.TotalMilliseconds / 1000)*80)));
+                panel.Draw(gameTime, spriteBatch, new Vector2(0, -(int)((_elapsedTime.TotalMilliseconds)*MPS)));
             spriteBatch.End();
         }
 

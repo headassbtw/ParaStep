@@ -21,6 +21,7 @@ namespace ParaStep.Gameplay.Components
             Texture2D whiteRectangle = new Texture2D(Program.Game.GraphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
             _noteType = noteType;
+            _noteTexture = whiteRectangle;
             switch (noteType)
             {
                 case Simfile.Note.Normal:

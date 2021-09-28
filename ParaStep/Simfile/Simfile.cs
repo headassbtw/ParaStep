@@ -19,23 +19,22 @@ namespace ParaStep.Simfile
         //stops
         public float SampleStart;
         public float SampleLength;
-        public NotesInfo Info;
-        public List<Measure> Measures;
+        public List<Diff> Diffs;
         public string Path;
 
         public Simfile()
         {
-            this.Info = new NotesInfo();
-            this.Measures = new List<Measure>();
+            this.Diffs = new List<Diff>();
             this.BPMs = new Dictionary<float, float>();
         }
     }
 
-    public class NotesInfo
+    public class Diff
     {
         public string ChartType;
         public string Desc;
         public Difficulty Difficulty;
+        public List<Measure> Measures;
         //meter???
         //groove radar????
     }
