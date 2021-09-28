@@ -29,10 +29,11 @@ namespace ParaStep.Gameplay
             : base(game, graphicsDevice, content)
         {
             _simfile = simfile;
+            _elapsedTime = TimeSpan.Zero - TimeSpan.FromSeconds(simfile.Offset);
             float bpm = _simfile.BPMs.Values.First();
             //_simfile.BPMs.TryGetValue(0.000f, out bpm);
             Console.WriteLine($"BPM:{bpm}");
-            MPS = (bpm / 4)/60;
+            MPS = (bpm / 60)/4;
             Console.WriteLine($"MPS:{MPS}");
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
@@ -51,6 +52,7 @@ namespace ParaStep.Gameplay
                 Console.WriteLine($"Measure {m} has {measure.Notes.Count} rows");
                 for (int r = 0; r < measure.Notes.Count; r++)
                 {
+                    float offset = ((138 * 8) / measure.Notes.Count);
                     char[] row = measure.Notes[r];
                     for (int n = 0; n < row.Length; n++)
                     {
@@ -64,13 +66,9 @@ namespace ParaStep.Gameplay
                             case '4': _noteType = Simfile.Note.RollHead; break;
                             case 'M': _noteType = Simfile.Note.Mine; break;
                         }
-                        
-                        
-                        
-                        
                         Note newNote = new Note(n, content, _noteType)
                         {
-                            LocalPosition = new Vector2(50 + 148*n, 50 + (r * (2204/8)) + (r * (2204/8) * m))
+                            LocalPosition = new Vector2(50 + 148*n, 50 + offset * r + ((138 * 8)*m))
                         };
                         notes.Add(newNote);
                     }
@@ -103,7 +101,7 @@ namespace ParaStep.Gameplay
             foreach(Receptor receptor in receptors)
                 receptor.Draw(gameTime, spriteBatch, Vector2.Zero);
             foreach(NotePanel panel in _noteLanes)
-                panel.Draw(gameTime, spriteBatch, new Vector2(0, -(int)((_elapsedTime.TotalMilliseconds)*MPS)));
+                panel.Draw(gameTime, spriteBatch, new Vector2(0, -(int)((_elapsedTime.TotalSeconds)*MPS * (138*8))));
             spriteBatch.End();
         }
 

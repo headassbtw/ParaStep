@@ -19,7 +19,7 @@ namespace ParaStep.Menus.Components
 
         private MouseState _previousMouse;
 
-        private Color _color;
+        public Color _color;
         private Color _hoverColor;
         
         private Texture2D _texture;

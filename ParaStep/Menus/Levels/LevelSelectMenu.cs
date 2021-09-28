@@ -70,10 +70,19 @@ namespace ParaStep.Menus.Levels
                             Size = new Vector2(200,100),
                             Text = $"Play"
                         };
-                        play.Click += (o, eventArgs) =>
+                        if ((_simfile.BPMs.Values.Count > 1))
                         {
-                            if(simfilePreview != null) simfilePreview.vorbis.Dispose();
-                            _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], _controls));
+                            play.Text = "Multiple\nBPM";
+                            play._color = Color.Red;
+                        }
+                            play.Click += (o, eventArgs) =>
+                        {
+                            if (!(_simfile.BPMs.Values.Count > 1))
+                            {
+                                if(simfilePreview != null) simfilePreview.vorbis.Dispose();
+                                _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], _controls));
+                            }
+                            
                         };
                         simfilePreview = new SimfilePreview(whiteRectangle, headerFont, buttonFont, Simfiles[levelButtons.IndexOf(levelButton)])
                         {
@@ -83,9 +92,9 @@ namespace ParaStep.Menus.Levels
                         };
                         List<Component> components = new List<Component>()
                         {
-                            play,
                             simfilePreview
                         };
+                        components.Add(play);
                         _simfilePreviewPanel = new UIPanel(whiteRectangle, 10, false, 40, Color.ForestGreen)
                         {
                             Children = components,
