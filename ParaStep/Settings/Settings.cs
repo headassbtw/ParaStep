@@ -11,7 +11,7 @@ namespace ParaStep.Settings
         public static void Save(Settings settings)
         {
             ini.Load();
-            ini.WriteValue( "MenuPreviewVolume", settings.PreviewVolume.ToString(new CultureInfo("fuck")));
+            ini.WriteValue( "MenuPreviewVolume", settings.PreviewVolume.ToString());
             ini.Save();
         }
 

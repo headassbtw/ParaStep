@@ -112,6 +112,8 @@ namespace ParaStep.Gameplay
 
         public override void Update(GameTime gameTime)
         {
+            if(Program.Game.ShouldGoBack)
+                Dispose();
             _elapsedTime += gameTime.ElapsedGameTime;
             foreach (Receptor receptor in receptors)
                 receptor.Update(gameTime);
@@ -122,6 +124,9 @@ namespace ParaStep.Gameplay
         public override void Dispose()
         {
             
+            _song.Stop();
+            _song.Dispose();
+            _game.ChangeState(new LevelSelectMenu(_game, _graphicsDevice, _content, _controls));
         }
     }
 }
