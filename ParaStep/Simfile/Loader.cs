@@ -28,6 +28,7 @@ namespace ParaStep.Simfile
         public Simfile Load(string path)
         {
             Simfile _simfile = new Simfile();
+            _simfile.Path = path;
             string[] simfiles = Directory.GetFiles(path, searchPattern: "*.sm");
             
             FileStream fileStream = new FileStream(simfiles.FirstOrDefault(), FileMode.Open);
@@ -157,28 +158,49 @@ namespace ParaStep.Simfile
                         }
                     }
                 }
-                else if (finishedHeader)
+                if (finishedHeader)
                 {
-                    if (!line.StartsWith(",") || !line.StartsWith(";"))
+                    Console.WriteLine("reading notes");
+                    if (!line.Contains(",") && !line.Contains(";") && line.Length == 4)
                     {
-                        foreach (char note in line)
+                        
+                        foreach (char note in line.ToCharArray())
                         {
-                            Note output;
-                            Note.TryParse(note.ToString(), out output);
-                            row.Add(output);
+                            Console.Write(note.ToString());
+                            switch (note.ToString())
+                            {
+                                case "0": row.Add(Note.None); break;
+                                case "1": row.Add(Note.Normal); break;
+                                case "2": row.Add(Note.HoldHead); break;
+                                case "3": row.Add(Note.HoldRailTail); break;
+                                case "4": row.Add(Note.RollHead); break;
+                                case "M": row.Add(Note.Mine); break;
+                            }
+                            
                         }
-                        measure.Add(row.ToArray());
+                        Console.Write("\n");
+                        
+                        Console.WriteLine($"Committing row with {row.Count} notes");
+                        Console.WriteLine($"{row[0].ToString()},{row[1].ToString()},{row[2].ToString()},{row[3].ToString()}");
+                        if (row.Count / 4 != 0 || row.Count > 0)  measure.Add(row.ToArray());
                         row.Clear();
                     }
-                    else if(line.StartsWith(",") || line.StartsWith(";"))
+                    else if(line.Contains(","))
                     {
-                        measures.Add(new Measure()
+                        if (measure.Count / 4 != 0) measures.Add(new Measure()
                         {
                             Notes = measure,
                             Tempo = measure.Count / 4
                         });
+                        Console.WriteLine($"ended measure, tempo was {measure.Count/4}, had {measure.Count} rows");
                         measure.Clear();
                     }
+                    if (line.StartsWith(";"))
+                    {
+                        Console.WriteLine($"committing {measures.Count} measures to simfile");
+                        _simfile.Measures = measures;
+                    }
+                        
                 }
             }
             return _simfile;

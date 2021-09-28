@@ -8,22 +8,24 @@ using Microsoft.Xna.Framework.Input;
 using ParaStep.Gameplay;
 using ParaStep.Menus.Components;
 using ParaStep.Menus.Main;
+using ParaStep.Settings;
 using ParaStep.Simfile;
 
 namespace ParaStep.Menus.Levels
 {
     public class LevelSelectMenu : State
     {
-        private Loader _simfileLoader;
+        private Controls _controls;
+        public static Loader _simfileLoader = new Loader();
         private List<Simfile.Simfile> Simfiles;
         private List<UIPanel> _panels;
         private UIPanel _simfilePreviewPanel;
         private SimfilePreview simfilePreview;
-        public LevelSelectMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
+        public LevelSelectMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
             : base(game, graphicsDevice, content)
         {
+            _controls = controls;
             Simfiles = new List<Simfile.Simfile>();
-            _simfileLoader = new Loader();
             _simfileLoader.Initialize(graphicsDevice, content);
 
             
@@ -48,6 +50,7 @@ namespace ParaStep.Menus.Levels
             {
                 for (int i = 0; i < Simfiles.Count; i++)
                 {
+                    Simfile.Simfile _simfile = Simfiles[i];
                     Button levelButton = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
                     {
                         LocalPosition = new Vector2(0,80*i),
@@ -70,9 +73,9 @@ namespace ParaStep.Menus.Levels
                         play.Click += (o, eventArgs) =>
                         {
                             if(simfilePreview != null) simfilePreview.vorbis.Dispose();
-                            _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)]));
+                            _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)].Path, _controls));
                         };
-                        simfilePreview = new SimfilePreview(whiteRectangle, headerFont, buttonFont,Simfiles[levelButtons.IndexOf(levelButton)])
+                        simfilePreview = new SimfilePreview(whiteRectangle, headerFont, buttonFont, Simfiles[levelButtons.IndexOf(levelButton)])
                         {
                             LocalPosition = new Vector2(210, 0),
                             PenColor = Color.Black,
@@ -146,7 +149,7 @@ namespace ParaStep.Menus.Levels
         private void _back()
         {
             Dispose();
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _controls));
         }
         
 

@@ -3,8 +3,9 @@ using System.Linq;
 using MonoGame.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ParaStep.Simfile;
+
 //using NVorbis;
-using ParaStep.Audio;
 
 namespace ParaStep.Menus.Components
 {
@@ -80,6 +81,11 @@ namespace ParaStep.Menus.Components
             spriteBatch.DrawString(_bigFont, simfile.Artist.ToUpper(), ArtistPos, Color.Black);
             Vector2 BPMPos = new Vector2(Position.X + 10, Position.Y + simfile.Banner.Height + 140);
             spriteBatch.DrawString(_smallFont, $"BPM: {simfile.BPMs.FirstOrDefault().Value.ToString()}", BPMPos, Color.Black);
+            Vector2 NoteCountPos = new Vector2(Position.X + 10, Position.Y + simfile.Banner.Height + 160);
+
+            string ifuckinghatethis = "";
+
+            spriteBatch.DrawString(_smallFont, ifuckinghatethis, NoteCountPos, Color.Black);
         }
 
         public override void Update(GameTime gameTime)

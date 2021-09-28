@@ -21,6 +21,7 @@ namespace ParaStep.Simfile
         public float SampleLength;
         public NotesInfo Info;
         public List<Measure> Measures;
+        public string Path;
 
         public Simfile()
         {
@@ -53,15 +54,21 @@ namespace ParaStep.Simfile
     {
         public int Tempo;
         public List<Note[]> Notes;
+
+        public Measure()
+        {
+            this.Tempo = 1;
+            this.Notes = new List<Note[]>();
+        }
     }
     
     public enum Note
     {
-        None,
-        Normal,
-        HoldHead,
-        HoldRailTail,
-        RollHead,
+        None = 0,
+        Normal = 1,
+        HoldHead = 2,
+        HoldRailTail = 3,
+        RollHead =  4,
         Mine
     }
 }

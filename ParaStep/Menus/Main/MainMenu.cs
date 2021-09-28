@@ -13,12 +13,14 @@ namespace ParaStep.Menus.Main
 {
     public class MenuState : State
     {
+        private Controls _controls;
         private List<UIPanel> _panels;
         //private List<Component> _components;
         private MouseState _currentMouse;
-        public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
+        public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
             : base(game, graphicsDevice, content)
         {
+            _controls = controls;
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
 
@@ -26,7 +28,8 @@ namespace ParaStep.Menus.Main
             var buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
             var buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
             var titleFont = _content.Load<SpriteFont>("Fonts/Kremlin");
-            var titleimage = _content.Load<Texture2D>("yourmother_t");
+//            var titleimage = _content.Load<Texture2D>("yourmother_t");
+            var titleimage = whiteRectangle;
 
             var titleLabel = new Image(titleimage)
             {
@@ -100,17 +103,17 @@ namespace ParaStep.Menus.Main
 
         private void LoadGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new SettingsMenu(_game, _graphicsDevice, _content));
+            _game.ChangeState(new SettingsMenu(_game, _graphicsDevice, _content, _controls));
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new LevelSelectMenu(_game, _graphicsDevice, _content));
+            _game.ChangeState(new LevelSelectMenu(_game, _graphicsDevice, _content, _controls));
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
-            // remove sprites if they're not needed
+            
         }
 
         public override void Update(GameTime gameTime)

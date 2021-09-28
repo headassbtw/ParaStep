@@ -6,18 +6,21 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using ParaStep.Menus.Components;
 using ParaStep.Menus.Main;
+using ParaStep.Settings;
 
 namespace ParaStep.Menus
 {
     public class SettingsMenu : State
     {
+        private Controls _controls;
         private SpriteFont _kremlin;
         private SpriteFont _unlockstep;
         private SpriteFont _unlockstep2x;
         private List<UIPanel> _panels;
-        public SettingsMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
+        public SettingsMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
             : base(game, graphicsDevice, content)
         {
+            _controls = controls;
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
             
@@ -82,7 +85,7 @@ namespace ParaStep.Menus
         private void _back()
         {
             Dispose();
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _controls));
         }
         
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
