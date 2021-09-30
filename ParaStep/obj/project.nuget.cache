@@ -1,15 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "G+u/l4UWkNJXwUDpjkRgnIf+P5nrkssUXJviwNYN3vndAgKG+6ouURo906V8W0AifrkYuaGD8guRtarLweLE9g==",
+  "dgSpecHash": "aKBytZrfj773PcikEQpZ4NeT2o8l30YMdtRXRYiJ1cbbK5lIiOFOl6pa8ex+z5nSn12aQScdq41eKIa6lhYpBQ==",
   "success": true,
   "projectFilePath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
   "expectedPackageFiles": [
+    "/home/headass/.nuget/packages/discordrichpresence/1.0.175/discordrichpresence.1.0.175.nupkg.sha512",
+    "/home/headass/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "/home/headass/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
     "/home/headass/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "/home/headass/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+    "/home/headass/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
+    "/home/headass/.nuget/packages/system.security.accesscontrol/4.5.0/system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "/home/headass/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "/home/headass/.nuget/packages/microsoft.netcore.app.runtime.win-x64/3.1.17/microsoft.netcore.app.runtime.win-x64.3.1.17.nupkg.sha512",
-    "/home/headass/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/3.1.17/microsoft.aspnetcore.app.runtime.win-x64.3.1.17.nupkg.sha512",
-    "/home/headass/.nuget/packages/microsoft.netcore.app.host.win-x64/3.1.17/microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512",
+    "/home/headass/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/3.1.17/microsoft.netcore.app.runtime.linux-x64.3.1.17.nupkg.sha512",
+    "/home/headass/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/3.1.17/microsoft.aspnetcore.app.runtime.linux-x64.3.1.17.nupkg.sha512",
+    "/home/headass/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.1.17/microsoft.netcore.app.host.linux-x64.3.1.17.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
   ],
   "logs": []

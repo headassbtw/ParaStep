@@ -8,7 +8,7 @@ namespace ParaStep
 {
     public class OggSong : IDisposable
     {
-        private VorbisReader reader;
+        public VorbisReader reader;
         private DynamicSoundEffectInstance effect;
 
         private Thread thread;

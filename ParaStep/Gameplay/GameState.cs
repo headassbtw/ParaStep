@@ -18,16 +18,20 @@ namespace ParaStep.Gameplay
     public class GameState : State
     {
         private OggSong _song;
+        private int _diff;
         private Simfile.Simfile _simfile;
         private List<Receptor> receptors;
         private List<NotePanel> _noteLanes;
+        private List<Component> _overlayComponents;
         private SpriteFont _kremlin;
+        private SpriteFont _unlockstep_2x;
         private Controls _controls;
         private TimeSpan _elapsedTime = TimeSpan.Zero;
         private float MPS;
-        public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile, Controls controls) 
+        public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile, int diff, Controls controls) 
             : base(game, graphicsDevice, content)
         {
+            _diff = diff;
             _simfile = simfile;
             _elapsedTime = TimeSpan.Zero - TimeSpan.FromSeconds(simfile.Offset);
             float bpm = _simfile.BPMs.Values.First();
@@ -40,15 +44,16 @@ namespace ParaStep.Gameplay
             _controls = controls;
             _song = new OggSong(_simfile.MusicPath);
             _kremlin = content.Load<SpriteFont>("Fonts/kremlin");
+            _unlockstep_2x = content.Load<SpriteFont>("Fonts/unlockstep_2x");
             
             _song.Play();
             
             List<Note> notes = new List<Note>();
-            Console.WriteLine($"simfile has {_simfile.Diffs[0].Measures.Count} measures");
+            Console.WriteLine($"simfile has {_simfile.Diffs[_diff].Measures.Count} measures");
 
-            for (int m = 0; m < _simfile.Diffs[0].Measures.Count; m++)
+            for (int m = 0; m < _simfile.Diffs[_diff].Measures.Count; m++)
             {
-                Measure measure = _simfile.Diffs[0].Measures[m];
+                Measure measure = _simfile.Diffs[_diff].Measures[m];
                 Console.WriteLine($"Measure {m} has {measure.Notes.Count} rows");
                 for (int r = 0; r < measure.Notes.Count; r++)
                 {
@@ -68,7 +73,7 @@ namespace ParaStep.Gameplay
                         }
                         Note newNote = new Note(n, content, _noteType)
                         {
-                            LocalPosition = new Vector2(50 + 148*n, 50 + offset * r + ((138 * 8)*m))
+                            LocalPosition = new Vector2(50 + 148*n, 70 + offset * r + ((138 * 8)*m))
                         };
                         notes.Add(newNote);
                     }
@@ -86,12 +91,32 @@ namespace ParaStep.Gameplay
             };
             receptors = new List<Receptor>()
             {
-                new Receptor(0,_content, _controls.IngameLeftKey),
-                new Receptor(1,_content, _controls.IngameDownKey),
-                new Receptor(2,_content, _controls.IngameUpKey),
+                new Receptor(0,_content, _controls.IngameLeftKey)
+                {
+                    LocalPosition = new Vector2(50,70)
+                },
+                new Receptor(1,_content, _controls.IngameDownKey)
+                {
+                    LocalPosition = new Vector2(50,70)
+                },
+                new Receptor(2,_content, _controls.IngameUpKey)
+                {
+                    LocalPosition = new Vector2(50,70)
+                },
                 new Receptor(3,_content, _controls.IngameRightKey)
+                {
+                    LocalPosition = new Vector2(50,70)
+                }
             };
-
+            _overlayComponents = new List<Component>()
+            {
+                new ProgressBarTitle(_unlockstep_2x, $"{_simfile.Title} - {_simfile.Diffs[_diff].Difficulty}", whiteRectangle, _song)
+                {
+                    LocalPosition = new Vector2(graphicsDevice.Viewport.Width / 2, 30),
+                    BgColor = Color.Firebrick,
+                    BorderColor = Color.WhiteSmoke
+                }
+            };
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -102,6 +127,8 @@ namespace ParaStep.Gameplay
                 receptor.Draw(gameTime, spriteBatch, Vector2.Zero);
             foreach(NotePanel panel in _noteLanes)
                 panel.Draw(gameTime, spriteBatch, new Vector2(0, -(int)((_elapsedTime.TotalSeconds)*MPS * (138*8))));
+            foreach(Component comp in _overlayComponents)
+                comp.Draw(gameTime, spriteBatch, Vector2.Zero);
             spriteBatch.End();
         }
 
@@ -119,6 +146,8 @@ namespace ParaStep.Gameplay
                 receptor.Update(gameTime);
             foreach(NotePanel panel in _noteLanes)
                 panel.Update(gameTime);
+            foreach(Component comp in _overlayComponents)
+                comp.Update(gameTime);
         }
 
         public override void Dispose()

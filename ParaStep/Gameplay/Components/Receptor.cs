@@ -10,6 +10,7 @@ namespace ParaStep.Gameplay.Components
     {
         private ControlButton _inputButton;
         private Texture2D _texture;
+        private int _direction;
         private Rectangle _drawRectangle;
         public Rectangle HitboxRectangle;
         private Color _currentColor;
@@ -18,6 +19,7 @@ namespace ParaStep.Gameplay.Components
         public Receptor(int direction, ContentManager content, ControlButton input)
         {
             _inputButton = input;
+            _direction = direction;
             switch (direction)
             {
                 case 0:
@@ -34,11 +36,13 @@ namespace ParaStep.Gameplay.Components
                     break;
             }
 
-            _drawRectangle = new Rectangle(50 + (148 * direction), 50, _texture.Width, _texture.Height);
+            
         }
         
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
         {
+            Position = LocalPosition + parentOffset;
+            _drawRectangle = new Rectangle((int)Position.X + (148 * _direction), (int)Position.Y, _texture.Width, _texture.Height);
             spriteBatch.Draw(_texture, _drawRectangle, _currentColor);
         }
 

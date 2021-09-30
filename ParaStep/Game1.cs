@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -10,6 +12,7 @@ namespace ParaStep
 {
     public class Game1 : Game
     {
+        public List<Simfile.Simfile> Simfiles;
         public Settings.Settings settings;
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
@@ -36,6 +39,14 @@ namespace ParaStep
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             
+        }
+
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            Program.Discord.PresenceThread.Interrupt();
+            Program.Discord.PresenceThread.Abort();
+            Program.Discord.Client.Dispose();
+            base.OnExiting(sender, args);
         }
 
         protected override void Initialize()

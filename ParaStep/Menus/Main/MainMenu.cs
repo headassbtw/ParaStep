@@ -81,7 +81,8 @@ namespace ParaStep.Menus.Main
             _panels = new List<UIPanel>();
             _panels.Add(menuButtonsPanel);
 
-
+            Program.Discord.state.State = "Main Menu";
+            Program.Discord.state.Details = "";
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

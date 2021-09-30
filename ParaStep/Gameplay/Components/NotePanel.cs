@@ -16,7 +16,7 @@ namespace ParaStep.Gameplay.Components
         private int _padding;
         private Vector2 _size;
         private Rectangle _rect;
-
+        //this is clearly a derivative andor copypaste of UIPanel, i'll fix it eventually
         public NotePanel(Texture2D background, Color backgroundColor)
         {
             _bgColor = backgroundColor;

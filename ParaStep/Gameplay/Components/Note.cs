@@ -46,7 +46,7 @@ namespace ParaStep.Gameplay.Components
                     break;
             }
 
-            _textureRectangle = new Rectangle(50 + (148 * direction), 50, _noteTexture.Width, _noteTexture.Height);
+            _textureRectangle = new Rectangle((int)Position.X + (148 * direction), (int)Position.Y, _noteTexture.Width, _noteTexture.Height);
         }
         
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)

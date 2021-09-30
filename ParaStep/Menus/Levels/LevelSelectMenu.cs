@@ -19,25 +19,51 @@ namespace ParaStep.Menus.Levels
         public static Loader _simfileLoader = new Loader();
         private List<Simfile.Simfile> Simfiles;
         private List<UIPanel> _panels;
+        private UIPanel _loadingNotif;
         private UIPanel _simfilePreviewPanel;
         private SimfilePreview simfilePreview;
         public LevelSelectMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
             : base(game, graphicsDevice, content)
         {
-            _controls = controls;
-            Simfiles = new List<Simfile.Simfile>();
-            _simfileLoader.Initialize(graphicsDevice, content);
-
-            
-            foreach(string folder in Directory.GetDirectories(_simfileLoader._SongsPath))
-                Simfiles.Add(_simfileLoader.Load(folder));
-
-            _panels = new List<UIPanel>();
-            Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
-            whiteRectangle.SetData(new[] { Color.White });
             var buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
             var buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
             var headerFont = _content.Load<SpriteFont>("Fonts/Kremlin");
+            _controls = controls;
+            Simfiles = game.Simfiles;
+            _simfileLoader.Initialize(graphicsDevice, content);
+            Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
+            whiteRectangle.SetData(new[] { Color.White });
+
+            if(Simfiles == null || Simfiles.Count <= 0)
+            {
+                _loadingNotif = new UIPanel(whiteRectangle, 0, false, 0, Color.Aqua)
+                {
+                    LocalPosition = new Vector2(graphicsDevice.Viewport.Width / 2 - 40,
+                        graphicsDevice.Viewport.Height / 2 - 30),
+                    Children = new List<Component>()
+                    {
+                        new Button(whiteRectangle, buttonFont, buttonFont2x, Color.Brown)
+                        {
+                            LocalPosition = new Vector2(10),
+                            Text = "Gaming",
+                            Size = new Vector2(70)
+                        }
+                    }
+                };
+                _panels = new List<UIPanel>();
+                _loadingNotif.CalculateSize();
+                //i'll do this later, fuck that
+                //_panels.Add(_loadingNotif);
+                Simfiles = new List<Simfile.Simfile>();
+                foreach(string folder in Directory.GetDirectories(_simfileLoader._SongsPath))
+                    Simfiles.Add(_simfileLoader.Load(folder));
+                game.Simfiles = Simfiles;
+            }
+             
+
+            _panels = new List<UIPanel>();
+            
+            
 
             List<Component> levelButtons = new List<Component>();
             if(Simfiles.Count == 0)
@@ -80,7 +106,7 @@ namespace ParaStep.Menus.Levels
                             if (!(_simfile.BPMs.Values.Count > 1))
                             {
                                 if(simfilePreview != null) simfilePreview.vorbis.Dispose();
-                                _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], _controls));
+                                _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], 0,_controls));
                             }
                             
                         };
@@ -144,6 +170,8 @@ namespace ParaStep.Menus.Levels
             
             
             _panels.Add(ButtonBackPanel);
+            Program.Discord.state.State = "Level Select";
+            Program.Discord.state.Details = $"{Simfiles.Count} Simfiles loaded";
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
