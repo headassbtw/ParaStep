@@ -52,6 +52,17 @@ namespace ParaStep.Menus.Components
         public Button(Texture2D texture, SpriteFont font, SpriteFont bigFont, Color color)
         {
             _color = color;
+            Recolor();
+            _texture = texture;
+
+            _subFont = font;
+            _mainFont = bigFont;
+
+            PenColor = Color.Black;
+        }
+
+        public void Recolor()
+        {
             float r;
             float g;
             float b;
@@ -61,13 +72,6 @@ namespace ParaStep.Menus.Components
             b = (b / 20.0f) * 6.0f;
 
             _hoverColor = new Color(r, g, b, _color.A);
-            
-            _texture = texture;
-
-            _subFont = font;
-            _mainFont = bigFont;
-
-            PenColor = Color.Black;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)

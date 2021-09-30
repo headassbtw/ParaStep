@@ -58,14 +58,8 @@ namespace ParaStep.Menus.Components
                 if (_currentMouse.LeftButton == ButtonState.Pressed && _currentMouse.X > Position.X + (Size.Y/2) && _currentMouse.X < Position.X + Size.X-(Size.Y/2))
                 {
                     value = ((_currentMouse.X - Size.Y/2) - Position.X) / Size.X;
-                    Console.WriteLine(value);
-                    Console.WriteLine(Size.X + Position.X);
-                    Console.WriteLine(_currentMouse.X);
                 }
-                
             }
-
-            
         }
     }
 }

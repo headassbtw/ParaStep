@@ -8,6 +8,7 @@ namespace ParaStep.Menus.Components
         #region Fields
         
         private SpriteFont _font;
+        private bool _center;
 
         #endregion
 
@@ -29,8 +30,9 @@ namespace ParaStep.Menus.Components
 
         #region Methods
 
-        public Text(SpriteFont font)
+        public Text(SpriteFont font, bool center = true)
         {
+            _center = center;
             _font = font;
 
             PenColor = Color.Black;
@@ -41,8 +43,8 @@ namespace ParaStep.Menus.Components
             Position = LocalPosition + parentOffset;
             if (!string.IsNullOrEmpty(_text))
             {
-                var x = (Rectangle.X + (Rectangle.Width / 2)) - (_font.MeasureString(_text).X / 2);
-                var y = (Rectangle.Y + (Rectangle.Height / 2)) - (_font.MeasureString(_text).Y / 2);
+                var x = _center ? (Rectangle.X + (Rectangle.Width / 2)) - (_font.MeasureString(_text).X / 2) : Rectangle.X;
+                var y = _center ? (Rectangle.Y + (Rectangle.Height / 2)) - (_font.MeasureString(_text).Y / 2) : Rectangle.Y;
 
                 spriteBatch.DrawString(_font, _text, new Vector2(x, y), PenColor);
             }

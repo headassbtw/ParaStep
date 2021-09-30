@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
@@ -12,6 +13,8 @@ namespace ParaStep.Settings
         {
             ini.Load();
             ini.WriteValue( "MenuPreviewVolume", settings.PreviewVolume.ToString());
+            ini.WriteValue("TimeFormat", "Discord", settings.DiscordTimeFormat);
+            ini.WriteValue("ShowDiff", "Discord", settings.DiscordShowSongDifficulty.ToString());
             ini.Save();
         }
 
@@ -25,16 +28,22 @@ namespace ParaStep.Settings
             
             return new Settings()
             {
-                PreviewVolume = float.Parse(ini.GetValue("MenuPreviewVolume"))
+                PreviewVolume = float.Parse(ini.GetValue("MenuPreviewVolume")),
+                DiscordTimeFormat = ini.GetValue("TimeFormat", "Discord"),
+                DiscordShowSongDifficulty = Boolean.Parse(ini.GetValue("ShowDiff", "Discord"))
             };
         }
     }
     public class Settings
     {
         public float PreviewVolume;
+        public string DiscordTimeFormat; //elapsed or remaining
+        public bool DiscordShowSongDifficulty;
 
         public Settings()
         {
+            this.DiscordTimeFormat = "Remaining";
+            this.DiscordShowSongDifficulty = true;
             this.PreviewVolume = 0.7f;
         }
     }

@@ -20,7 +20,8 @@ namespace ParaStep
                 {
                     LargeImageKey = "two",
                     LargeImageText = $"ParaStep Engine, v{Assembly.GetExecutingAssembly().GetName().Version}"
-                }
+                },
+                Timestamps = new Timestamps()
             };
             PresenceThread = new Thread(async =>
             {

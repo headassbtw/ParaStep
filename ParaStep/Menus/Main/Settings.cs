@@ -13,6 +13,7 @@ namespace ParaStep.Menus
     public class SettingsMenu : State
     {
         private Controls _controls;
+        private Color _bgColor = Color.Firebrick;
         private SpriteFont _kremlin;
         private SpriteFont _unlockstep;
         private SpriteFont _unlockstep2x;
@@ -33,25 +34,79 @@ namespace ParaStep.Menus
                 LocalPosition = new Vector2(0,70),
                 Size = new Vector2(300, 20)
             };
-            Text previewVolumeSliderLabel = new Text(_kremlin)
+            ToggleSwitch DiscordTimeFormat = new ToggleSwitch(whiteRectangle, _unlockstep2x, new Vector2(400,40), 
+                Color.White, Color.Black, new Color(26,26,26,255), new Color(52,52,52,255),
+                "Remaining", "Elapsed",
+                game.settings.DiscordTimeFormat == "Elapsed")
             {
-                _text = "SONG PREVIEW VOLUME",
-                LocalPosition = new Vector2(-90, 0),
-                Size = new Vector2(1000,50),
-                PenColor = Color.Black
+                LocalPosition = new Vector2(0,80)
             };
-            List<Component> _components = new List<Component>()
+            DiscordTimeFormat.ValueChanged += args =>
             {
-                previewVolumeSlider,
-                previewVolumeSliderLabel
+                 game.settings.DiscordTimeFormat = args.Value ? "Elapsed" : "Remaining";
+            };
+            ToggleSwitch DiscordShowDiff = new ToggleSwitch(whiteRectangle, _unlockstep2x, new Vector2(400,40), 
+                Color.White, Color.Black, new Color(26,26,26,255), new Color(52,52,52,255),
+                "Hide", "Show",
+                game.settings.DiscordShowSongDifficulty == true)
+            {
+                LocalPosition = new Vector2(0,80)
+            };
+            DiscordShowDiff.ValueChanged += args =>
+            {
+                game.settings.DiscordShowSongDifficulty = args.Value;
             };
             UIPanel sliderPanel = new UIPanel(whiteRectangle, 10, false, 40, Color.Transparent)
             {
-                Children = _components,
+                Children = new List<Component>()
+                {
+                    previewVolumeSlider,
+                    new Text(_kremlin, false)
+                    {
+                        _text = "SONG PREVIEW VOLUME",
+                        LocalPosition = new Vector2(-90, 0),
+                        Size = new Vector2(1000,50),
+                        PenColor = Color.Black
+                    }
+                },
                 LocalPosition = new Vector2(250,150),
                 Size = new Vector2(400,80)
             };
             sliderPanel.CalculateSize();
+            UIPanel discordTimePanel = new UIPanel(whiteRectangle, 10, false, 40, Color.Transparent)
+            {
+                Children = new List<Component>()
+                {
+                    new Text(_kremlin, false)
+                    {
+                        _text = "DISCORD SONG TIME FORMAT",
+                        LocalPosition = new Vector2(-90, 0),
+                        Size = new Vector2(1000,50),
+                        PenColor = Color.Black
+                    },
+                    DiscordTimeFormat
+                },
+                LocalPosition = new Vector2(250,300),
+                Size = new Vector2(400,80)
+            };
+            discordTimePanel.CalculateSize();
+            UIPanel discordShowDiffPanel = new UIPanel(whiteRectangle, 10, false, 40, Color.Transparent)
+            {
+                Children = new List<Component>()
+                {
+                    new Text(_kremlin, false)
+                    {
+                        _text = "SHOW SONG DIFFICULTY ON DISCORD",
+                        LocalPosition = new Vector2(-90, 0),
+                        Size = new Vector2(1000,50),
+                        PenColor = Color.Black
+                    },
+                    DiscordShowDiff
+                },
+                LocalPosition = new Vector2(250,450),
+                Size = new Vector2(400,80)
+            };
+            discordShowDiffPanel.CalculateSize();
             Button backButton =    new Button(whiteRectangle, _unlockstep,_unlockstep2x, Color.LightGray)
             {
                 LocalPosition = new Vector2(0,0),
@@ -59,7 +114,6 @@ namespace ParaStep.Menus
                 Size = new Vector2(200,100),
                 Text = "Back"
             };
-
             backButton.Click += (sender, args) =>
             {
                 game.settings.PreviewVolume = previewVolumeSlider.value;
@@ -77,9 +131,11 @@ namespace ParaStep.Menus
             _panels = new List<UIPanel>()
             {
                 ButtonBackPanel,
+                discordTimePanel,
+                discordShowDiffPanel,
                 sliderPanel
             };
-
+            
         }
 
         private void _back()
@@ -90,7 +146,7 @@ namespace ParaStep.Menus
         
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            _graphicsDevice.Clear(Color.Firebrick);
+            _graphicsDevice.Clear(_bgColor);
             spriteBatch.Begin();
             foreach(UIPanel panel in _panels)
                 panel.Draw(gameTime, spriteBatch, new Vector2(0,0));

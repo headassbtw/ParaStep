@@ -117,6 +117,14 @@ namespace ParaStep.Gameplay
                     BorderColor = Color.WhiteSmoke
                 }
             };
+            if (game.settings.DiscordTimeFormat == "Remaining")
+                Program.Discord.state.Timestamps.End = DateTime.UtcNow + _song.reader.TotalTime;
+            else
+                Program.Discord.state.Timestamps.Start = DateTime.UtcNow;
+            Program.Discord.state.State = game.settings.DiscordShowSongDifficulty
+                ? simfile.Diffs[_diff].Difficulty.ToString()
+                : "";
+            Program.Discord.state.Details = $"{_simfile.Title} - {_simfile.Artist}";
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
