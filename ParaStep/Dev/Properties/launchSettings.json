@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "dotnet-repl": {
-      "commandName": "Project",
-      "commandLineArgs": "--log-path c:\\temp --notebook c:\\temp\\init.ipynb"
-    }
-  }
-}
