@@ -43,10 +43,11 @@ namespace ParaStep
             base.Initialize();
             whiteRectangle = new Texture2D(_game.GraphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { new Color(Color.White, 0.5f) });
+            Execute($"#r \"{Path.Combine(Environment.CurrentDirectory, "ParaStep.dll")}\"");
             Execute("using System;");
             Execute("using System.Reflection;");
             Execute("using System.IO;");
-            Execute("Assembly.LoadFile(Path.Combine(Environment.CurrentDirectory, \"ParaStep.dll\"));");
+            Execute("using ParaStep;");
             Execute("Console.WriteLine(\"Dev Console Init'd\");");
         }
 
@@ -69,7 +70,14 @@ namespace ParaStep
                 
                 string cmd = sb.ToString();
                 sb.Clear();
-                Execute(cmd);
+                try
+                {
+                    Execute(cmd);
+                }
+                catch (CompilationErrorException exception)
+                {
+                    _consoleBacklog.Add(exception.ToString());
+                }
                 _consoleBacklog.Add(sysConsoleRedirect.ToString());
                 sysConsoleRedirect.Clear();
             }

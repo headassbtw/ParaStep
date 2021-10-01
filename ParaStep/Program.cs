@@ -12,10 +12,7 @@ namespace ParaStep
 {
     public static class Program
     {
-        class Global
-        {
-            public static string print = "Hello World!";
-        }
+        public static string print = "Hello World!";
         
         public static Game1 Game;
         public static Discord Discord;
