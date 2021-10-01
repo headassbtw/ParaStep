@@ -13,6 +13,7 @@ namespace ParaStep.Menus.Main
 {
     public class MenuState : State
     {
+        public bool ListeningForKeys;
         private Controls _controls;
         private List<UIPanel> _panels;
         //private List<Component> _components;
@@ -118,7 +119,7 @@ namespace ParaStep.Menus.Main
 
         public override void Update(GameTime gameTime)
         {
-            if (_game.ShouldGoBack)
+            if (_game.ShouldGoBack && ListeningForKeys)
             {
                 SettingsIO.Save(_game.settings);
                 _game.Exit();
