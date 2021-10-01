@@ -12,9 +12,14 @@ namespace ParaStep
 {
     public static class Program
     {
+        class Global
+        {
+            public static string print = "Hello World!";
+        }
+        
         public static Game1 Game;
         public static Discord Discord;
-        private static InteractiveAssemblyLoader _loader;
+        
         [STAThread]
         static async Task<int> Main()
         {
@@ -26,31 +31,15 @@ namespace ParaStep
 
 
             
-            Execute("using System;");
-            Execute("using System.Reflection;");
-            Execute("using System.IO;");
-            //Execute("using ParaStep;");
-            Execute("Assembly.LoadFile(Path.Combine(Environment.CurrentDirectory, \"ParaStep.dll\"));");
-            Execute("foreach (Module ass in Assembly.GetExecutingAssembly().GetLoadedModules()) Console.WriteLine($\"{ass.Assembly.GetName().Name}\");");
-            //Execute("Console.WriteLine(\"Hello World!\");");
-            Console.WriteLine(Execute("return \"Hello!\";"));
-            //Execute("foreach(");
-            _loader = new InteractiveAssemblyLoader();
-            _loader.RegisterDependency(Assembly.LoadFile(Path.Combine(Environment.CurrentDirectory, "ParaStep.dll")));
-            var css = CSharpScript.Create("using ParaStep;", assemblyLoader: _loader);
-            await css.RunAsync();
+            
+            
+            Game = new Game1();
+            Game.Run();
             return 0;
         }
 
         
 
-        private static ScriptState scriptState = null;
-        public static object Execute(string code)
-        {
-            scriptState = scriptState == null ? CSharpScript.Create(code, ScriptOptions.Default, null, _loader).RunAsync().Result : scriptState.ContinueWithAsync(code).Result;
-            if (scriptState.ReturnValue != null && !string.IsNullOrEmpty(scriptState.ReturnValue.ToString()))
-                return scriptState.ReturnValue;
-            return null;
-        }
+        
     }
 }

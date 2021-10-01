@@ -19,6 +19,7 @@ namespace ParaStep.Settings
             ini.WriteValue( "IngameDownKey", controls.IngameDownKey.ToString());
             ini.WriteValue( "IngameUpKey", controls.IngameUpKey.ToString());
             ini.WriteValue( "IngameRightKey", controls.IngameRightKey.ToString());
+            ini.WriteValue( "DevConsoleKey", controls.DevConsoleKey.ToString());
             ini.Save();
         }
 
@@ -32,7 +33,12 @@ namespace ParaStep.Settings
             
             return new Controls()
             {
-                PauseKey = ControlButton.Parse(ini.GetValue("PauseKey"))
+                PauseKey = ControlButton.Parse(ini.GetValue("PauseKey")),
+                IngameLeftKey = ControlButton.Parse(ini.GetValue("IngameLeftKey")),
+                IngameDownKey = ControlButton.Parse(ini.GetValue("IngameDownKey")),
+                IngameUpKey = ControlButton.Parse(ini.GetValue("IngameUpKey")),
+                IngameRightKey = ControlButton.Parse(ini.GetValue("IngameRightKey")),
+                DevConsoleKey = ControlButton.Parse(ini.GetValue("DevConsoleKey"))
             };
         }
     }
@@ -45,6 +51,7 @@ namespace ParaStep.Settings
         public ControlButton IngameDownKey;
         public ControlButton IngameUpKey;
         public ControlButton IngameRightKey;
+        public ControlButton DevConsoleKey;
         
         public Controls()
         {
@@ -114,6 +121,18 @@ namespace ParaStep.Settings
                 {
                     Keys.K,
                     Keys.Right
+                },
+            };
+            this.DevConsoleKey = new ControlButton()
+            {
+                Player = PlayerIndex.One,
+                GamepadButtons = new List<Buttons>()
+                {
+                    //haha no console for controller users
+                },
+                KeyboardKeys = new List<Keys>()
+                {
+                    Keys.OemTilde
                 },
             };
         }
