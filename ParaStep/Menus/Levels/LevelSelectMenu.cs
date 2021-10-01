@@ -87,7 +87,7 @@ namespace ParaStep.Menus.Levels
                     };
                     levelButton.Click += (sender, args) =>
                     {
-                        if(simfilePreview != null) simfilePreview.vorbis.Dispose();
+                        //TODO: implement bass channel/data dispose
                         _panels.Remove(_simfilePreviewPanel);
                         Button play = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.Yellow)
                         {
@@ -170,8 +170,8 @@ namespace ParaStep.Menus.Levels
             
             
             _panels.Add(ButtonBackPanel);
-            Program.Discord.state.State = "Level Select";
-            Program.Discord.state.Details = $"{Simfiles.Count} Simfiles loaded";
+            Program.Discord.state.Details = "Level Select";
+            Program.Discord.state.State = $"{Simfiles.Count} Simfiles loaded";
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

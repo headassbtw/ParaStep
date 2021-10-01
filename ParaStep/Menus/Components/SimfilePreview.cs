@@ -1,9 +1,15 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
+using System.Runtime.InteropServices;
+using ManagedBass;
 using MonoGame.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ParaStep.Simfile;
+using Bass = ManagedBass.Bass;
 
 //using NVorbis;
 
@@ -46,16 +52,14 @@ namespace ParaStep.Menus.Components
 
         #endregion
 
+        private int _chan;
         #region Methods
 
         public SimfilePreview(Texture2D texture, SpriteFont bigFont, SpriteFont smallFont, Simfile.Simfile simfile)
         {
+            
             this.simfile = simfile;
             if(vorbis != null) vorbis.Dispose();
-            vorbis = new OggSong(simfile.MusicPath);
-            vorbis.Volume = Program.Game.settings.PreviewVolume;
-            vorbis.Play();
-            
             
             _bannerDimensions = new Vector2((int)(simfile.Banner.Height*ratio),(int)(simfile.Banner.Height));
             _texture = texture;

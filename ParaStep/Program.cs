@@ -14,6 +14,11 @@ namespace ParaStep
         {
             Discord = new Discord("892289638079803432");
             Game = new Game1();
+            
+            BassTest.test("/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/x64/Debug/net5.0/linux-x64/Songs/Firestorm/music.ogg");
+            
+            
+            
             Game.Run();
         }
     }

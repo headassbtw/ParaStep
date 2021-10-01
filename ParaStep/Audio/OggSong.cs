@@ -33,7 +33,7 @@ namespace ParaStep
         public OggSong(string oggFile)
         {
             
-            reader = new VorbisReader(oggFile);
+            reader = new VorbisReader($"\"{oggFile}\"");
             effect = new DynamicSoundEffectInstance(reader.SampleRate, (AudioChannels)reader.Channels);
             buffer = new byte[effect.GetSampleSizeInBytes(TimeSpan.FromMilliseconds(500))];
             nvBuffer = new float[buffer.Length / 2];

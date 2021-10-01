@@ -28,7 +28,9 @@ namespace ParaStep.Gameplay
         private Controls _controls;
         private TimeSpan _elapsedTime = TimeSpan.Zero;
         private float MPS;
-        public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile, int diff, Controls controls) 
+
+        public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile,
+            int diff, Controls controls)
             : base(game, graphicsDevice, content)
         {
             _diff = diff;
@@ -37,13 +39,14 @@ namespace ParaStep.Gameplay
             float bpm = _simfile.BPMs.Values.First();
             //_simfile.BPMs.TryGetValue(0.000f, out bpm);
             Console.WriteLine($"BPM:{bpm}");
-            MPS = (bpm / 60)/4;
+            MPS = (bpm / 60) / 4;
             Console.WriteLine($"MPS:{MPS}");
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
-            whiteRectangle.SetData(new[] { Color.White });
+            whiteRectangle.SetData(new[] {Color.White});
             _controls = controls;
-            _song = new OggSong(_simfile.MusicPath);
-            _kremlin = content.Load<SpriteFont>("Fonts/kremlin");
+            _song = new OggSong($"'{_simfile.MusicPath}'");
+
+        _kremlin = content.Load<SpriteFont>("Fonts/kremlin");
             _unlockstep_2x = content.Load<SpriteFont>("Fonts/unlockstep_2x");
             
             _song.Play();

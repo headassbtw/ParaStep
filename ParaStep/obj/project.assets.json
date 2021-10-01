@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net5.0": {
       "DiscordRichPresence/1.0.175": {
         "type": "package",
         "dependencies": {
@@ -13,6 +13,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/DiscordRPC.dll": {}
+        }
+      },
+      "ManagedBass/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.4/ManagedBass.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ManagedBass.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/2.0.0": {
@@ -151,7 +160,7 @@
         }
       }
     },
-    ".NETCoreApp,Version=v3.1/linux-x64": {
+    "net5.0/linux-x64": {
       "DiscordRichPresence/1.0.175": {
         "type": "package",
         "dependencies": {
@@ -163,6 +172,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/DiscordRPC.dll": {}
+        }
+      },
+      "ManagedBass/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.4/ManagedBass.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ManagedBass.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/2.0.0": {
@@ -262,6 +280,25 @@
         "lib/netstandard2.0/DiscordRPC.dll",
         "lib/netstandard2.0/DiscordRPC.pdb",
         "lib/netstandard2.0/DiscordRPC.xml"
+      ]
+    },
+    "ManagedBass/3.1.0": {
+      "sha512": "K5Zuo0SGvG1SWG18PCG60mJhZBhDb28Ih3w0qotCClomOdPDTMi7UEafEv+brKopUtMXo8vG+OoGlqMEWJ6i7g==",
+      "type": "package",
+      "path": "managedbass/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "icon.png",
+        "lib/Xamarin.iOS/ManagedBass.dll",
+        "lib/Xamarin.iOS/ManagedBass.xml",
+        "lib/net45/ManagedBass.dll",
+        "lib/net45/ManagedBass.xml",
+        "lib/netstandard1.4/ManagedBass.dll",
+        "lib/netstandard1.4/ManagedBass.xml",
+        "managedbass.3.1.0.nupkg.sha512",
+        "managedbass.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
@@ -546,8 +583,9 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net5.0": [
       "DiscordRichPresence >= 1.0.175",
+      "ManagedBass >= 3.1.0",
       "MonoGame.Content.Builder.Task >= 3.8.0.1641",
       "MonoGame.Framework.DesktopGL >= 3.8.0.1641"
     ]
@@ -556,7 +594,7 @@
     "/home/headass/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.0.1",
     "restore": {
       "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
       "projectName": "ParaStep",
@@ -568,14 +606,14 @@
         "/home/headass/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -586,12 +624,16 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "DiscordRichPresence": {
             "target": "Package",
             "version": "[1.0.175, )"
+          },
+          "ManagedBass": {
+            "target": "Package",
+            "version": "[3.1.0, )"
           },
           "MonoGame.Content.Builder.Task": {
             "target": "Package",
@@ -615,23 +657,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
+            "version": "[5.0.0, 5.0.0]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
-            "version": "[3.1.17, 3.1.17]"
+            "version": "[5.0.8, 5.0.8]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[3.1.17, 3.1.17]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
+            "version": "[5.0.8, 5.0.8]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.linux-x64",
-            "version": "[3.1.17, 3.1.17]"
+            "version": "[5.0.8, 5.0.8]"
           }
         ],
         "frameworkReferences": {

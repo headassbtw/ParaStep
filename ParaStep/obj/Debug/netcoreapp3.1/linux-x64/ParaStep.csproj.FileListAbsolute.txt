@@ -29,6 +29,9 @@
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Content/NoteTextures/Receptors/left.xnb
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Content/NoteTextures/Receptors/right.xnb
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Content/NoteTextures/Receptors/up.xnb
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/obj/Debug/netcoreapp3.1/linux-x64/ParaStep.csprojAssemblyReference.cache
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/DiscordRPC.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Newtonsoft.Json.dll
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Microsoft.CSharp.dll
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Microsoft.VisualBasic.Core.dll
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Microsoft.VisualBasic.dll
@@ -215,6 +218,6 @@
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/libhostpolicy.so
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/libmscordaccore.so
 /home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/libmscordbi.so
-/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/obj/Debug/netcoreapp3.1/linux-x64/ParaStep.csprojAssemblyReference.cache
-/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/DiscordRPC.dll
-/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Newtonsoft.Json.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/Bass.Net.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/ManagedBass.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/Debug/netcoreapp3.1/linux-x64/ManagedBass.Enc.dll

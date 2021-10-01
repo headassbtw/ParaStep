@@ -1,5 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fheadass_002FRiderProjects_002FYetAnotherITGClone_002FParaStep_002FLibs_002FManagedBass_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fheadass_002FRiderProjects_002FYetAnotherITGClone_002FParaStep_002FLibs_002FManagedBass_002EPInvoke_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fheadass_002FRiderProjects_002FYetAnotherITGClone_002FYetAnotherITGClone_002FLibs_002Fcsogg_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fheadass_002FRiderProjects_002FYetAnotherITGClone_002FYetAnotherITGClone_002FLibs_002Fcsvorbis_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=_002Fhome_002Fheadass_002FRiderProjects_002FYetAnotherITGClone_002FYetAnotherITGClone_002FLibs_002FOggDecoder_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
+  &lt;Assembly Path="/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Libs/ManagedBass.dll" /&gt;
+&lt;/AssemblyExplorer&gt;</s:String>
 	</wpf:ResourceDictionary>
