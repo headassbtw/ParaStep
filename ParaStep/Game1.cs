@@ -60,6 +60,7 @@ namespace ParaStep
             base.Window.Title = "In Your Mom 2";
             _graphics.ApplyChanges();
             base.Initialize();
+            
         }
 
         protected override void LoadContent()

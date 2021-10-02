@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -49,6 +51,8 @@ namespace ParaStep
             Execute("using System.IO;");
             Execute("using ParaStep;");
             Execute("Console.WriteLine(\"Dev Console Init'd\");");
+            _consoleBacklog.Add("This console is actually a fully functional C# REPL!");
+            _consoleBacklog.Add("Type \"help\" to learn more!");
         }
 
         protected override void LoadContent()
@@ -60,6 +64,11 @@ namespace ParaStep
         private StringBuilder sysConsoleRedirect = new StringBuilder();
         private void WindowOnTextInput(object? sender, TextInputEventArgs e)
         {
+            if (e.Key.Equals(Keys.Up))
+            {
+                sb.Clear();
+                sb.Append(_consoleBacklog.Last());
+            }
             if(e.Key.Equals(Keys.Back) && sb.Length <= 0) return;
             if (e.Key == Keys.Back && sb.Length > 0)
             {
@@ -70,18 +79,40 @@ namespace ParaStep
                 
                 string cmd = sb.ToString();
                 sb.Clear();
-                try
+                string ass = "";
+                foreach (char character in cmd.ToCharArray())
                 {
-                    Execute(cmd);
+                    ass += char.GetUnicodeCategory(character).ToString() + "\n";
                 }
-                catch (CompilationErrorException exception)
+                //throw new FormatException(ass);
+                switch (cmd.ToLower())
                 {
-                    _consoleBacklog.Add(exception.ToString());
+                    case "help":
+                        _consoleBacklog.Add("\"help\" -- prints this");
+                        _consoleBacklog.Add("\"clear\" -- clears the console's backlog");
+                        break;
+                    case "clear":
+                        _consoleBacklog.Clear();
+                        break;
+                    default:
+                        try
+                        {
+                            Execute(cmd);
+                        }
+                        catch (CompilationErrorException exception)
+                        {
+                            _consoleBacklog.Add(exception.ToString());
+                        }
+                        break;
                 }
+
+
                 _consoleBacklog.Add(sysConsoleRedirect.ToString());
                 sysConsoleRedirect.Clear();
             }
-            else if(e.Key != Keys.OemTilde)
+            else if(e.Key != Keys.OemTilde &&
+                    //we love media buttons
+                    !char.GetUnicodeCategory(e.Character).Equals(UnicodeCategory.Control))
             {
                 sb.Append(e.Character);
             }
@@ -116,7 +147,7 @@ namespace ParaStep
                     
                     }
 
-                int ofs = ((int)basePos.Y + (int)baseSize.Y)-20;
+                int ofs = ((int)basePos.Y + (int)baseSize.Y)-27;
                 if (_consoleBacklog.Count > 0)
                 {
                     for (int i = _consoleBacklog.Count - 1; i > -1; i--)
@@ -157,11 +188,17 @@ namespace ParaStep
                 {
                     _showing = false;
                     _game.Window.TextInput -= WindowOnTextInput;
-                    Console.SetOut(null);
+                    //Console.SetOut(null);
                 }
             }
             base.Update(gameTime);
             _pastFrameKb = Keyboard.GetState();
+        }
+        public bool ContainsUnicodeCharacter(string input)
+        {
+            const int MaxAnsiCode = 255;
+            return System.Text.ASCIIEncoding.GetEncoding(0).GetString(System.Text.ASCIIEncoding.GetEncoding(0).GetBytes(input)) == input;
+            //return input.Any(c => c > MaxAnsiCode);
         }
     }
 }
