@@ -41,7 +41,8 @@ namespace ParaStep
             }
             catch (Exception e)
             {
-                
+                Discord.state.Details = "Crashed";
+                Discord.state.State = "Staring at a stack trace";
                 ParaStep.GraphicalErrorHandler.Main.main(e);
             }
             return 0;

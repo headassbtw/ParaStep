@@ -39,6 +39,9 @@ namespace ParaStep.GraphicalErrorHandler
         public MessageBox()
         {
             AvaloniaXamlLoader.Load(this);
+            this.MaxHeight = this.Height;
+            this.MaxWidth = this.Width;
+            this.CanResize = false;
         }
         
         public MessageBox(string exceptionType, string stackTrace, string title, MessageBoxButtons buttons, MessageBoxIcon icon = MessageBoxIcon.Info)
