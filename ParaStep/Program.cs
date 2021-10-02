@@ -12,14 +12,18 @@ namespace ParaStep
 {
     public static class Program
     {
+
+
         public static string print = "Hello World!";
-        
         public static Game1 Game;
         public static Discord Discord;
         
-        [STAThread]
-        static async Task<int> Main()
+        //[STAThread]
+        static int Main()
         {
+
+
+
             Discord = new Discord("892289638079803432");
             //Game = new Game1();
 
@@ -31,7 +35,15 @@ namespace ParaStep
             
             
             Game = new Game1();
-            Game.Run();
+            try
+            {
+                Game.Run();
+            }
+            catch (Exception e)
+            {
+                
+                ParaStep.GraphicalErrorHandler.Main.main(e);
+            }
             return 0;
         }
 

@@ -38,6 +38,18 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[0.10.5, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[0.10.5, )"
+            },
+            "Avalonia.ReactiveUI": {
+              "target": "Package",
+              "version": "[0.10.5, )"
+            },
             "DiscordRichPresence": {
               "target": "Package",
               "version": "[1.0.175, )"
