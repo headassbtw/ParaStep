@@ -48,4 +48,8 @@
     <ItemGroup>
       <Folder Include="Libs" />
     </ItemGroup>
+    <ItemGroup>
+      <None Remove="Icon_500.bmp" />
+      <AvaloniaResource Include="Icon_500.bmp" />
+    </ItemGroup>
 </Project>

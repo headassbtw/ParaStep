@@ -39,6 +39,7 @@ namespace ParaStep.GraphicalErrorHandler
         public MessageBox()
         {
             AvaloniaXamlLoader.Load(this);
+            
             this.MaxHeight = this.Height;
             this.MaxWidth = this.Width;
             this.CanResize = false;
@@ -47,7 +48,10 @@ namespace ParaStep.GraphicalErrorHandler
         public MessageBox(string exceptionType, string stackTrace, string title, MessageBoxButtons buttons, MessageBoxIcon icon = MessageBoxIcon.Info)
         {
             AvaloniaXamlLoader.Load(this);
-            Title = title;
+            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            Bitmap bitmap = new Bitmap(assets.Open(new Uri($"avares://ParaStep/Icon_500.bmp")));
+            Icon = new WindowIcon(bitmap);
+            Title = new Random().Next(2) >= 1 ? title : "Fuck You";
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             CanResize = false;
             SizeToContent = SizeToContent.WidthAndHeight;
@@ -71,8 +75,8 @@ namespace ParaStep.GraphicalErrorHandler
                     res = r;
             }
 
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            //Bitmap bitmap = new Bitmap(assets.Open(new Uri($"avares://PlaylistToHitbloqPool/icons/{Enum.GetName(icon).ToLower()}.png")));
+            
+            
             
             Image img = this.FindControl<Image>("Image");
             
