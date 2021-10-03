@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using DiscordRPC;
@@ -17,7 +18,7 @@ namespace ParaStep
         public static string print = "Hello World!";
         public static Game1 Game;
         public static Discord Discord;
-        
+
         //[STAThread]
         static int Main()
         {
@@ -30,7 +31,7 @@ namespace ParaStep
             //BassTest.test("/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/x64/Debug/net5.0/linux-x64/Songs/Firestorm/music.ogg");
 
 
-
+            
             
             
             
@@ -41,9 +42,10 @@ namespace ParaStep
             }
             catch (Exception e)
             {
+                Game.Exit();
                 Discord.state.Details = "Crashed";
                 Discord.state.State = "Staring at a stack trace";
-                ParaStep.GraphicalErrorHandler.Main.main(e);
+                GtkErrorHandler.Program.ShowError(e);
             }
             return 0;
         }

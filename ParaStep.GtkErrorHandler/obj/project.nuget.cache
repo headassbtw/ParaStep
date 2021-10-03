@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "2j7dNYakuIKJ06u0Lh8vmQ5LC0cqTWppSZ5wa4szYJn7x7TG8hiO7UAaDBGzWte8r2uzVbVdSmcIGpL3fbRqCQ==",
+  "success": true,
+  "projectFilePath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj",
+  "expectedPackageFiles": [
+    "/home/headass/.nuget/packages/atksharp/3.24.24.34/atksharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/cairosharp/3.24.24.34/cairosharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/gdksharp/3.24.24.34/gdksharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/giosharp/3.24.24.34/giosharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/glibsharp/3.24.24.34/glibsharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/gtksharp/3.24.24.34/gtksharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/pangosharp/3.24.24.34/pangosharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

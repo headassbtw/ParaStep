@@ -35,10 +35,8 @@
         <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.5" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.5" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.5" />
         <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
+        <PackageReference Include="GtkSharp" Version="3.24.24.34" />
         <PackageReference Include="ManagedBass" Version="3.1.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
@@ -51,5 +49,8 @@
     <ItemGroup>
       <None Remove="Icon_500.bmp" />
       <AvaloniaResource Include="Icon_500.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ParaStep.GtkErrorHandler\ParaStep.GtkErrorHandler.csproj" />
     </ItemGroup>
 </Project>

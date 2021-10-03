@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -105,6 +106,7 @@ namespace ParaStep.Menus.Levels
                         {
                             if (!(_simfile.BPMs.Values.Count > 1))
                             {
+                                throw new NotImplementedException("Moving audio backends");
                                 if(simfilePreview != null) simfilePreview.vorbis.Dispose();
                                 _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], 0,_controls));
                             }
@@ -206,6 +208,7 @@ namespace ParaStep.Menus.Levels
 
         public override void Dispose()
         {
+            throw new NotImplementedException("Moving audio backends");
             if(simfilePreview != null) simfilePreview.vorbis.Dispose();
         }
     }
