@@ -17,8 +17,6 @@ namespace ParaStep.GtkErrorHandler
         [UI] private Button _button1 = null;
         private Exception _shownException;
 
-        private int _counter;
-
         public MainWindow(Exception _exception) : this(new Builder("MainWindow.glade"))
         {
             _shownException = Program.threw;
@@ -34,7 +32,8 @@ namespace ParaStep.GtkErrorHandler
             DeleteEvent += Window_DeleteEvent;
             _button1.Clicked += Button1_Clicked;
             _label0.Activate();
-            _label0.Text = Program.threw.Message;
+            
+            _label0.Text = Program.threw.GetType().ToString() + ": " + Program.threw.Message;
             _label1.Text = Program.threw.StackTrace;
             //fucking GTK
             base.Present();
@@ -58,8 +57,6 @@ namespace ParaStep.GtkErrorHandler
             //AHAHHAHAHAHHAA
             System.Diagnostics.Process.GetProcessesByName("ParaStep").First().Kill();
             _label1.Text = _shownException.StackTrace;
-            _counter++;
-            //_label1.Text = "Hello World! This button has been clicked " + _counter + " time(s).";
         }
     }
 }
