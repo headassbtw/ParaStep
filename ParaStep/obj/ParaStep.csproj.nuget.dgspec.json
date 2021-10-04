@@ -41,6 +41,10 @@
             "GtkSharp": {
               "target": "Package",
               "version": "[3.24.24.*, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

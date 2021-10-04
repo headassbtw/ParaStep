@@ -14,6 +14,7 @@ namespace ParaStep.GtkErrorHandler
 
         public static void ShowError(Exception _exception)
         {
+            CrashDumps.Save(_exception);
             Application.Init();
             threw = _exception;
             var app = new Application("org.ParaStep.GtkErrorHandler.ParaStep.GtkErrorHandler",

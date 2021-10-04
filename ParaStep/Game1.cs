@@ -40,7 +40,7 @@ namespace ParaStep
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            console = new DevConsole(this, Content);
+            console = new DevConsole(this, Content, _graphics);
             Components.Add(console);
             console.Enabled = true;
         }

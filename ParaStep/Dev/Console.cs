@@ -19,6 +19,7 @@ namespace ParaStep
     public class DevConsole : DrawableGameComponent
     {
         private bool _showing;
+        private GraphicsDeviceManager graphics;
         private StringBuilder sb;
         private Texture2D ah;
         private SpriteBatch _batch;
@@ -28,8 +29,9 @@ namespace ParaStep
         private SpriteFont _font;
         public Vector2 basePos;
         public Vector2 baseSize;
-        public DevConsole(Game game, ContentManager content) : base(game)
+        public DevConsole(Game game, ContentManager content, GraphicsDeviceManager _graphicsDeviceManager) : base(game)
         {
+            graphics = _graphicsDeviceManager;
             basePos = new Vector2(10);
             baseSize = new Vector2(600,500);
             _content = content;
@@ -59,6 +61,7 @@ namespace ParaStep
         {
             base.LoadContent();
             _font = _content.Load<SpriteFont>("Fonts/Unlockstep");
+            ah = _content.Load<Texture2D>("yourmother_t");
         }
 
         private StringBuilder sysConsoleRedirect = new StringBuilder();
@@ -124,14 +127,17 @@ namespace ParaStep
         }
 
         private List<string> _consoleBacklog = new List<string>();
-
+        
+        
+        
         private int _textCaretOffset;
         public void Draw(GameTime gameTime, SpriteBatch _batch)
         {
-            
+            //figure out stencils or some shit i can't figure it out, just make the console stop overflowing
             if (_showing)
             {
                 _batch.Begin();
+                //_batch.Begin();
                 base.Draw(gameTime);
                 _batch.Draw(whiteRectangle, new Rectangle((int)basePos.X,(int)basePos.X,(int)baseSize.X,(int)baseSize.Y), new Color(26,26,26,255));
                 _batch.Draw(whiteRectangle, new Rectangle((int)basePos.X + 7,((int)basePos.Y + (int)baseSize.Y)-25,(int)baseSize.X - 10,20), new Color(Color.White, 1.0f));
