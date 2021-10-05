@@ -1,3 +1,5 @@
+using FmodAudio;
+using FmodAudio.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Color = Microsoft.Xna.Framework.Color;
@@ -9,7 +11,7 @@ namespace ParaStep.Gameplay.Components
     {
 
         private SpriteFont _font;
-        private OggSong _vorbis;
+        private ChannelHandle fmodChannel;
         private Texture2D _bg;
         public Color BgColor;
         public Color BorderColor;
@@ -26,9 +28,9 @@ namespace ParaStep.Gameplay.Components
         public string _text;
         
 
-        public ProgressBarTitle(SpriteFont font, string text, Texture2D BgFill, OggSong vorbis)
+        public ProgressBarTitle(SpriteFont font, string text, Texture2D BgFill, ChannelHandle sound)
         {
-            _vorbis = vorbis;
+            fmodChannel = sound;
             _text = text;
             _bg = BgFill;
             _font = font;
@@ -53,7 +55,11 @@ namespace ParaStep.Gameplay.Components
 
         public override void Update(GameTime gameTime)
         {
-            _progress = (float)_vorbis.reader.DecodedTime.TotalMilliseconds / (float)_vorbis.reader.TotalTime.TotalMilliseconds;
+            uint shitass;
+            Fmod.Library.Channel_GetPosition(fmodChannel, out shitass, TimeUnit.MS);
+            SoundHandle shitasshandle;
+            Fmod.Library.Channel_GetCurrentSound(fmodChannel, out shitasshandle);
+            _progress = (float)shitass / (float)((Sound)shitasshandle).GetLength(TimeUnit.MS);
         }
 
     }

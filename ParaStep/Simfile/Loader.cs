@@ -99,6 +99,7 @@ namespace ParaStep.Simfile
                     case "MUSIC":
                         _simfile.MusicPath = Path.Combine(path, line.Substring(line.IndexOf(":") + 1,
                             line.LastIndexOf(";") - line.IndexOf(":") - 1));
+                        _simfile.Music = Program.FMod.CreateSound(_simfile.MusicPath);
                         break;
                     case "OFFSET":
                         _simfile.Offset = float.Parse(line.Substring(line.IndexOf(":")+1,

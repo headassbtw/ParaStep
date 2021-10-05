@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Net.Mime;
 using System.Runtime.InteropServices;
-using ManagedBass;
+using FmodAudio;
+using FmodAudio.Base;
 using MonoGame.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ParaStep.Simfile;
-using Bass = ManagedBass.Bass;
 
 //using NVorbis;
 
@@ -19,7 +19,6 @@ namespace ParaStep.Menus.Components
     {
         #region Fields
 
-        public OggSong vorbis;
         
         readonly float ratio = (float)418 / 164;
         
@@ -59,7 +58,6 @@ namespace ParaStep.Menus.Components
         {
             
             this.simfile = simfile;
-            if(vorbis != null) vorbis.Dispose();
             
             _bannerDimensions = new Vector2((int)(simfile.Banner.Height*ratio),(int)(simfile.Banner.Height));
             _texture = texture;
@@ -98,5 +96,9 @@ namespace ParaStep.Menus.Components
         }
 
         #endregion
+
+        public void Dispose()
+        {
+        }
     }
 }

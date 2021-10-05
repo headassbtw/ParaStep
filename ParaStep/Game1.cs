@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using FmodAudio;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,6 +13,7 @@ namespace ParaStep
 {
     public class Game1 : Game
     {
+        
         public bool ListeningForKeys;
         public List<Simfile.Simfile> Simfiles;
         public Settings.Settings settings;

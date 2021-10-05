@@ -1,44 +1,37 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
-using DiscordRPC;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
-using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.CodeAnalysis.Scripting.Hosting;
+using FmodAudio;
+using FmodAudio.Base;
 
 namespace ParaStep
 {
     public static class Program
     {
-
-
-        public static string print = "Hello World!";
         public static Game1 Game;
         public static Discord Discord;
-
-        //[STAThread]
+        public static FmodSystem FMod;
+        
+        [DllImport("libdl.so")]
+        static extern IntPtr dlopen(string filename, int flags);
+        
+        [STAThread]
         static int Main()
         {
-
-
-
-            Discord = new Discord("892289638079803432");
-            //Game = new Game1();
-
-            //BassTest.test("/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/x64/Debug/net5.0/linux-x64/Songs/Firestorm/music.ogg");
-
-
-            
-            
-            
-            
-            Game = new Game1();
             try
             {
+                Game = new Game1();
+                Discord = new Discord("892289638079803432");
+
+                
+                Fmod.SetLibraryLocation($"{Environment.CurrentDirectory}/libfmod.so.13.3");
+                
+                
+                FMod = FmodAudio.Fmod.CreateSystem();
+                FMod.Init(4, InitFlags.Normal);
+
                 Game.Run();
+                return 1;
             }
             catch (Exception e)
             {
@@ -46,12 +39,8 @@ namespace ParaStep
                 Discord.state.Details = "Crashed";
                 Discord.state.State = "Staring at a stack trace";
                 GtkErrorHandler.Program.ShowError(e);
+                return 0;
             }
-            return 0;
         }
-
-        
-
-        
     }
 }

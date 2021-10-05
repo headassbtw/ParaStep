@@ -114,13 +114,13 @@
               "target": "Package",
               "version": "[1.0.175, )"
             },
+            "FmodAudio": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "GtkSharp": {
               "target": "Package",
               "version": "[3.24.24.34, )"
-            },
-            "ManagedBass": {
-              "target": "Package",
-              "version": "[3.1.0, )"
             },
             "Microsoft.CodeAnalysis.CSharp": {
               "target": "Package",

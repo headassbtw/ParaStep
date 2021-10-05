@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FmodAudio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace ParaStep.Simfile
@@ -14,6 +15,7 @@ namespace ParaStep.Simfile
         public Texture2D Banner;
         public string LyricsPath;
         public string MusicPath; //TODO: find audio format
+        public Sound Music;
         public float Offset;
         public Dictionary<float, float> BPMs;
         //stops
