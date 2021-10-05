@@ -52,6 +52,5 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Libs\OSX" />
-      <Folder Include="Libs\Windows" />
     </ItemGroup>
 </Project>
