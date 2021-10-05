@@ -23,8 +23,10 @@ namespace ParaStep
                 Game = new Game1();
                 Discord = new Discord("892289638079803432");
 
-                
-                Fmod.SetLibraryLocation($"{Environment.CurrentDirectory}/libfmod.so.13.3");
+                if(OperatingSystem.IsWindows())
+                    Fmod.SetLibraryLocation($"{Environment.CurrentDirectory}/fmod.dll");
+                else if (OperatingSystem.IsLinux())
+                    Fmod.SetLibraryLocation($"{Environment.CurrentDirectory}/libfmod.so.13.3");
                 
                 
                 FMod = FmodAudio.Fmod.CreateSystem();
