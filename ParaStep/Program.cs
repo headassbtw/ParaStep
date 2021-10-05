@@ -37,9 +37,13 @@ namespace ParaStep
             }
             catch (Exception e)
             {
-                Game.Exit();
-                Discord.state.Details = "Crashed";
-                Discord.state.State = "Staring at a stack trace";
+                if (Game != null)
+                {
+                    Game.Exit();
+                    Discord.state.Details = "Crashed";
+                    Discord.state.State = "Staring at a stack trace";
+                }
+                
                 GtkErrorHandler.Program.ShowError(e);
                 return 0;
             }

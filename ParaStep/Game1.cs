@@ -14,7 +14,7 @@ namespace ParaStep
     public class Game1 : Game
     {
         
-        public bool ListeningForKeys;
+        public bool ListeningForKeys = true;
         public List<Simfile.Simfile> Simfiles;
         public Settings.Settings settings;
         GraphicsDeviceManager _graphics;
@@ -24,7 +24,7 @@ namespace ParaStep
         private GamePadState _pastGamePadState;
         private KeyboardState _pastKeyboardState;
         public bool ShouldGoBack;
-
+        private Intro _intro;
 
         private State _currentState;
 
@@ -42,35 +42,37 @@ namespace ParaStep
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            console = new DevConsole(this, Content, _graphics);
-            Components.Add(console);
-            console.Enabled = true;
+            
+            _intro = new Intro(this);
+            Components.Add(_intro);
+            _intro.Enabled = true;
+            _intro.DrawOrder = 999;
+            _intro.Finished += (sender, args) =>
+            {
+                console = new DevConsole(this, Content, _graphics);
+                Components.Add(console);
+                console.Enabled = true;
+                Components.Remove(_intro);
+                ChangeState(new MenuState(this, _graphics.GraphicsDevice, Content, controls));
+            };
         }
 
         protected override void OnExiting(object sender, EventArgs args)
         {
             Program.Discord.PresenceThread.Interrupt();
-            Program.Discord.PresenceThread.Abort();
             Program.Discord.Client.Dispose();
             base.OnExiting(sender, args);
         }
 
         protected override void Initialize()
         {
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
             _graphics.PreferredBackBufferHeight = 900;
             _graphics.PreferredBackBufferWidth = 1600;
             base.Window.Title = "In Your Mom 2";
             _graphics.ApplyChanges();
             base.Initialize();
             
-        }
-
-        protected override void LoadContent()
-        {
-            
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, controls);
         }
 
         protected override void Update(GameTime gameTime)
@@ -87,19 +89,17 @@ namespace ParaStep
                 _nextState = null;
             }
 
-            _currentState.Update(gameTime);
+            _currentState?.Update(gameTime);
 
-            _currentState.PostUpdate(gameTime);
+            _currentState?.PostUpdate(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.ForestGreen);
-
-            _currentState.Draw(gameTime, _spriteBatch);
-            console.Draw(gameTime, _spriteBatch);
+            _currentState?.Draw(gameTime, _spriteBatch);
+            console?.Draw(gameTime, _spriteBatch);
             base.Draw(gameTime);
         }
     }

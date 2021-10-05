@@ -88,7 +88,7 @@ namespace ParaStep.Menus.Main
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //_graphicsDevice.Clear(Color.DimGray);
+            _graphicsDevice.Clear(Color.ForestGreen);
             _currentMouse = Mouse.GetState();
             spriteBatch.Begin();
 
