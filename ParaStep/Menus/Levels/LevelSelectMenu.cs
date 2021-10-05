@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using FmodAudio;
+using FmodAudio.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
@@ -22,6 +25,10 @@ namespace ParaStep.Menus.Levels
         private UIPanel _loadingNotif;
         private UIPanel _simfilePreviewPanel;
         private SimfilePreview simfilePreview;
+        private List<SoundHandle> _previewSoundHandles = new List<SoundHandle>();
+        public Sound fmodSound;
+        public ChannelHandle fmodChannel;
+        
         public LevelSelectMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
             : base(game, graphicsDevice, content)
         {
@@ -87,8 +94,11 @@ namespace ParaStep.Menus.Levels
                     };
                     levelButton.Click += (sender, args) =>
                     {
-                        //TODO: implement bass channel/data dispose
+                        if(simfilePreview != null) simfilePreview.Dispose();
+                        
                         _panels.Remove(_simfilePreviewPanel);
+                        
+                        
                         Button play = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.Yellow)
                         {
                             LocalPosition = new Vector2(0,0),
@@ -101,15 +111,18 @@ namespace ParaStep.Menus.Levels
                             play.Text = "Multiple\nBPM";
                             play._color = Color.Red;
                         }
-                            play.Click += (o, eventArgs) =>
+                        play.Click += (o, eventArgs) =>
                         {
                             if (!(_simfile.BPMs.Values.Count > 1))
                             {
-                                if(simfilePreview != null) simfilePreview.vorbis.Dispose();
+                                //throw new NotImplementedException("Moving audio backends");
+                                if(simfilePreview != null) simfilePreview.Dispose();
+                                Fmod.Library.Channel_Stop(fmodChannel);
                                 _game.ChangeState(new GameState(_game, _graphicsDevice, _content,Simfiles[levelButtons.IndexOf(levelButton)], 0,_controls));
                             }
                             
-                        };
+                        }; 
+                        
                         simfilePreview = new SimfilePreview(whiteRectangle, headerFont, buttonFont, Simfiles[levelButtons.IndexOf(levelButton)])
                         {
                             LocalPosition = new Vector2(210, 0),
@@ -129,7 +142,11 @@ namespace ParaStep.Menus.Levels
                         };
                         _simfilePreviewPanel.CalculateSize(730, 520);
                         _panels.Add(_simfilePreviewPanel);
-
+                        
+                        Fmod.Library.Channel_Stop(fmodChannel);
+                        fmodSound = _simfile.Music;
+                        fmodChannel = Program.FMod.PlaySound(fmodSound);
+                        ((Channel) fmodChannel).Volume = game.settings.PreviewVolume;
                     };
                     
                     levelButtons.Add(levelButton);
@@ -206,7 +223,7 @@ namespace ParaStep.Menus.Levels
 
         public override void Dispose()
         {
-            if(simfilePreview != null) simfilePreview.vorbis.Dispose();
+            Fmod.Library.Channel_Stop(fmodChannel);
         }
     }
 }

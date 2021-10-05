@@ -12,6 +12,7 @@ namespace ParaStep.Menus
 {
     public class SettingsMenu : State
     {
+        public bool ListeningForKeys;
         private Controls _controls;
         private Color _bgColor = Color.Firebrick;
         private SpriteFont _kremlin;
@@ -163,7 +164,7 @@ namespace ParaStep.Menus
 
         public override void Update(GameTime gameTime)
         {
-            if (_game.ShouldGoBack)
+            if (_game.ShouldGoBack && ListeningForKeys)
                 _back();
             foreach (UIPanel panel in _panels)
                 panel.Update(gameTime);

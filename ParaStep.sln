@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaStep", "ParaStep\ParaStep.csproj", "{8EE00E43-E503-46D0-BC5B-2D37B8EDC072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaStep.GtkErrorHandler", "ParaStep.GtkErrorHandler\ParaStep.GtkErrorHandler.csproj", "{B5D0807B-E611-4150-B0F7-2C78E200AC5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -12,5 +14,9 @@ Global
 		{8EE00E43-E503-46D0-BC5B-2D37B8EDC072}.Release|x64.Build.0 = Release|x64
 		{8EE00E43-E503-46D0-BC5B-2D37B8EDC072}.Debug|x64.ActiveCfg = Debug|x64
 		{8EE00E43-E503-46D0-BC5B-2D37B8EDC072}.Debug|x64.Build.0 = Debug|x64
+		{B5D0807B-E611-4150-B0F7-2C78E200AC5A}.Release|x64.ActiveCfg = Release|Any CPU
+		{B5D0807B-E611-4150-B0F7-2C78E200AC5A}.Release|x64.Build.0 = Release|Any CPU
+		{B5D0807B-E611-4150-B0F7-2C78E200AC5A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B5D0807B-E611-4150-B0F7-2C78E200AC5A}.Debug|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FmodAudio;
+using FmodAudio.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,7 +19,7 @@ namespace ParaStep.Gameplay
 {
     public class GameState : State
     {
-        private OggSong _song;
+        private ChannelHandle fmodChannel;
         private int _diff;
         private Simfile.Simfile _simfile;
         private List<Receptor> receptors;
@@ -33,6 +35,7 @@ namespace ParaStep.Gameplay
             int diff, Controls controls)
             : base(game, graphicsDevice, content)
         {
+            
             _diff = diff;
             _simfile = simfile;
             _elapsedTime = TimeSpan.Zero - TimeSpan.FromSeconds(simfile.Offset);
@@ -44,13 +47,10 @@ namespace ParaStep.Gameplay
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] {Color.White});
             _controls = controls;
-            _song = new OggSong($"'{_simfile.MusicPath}'");
 
         _kremlin = content.Load<SpriteFont>("Fonts/kremlin");
             _unlockstep_2x = content.Load<SpriteFont>("Fonts/unlockstep_2x");
-            
-            _song.Play();
-            
+
             List<Note> notes = new List<Note>();
             Console.WriteLine($"simfile has {_simfile.Diffs[_diff].Measures.Count} measures");
 
@@ -111,23 +111,24 @@ namespace ParaStep.Gameplay
                     LocalPosition = new Vector2(50,70)
                 }
             };
-            _overlayComponents = new List<Component>()
-            {
-                new ProgressBarTitle(_unlockstep_2x, $"{_simfile.Title} - {_simfile.Diffs[_diff].Difficulty}", whiteRectangle, _song)
-                {
-                    LocalPosition = new Vector2(graphicsDevice.Viewport.Width / 2, 30),
-                    BgColor = Color.Firebrick,
-                    BorderColor = Color.WhiteSmoke
-                }
-            };
             if (game.settings.DiscordTimeFormat == "Remaining")
-                Program.Discord.state.Timestamps.End = DateTime.UtcNow + _song.reader.TotalTime;
+                Program.Discord.state.Timestamps.End = DateTime.UtcNow + TimeSpan.FromMilliseconds(_simfile.Music.GetLength(TimeUnit.MS));
             else
                 Program.Discord.state.Timestamps.Start = DateTime.UtcNow;
             Program.Discord.state.State = game.settings.DiscordShowSongDifficulty
                 ? simfile.Diffs[_diff].Difficulty.ToString()
                 : "";
             Program.Discord.state.Details = $"{_simfile.Title} - {_simfile.Artist}";
+            fmodChannel = Program.FMod.PlaySound(_simfile.Music);
+            _overlayComponents = new List<Component>()
+            {
+                new ProgressBarTitle(_unlockstep_2x, $"{_simfile.Title} - {_simfile.Diffs[_diff].Difficulty}", whiteRectangle, fmodChannel)
+                {
+                    LocalPosition = new Vector2(graphicsDevice.Viewport.Width / 2, 30),
+                    BgColor = Color.Firebrick,
+                    BorderColor = Color.WhiteSmoke
+                }
+            };
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -163,9 +164,7 @@ namespace ParaStep.Gameplay
 
         public override void Dispose()
         {
-            
-            _song.Stop();
-            _song.Dispose();
+            Fmod.Library.Channel_Stop(fmodChannel);
             _game.ChangeState(new LevelSelectMenu(_game, _graphicsDevice, _content, _controls));
         }
     }

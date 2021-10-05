@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
-using DiscordRPC;
+using FmodAudio;
+using FmodAudio.Base;
 
 namespace ParaStep
 {
@@ -9,17 +10,37 @@ namespace ParaStep
     {
         public static Game1 Game;
         public static Discord Discord;
-        [STAThread] 
-        static void Main()
+        public static FmodSystem FMod;
+        
+        [DllImport("libdl.so")]
+        static extern IntPtr dlopen(string filename, int flags);
+        
+        [STAThread]
+        static int Main()
         {
-            Discord = new Discord("892289638079803432");
-            Game = new Game1();
-            
-            BassTest.test("/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/bin/x64/Debug/net5.0/linux-x64/Songs/Firestorm/music.ogg");
-            
-            
-            
-            Game.Run();
+            try
+            {
+                Game = new Game1();
+                Discord = new Discord("892289638079803432");
+
+                
+                Fmod.SetLibraryLocation($"{Environment.CurrentDirectory}/libfmod.so.13.3");
+                
+                
+                FMod = FmodAudio.Fmod.CreateSystem();
+                FMod.Init(4, InitFlags.Normal);
+
+                Game.Run();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                Game.Exit();
+                Discord.state.Details = "Crashed";
+                Discord.state.State = "Staring at a stack trace";
+                GtkErrorHandler.Program.ShowError(e);
+                return 0;
+            }
         }
     }
 }

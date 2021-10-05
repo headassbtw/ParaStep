@@ -4,14 +4,14 @@
     "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj": {}
   },
   "projects": {
-    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj": {
-      "version": "0.0.1",
+    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj": {
+      "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
-        "projectName": "ParaStep",
-        "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
+        "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj",
+        "projectName": "ParaStep.GtkErrorHandler",
+        "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj",
         "packagesPath": "/home/headass/.nuget/packages/",
-        "outputPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/obj/",
+        "outputPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/headass/.nuget/NuGet/NuGet.Config"
@@ -38,13 +38,97 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "GtkSharp": {
+              "target": "Package",
+              "version": "[3.24.24.*, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.205/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj": {
+      "version": "0.0.1",
+      "restore": {
+        "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
+        "projectName": "ParaStep",
+        "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
+        "packagesPath": "/home/headass/.nuget/packages/",
+        "outputPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/headass/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj": {
+                "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
             "DiscordRichPresence": {
               "target": "Package",
               "version": "[1.0.175, )"
             },
-            "ManagedBass": {
+            "FmodAudio": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[2.2.2, )"
+            },
+            "GtkSharp": {
+              "target": "Package",
+              "version": "[3.24.24.34, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp.Scripting": {
+              "target": "Package",
+              "version": "[3.11.0, )"
             },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",

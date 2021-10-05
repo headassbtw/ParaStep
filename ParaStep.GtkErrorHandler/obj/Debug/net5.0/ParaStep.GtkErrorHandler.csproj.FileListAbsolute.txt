@@ -1,0 +1,12 @@
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/bin/Debug/net5.0/ParaStep.GtkErrorHandler.deps.json
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/bin/Debug/net5.0/ParaStep.GtkErrorHandler.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/bin/Debug/net5.0/ref/ParaStep.GtkErrorHandler.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/bin/Debug/net5.0/ParaStep.GtkErrorHandler.pdb
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.GeneratedMSBuildEditorConfig.editorconfig
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.AssemblyInfoInputs.cache
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.AssemblyInfo.cs
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csproj.CoreCompileInputs.cache
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ref/ParaStep.GtkErrorHandler.dll
+/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.pdb

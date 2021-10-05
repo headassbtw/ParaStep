@@ -11,6 +11,7 @@
         <Company>headassbtw</Company>
         <Configurations>Release;Debug</Configurations>
         <Platforms>x64</Platforms>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <PropertyGroup>
         <PublishSingleFile>true</PublishSingleFile>
@@ -35,11 +36,22 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
-        <PackageReference Include="ManagedBass" Version="3.1.0" />
+        <PackageReference Include="FmodAudio" Version="2.2.2" />
+        <PackageReference Include="GtkSharp" Version="3.24.24.34" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
         <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Libs" />
+      <None Remove="Icon_500.bmp" />
+      <AvaloniaResource Include="Icon_500.bmp" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ParaStep.GtkErrorHandler\ParaStep.GtkErrorHandler.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Libs\OSX" />
+      <Folder Include="Libs\Windows" />
     </ItemGroup>
 </Project>

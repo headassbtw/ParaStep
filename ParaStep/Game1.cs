@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using FmodAudio;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,11 +13,14 @@ namespace ParaStep
 {
     public class Game1 : Game
     {
+        
+        public bool ListeningForKeys;
         public List<Simfile.Simfile> Simfiles;
         public Settings.Settings settings;
         GraphicsDeviceManager _graphics;
-        SpriteBatch _spriteBatch;
+        public SpriteBatch _spriteBatch;
         public Controls controls;
+        public DevConsole console;
         private GamePadState _pastGamePadState;
         private KeyboardState _pastKeyboardState;
         public bool ShouldGoBack;
@@ -38,7 +42,9 @@ namespace ParaStep
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            
+            console = new DevConsole(this, Content, _graphics);
+            Components.Add(console);
+            console.Enabled = true;
         }
 
         protected override void OnExiting(object sender, EventArgs args)
@@ -56,6 +62,7 @@ namespace ParaStep
             base.Window.Title = "In Your Mom 2";
             _graphics.ApplyChanges();
             base.Initialize();
+            
         }
 
         protected override void LoadContent()
@@ -68,7 +75,8 @@ namespace ParaStep
 
         protected override void Update(GameTime gameTime)
         {
-            ShouldGoBack = controls.PauseKey.IsDownVsLastFrame(_pastGamePadState, _pastKeyboardState);
+            if(ListeningForKeys)
+                ShouldGoBack = controls.PauseKey.IsDownVsLastFrame(_pastGamePadState, _pastKeyboardState);
             _pastKeyboardState = Keyboard.GetState();
             _pastGamePadState = GamePad.GetState(PlayerIndex.One);
 
@@ -91,7 +99,7 @@ namespace ParaStep
             GraphicsDevice.Clear(Color.ForestGreen);
 
             _currentState.Draw(gameTime, _spriteBatch);
-
+            console.Draw(gameTime, _spriteBatch);
             base.Draw(gameTime);
         }
     }
