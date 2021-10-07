@@ -17,8 +17,8 @@ namespace ParaStep
         private SpriteBatch _batch;
         public event EventHandler Finished;
         private ContentManager _content;
-        private readonly TimeSpan _fadeSpan = TimeSpan.FromSeconds(0);
-        private readonly TimeSpan _activeSpan = TimeSpan.FromSeconds(0);
+        private readonly TimeSpan _fadeSpan = TimeSpan.FromSeconds(2);
+        private readonly TimeSpan _activeSpan = TimeSpan.FromSeconds(3);
         public Intro(Game game) : base(game)
         {
             _game = game;

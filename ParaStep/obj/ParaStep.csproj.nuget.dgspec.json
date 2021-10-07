@@ -73,7 +73,7 @@
       }
     },
     "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj": {
-      "version": "0.0.1",
+      "version": "0.0.2",
       "restore": {
         "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
         "projectName": "ParaStep",
@@ -121,10 +121,6 @@
             "GtkSharp": {
               "target": "Package",
               "version": "[3.24.24.34, )"
-            },
-            "Microsoft.CodeAnalysis.CSharp": {
-              "target": "Package",
-              "version": "[3.11.0, )"
             },
             "Microsoft.CodeAnalysis.CSharp.Scripting": {
               "target": "Package",

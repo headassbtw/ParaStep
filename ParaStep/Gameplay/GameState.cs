@@ -33,7 +33,7 @@ namespace ParaStep.Gameplay
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Simfile.Simfile simfile,
             int diff, Controls controls)
-            : base(game, graphicsDevice, content)
+            : base(game, graphicsDevice, content, controls)
         {
             
             _diff = diff;
@@ -96,7 +96,8 @@ namespace ParaStep.Gameplay
                         {
                             LocalPosition = new Vector2(50 + 148*n, 70 + offset * r + ((138 * 8)*m))
                         };
-                        notes.Add(newNote);
+                        if(_noteType != Simfile.Note.None)
+                            notes.Add(newNote);
                     }
                 }
             }

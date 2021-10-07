@@ -1,8 +1,8 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Gdk;
-using GLib;
 using Gtk;
 using Application = Gtk.Application;
 using UI = Gtk.Builder.ObjectAttribute;
@@ -54,8 +54,9 @@ namespace ParaStep.GtkErrorHandler
 
         private void Button1_Clicked(object sender, EventArgs a)
         {
+            Process game = System.Diagnostics.Process.GetProcessesByName("ParaStep").First();
             //AHAHHAHAHAHHAA
-            System.Diagnostics.Process.GetProcessesByName("ParaStep").First().Kill();
+            game.Kill();
             _label1.Text = _shownException.StackTrace;
         }
     }

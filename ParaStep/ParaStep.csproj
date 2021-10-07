@@ -7,7 +7,7 @@
         <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
         <AssemblyName>ParaStep</AssemblyName>
         <RootNamespace>ParaStep</RootNamespace>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <Company>headassbtw</Company>
         <Configurations>Release;Debug</Configurations>
         <Platforms>x64</Platforms>
@@ -38,7 +38,6 @@
         <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
         <PackageReference Include="FmodAudio" Version="2.2.2" />
         <PackageReference Include="GtkSharp" Version="3.24.24.34" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
         <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />

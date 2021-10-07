@@ -37,6 +37,7 @@ namespace ParaStep
             _content = content;
             _game = (Game1) game;
             sb = new StringBuilder();
+            stdout = Console.Out;
             //_game.Window.TextInput += WindowOnTextInput;
         }
 
@@ -179,8 +180,10 @@ namespace ParaStep
         }
 
         private KeyboardState _pastFrameKb;
+        private TextWriter stdout;
         public override void Update(GameTime gameTime)
         {
+            
             if (_pastFrameKb == null) _pastFrameKb = Keyboard.GetState();
             if (_game.controls.DevConsoleKey.IsDownVsLastFrame(GamePadState.Default, _pastFrameKb))
             {
@@ -194,17 +197,12 @@ namespace ParaStep
                 {
                     _showing = false;
                     _game.Window.TextInput -= WindowOnTextInput;
-                    //Console.SetOut(null);
+                    Console.SetOut(stdout);
                 }
             }
+
             base.Update(gameTime);
             _pastFrameKb = Keyboard.GetState();
-        }
-        public bool ContainsUnicodeCharacter(string input)
-        {
-            const int MaxAnsiCode = 255;
-            return System.Text.ASCIIEncoding.GetEncoding(0).GetString(System.Text.ASCIIEncoding.GetEncoding(0).GetBytes(input)) == input;
-            //return input.Any(c => c > MaxAnsiCode);
         }
     }
 }

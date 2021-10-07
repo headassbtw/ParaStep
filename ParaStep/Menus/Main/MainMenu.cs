@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using ParaStep.Menus.Components;
 using ParaStep.Menus.Levels;
 using ParaStep.Settings;
+using ParaStep.User_Scripts;
 
 namespace ParaStep.Menus.Main
 {
@@ -16,10 +17,14 @@ namespace ParaStep.Menus.Main
         public bool ListeningForKeys;
         private Controls _controls;
         private List<UIPanel> _panels;
+
+        private UIPanel userScriptPanel;
+
+        private UIPanel menuButtonsPanel;
         //private List<Component> _components;
         private MouseState _currentMouse;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
-            : base(game, graphicsDevice, content)
+            : base(game, graphicsDevice, content, controls)
         {
             _controls = controls;
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
@@ -31,6 +36,9 @@ namespace ParaStep.Menus.Main
             var titleFont = _content.Load<SpriteFont>("Fonts/Kremlin");
             var titleimage = _content.Load<Texture2D>("yourmother_t");
 
+            
+            _panels = new List<UIPanel>();
+            
             var titleLabel = new Image(titleimage)
             {
                 LocalPosition = new Vector2(0,0),
@@ -54,9 +62,16 @@ namespace ParaStep.Menus.Main
 
             loadGameButton.Click += LoadGameButton_Click;
 
+            var scripts = game.UserScriptLoader.Load();
+            bool hasScripts = scripts?.Count > 0;
+            
+            
+            
+            
+            
             var quitGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
             {
-                LocalPosition = new Vector2(0, titleimage.Height + 130),
+                LocalPosition = new Vector2(0, titleimage.Height + (hasScripts ? 190 : 130)),
                 Size = new Vector2(300,50),
                 Text = "Quit Game",
             };
@@ -68,18 +83,74 @@ namespace ParaStep.Menus.Main
             List<Component> menuButtons = new List<Component>()
             {
                 newGameButton,
-                loadGameButton,
-                quitGameButton,
-                titleLabel
+                loadGameButton
             };
-            UIPanel menuButtonsPanel = new UIPanel(whiteRectangle, 10, false, 35, new Color(0,0,0,160))
+            
+            
+            
+            if (hasScripts)
+            {
+                var label = new Text(titleFont, false)
+                {
+                    _text = "USER SCRIPTS",
+                    LocalPosition = new Vector2(0, -10),
+                    Size = new Vector2(100, 50),
+                    PenColor = Color.White
+                };
+                var scriptsButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
+                {
+                    LocalPosition = new Vector2(0, titleimage.Height + 130),
+                    Size = new Vector2(300,50),
+                    Text = "User Scripts",
+                };
+                scriptsButton.Click += (sender, args) =>
+                {
+                    _panels.Remove(userScriptPanel);
+                    List<Component> userScriptButtons = new List<Component>();
+                    for(int i = 0; i < scripts.Count; i++)
+                    {
+                        UserScript _script = scripts[i];
+                        Button _scriptButton = new Button(buttonTexture, buttonFont, buttonFont2x, Color.Orange)
+                        {
+                            LocalPosition = new Vector2(0, 60 + 60 * i),
+                            Size = new Vector2(300, 50),
+                            Text = _script.Name
+                        };
+                        _scriptButton.Click += (sender, args) =>
+                        {
+                            _script.Invoke.Invoke();
+                        };
+                        userScriptButtons.Add(_scriptButton);
+                    }
+                    userScriptPanel = new UIPanel(whiteRectangle, 10, false, 25, new Color(0, 0, 0, 160))
+                    {
+                        LocalPosition = new Vector2(650,350),
+                        Children = userScriptButtons
+                    };
+                    userScriptPanel.Children.Add(label);
+                    userScriptPanel.CalculateSize(700);
+                    _panels.Add(userScriptPanel);
+                };
+                
+                
+                
+                
+                
+                
+                menuButtons.Add(scriptsButton);
+            }
+            
+            
+            menuButtons.Add(quitGameButton);
+            menuButtons.Add(titleLabel);
+            menuButtonsPanel = new UIPanel(whiteRectangle, 10, false, 35, new Color(0,0,0,160))
             {
                 Children = menuButtons,
                 LocalPosition = new Vector2(150,350),
             };
             menuButtonsPanel.CalculateSize(438);
 
-            _panels = new List<UIPanel>();
+            
             _panels.Add(menuButtonsPanel);
 
             Program.Discord.state.State = "Main Menu";
@@ -104,12 +175,12 @@ namespace ParaStep.Menus.Main
 
         private void LoadGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new SettingsMenu(_game, _graphicsDevice, _content, _controls));
+            _game.ChangeState(StateManager.Get<SettingsMenu>());
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new LevelSelectMenu(_game, _graphicsDevice, _content, _controls));
+            _game.ChangeState(StateManager.Get<LevelSelectMenu>());
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -124,9 +195,9 @@ namespace ParaStep.Menus.Main
                 SettingsIO.Save(_game.settings);
                 _game.Exit();
             }
-                foreach (var panel in _panels)
+            for(int i = 0; i < _panels.Count; i++)
             {
-                panel.Update(gameTime);
+                _panels[i].Update(gameTime);
             }
         }
 

@@ -11,13 +11,14 @@ namespace ParaStep
         public static Game1 Game;
         public static Discord Discord;
         public static FmodSystem FMod;
-        
+        public static string[] args;   
         [DllImport("libdl.so")]
         static extern IntPtr dlopen(string filename, int flags);
         
         [STAThread]
-        static int Main()
+        static int Main(string[] _args)
         {
+            Program.args = _args;
             try
             {
                 Game = new Game1();

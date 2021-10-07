@@ -20,7 +20,7 @@ namespace ParaStep.Menus.Levels
     {
         private Controls _controls;
         public static Loader _simfileLoader = new Loader();
-        private List<Simfile.Simfile> Simfiles;
+        public List<Simfile.Simfile> Simfiles;
         private List<UIPanel> _panels;
         private UIPanel _loadingNotif;
         private UIPanel _simfilePreviewPanel;
@@ -28,25 +28,70 @@ namespace ParaStep.Menus.Levels
         private List<SoundHandle> _previewSoundHandles = new List<SoundHandle>();
         public Sound fmodSound;
         public ChannelHandle fmodChannel;
-        
+        private Texture2D whiteRectangle;
+        private SpriteFont buttonFont;
+        private SpriteFont buttonFont2x;
+        private SpriteFont headerFont;
         public LevelSelectMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
-            : base(game, graphicsDevice, content)
+            : base(game, graphicsDevice, content, controls)
         {
-            var buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
-            var buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
-            var headerFont = _content.Load<SpriteFont>("Fonts/Kremlin");
+            buttonFont = _content.Load<SpriteFont>("Fonts/Unlockstep");
+            buttonFont2x = _content.Load<SpriteFont>("Fonts/Unlockstep_2x");
+            headerFont = _content.Load<SpriteFont>("Fonts/Kremlin");
             _controls = controls;
-            Simfiles = game.Simfiles;
+            
             _simfileLoader.Initialize(graphicsDevice, content);
-            Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
+            whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
+            
+             
 
+            _panels = new List<UIPanel>();
+            
+            
+            LoadSongs();
+            
+            
+
+            List<Component> backButtonPanelComponents = new List<Component>();
+            
+                
+            Button backButton =    new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
+            {
+                LocalPosition = new Vector2(0,0),
+                PenColor = Color.Black,
+                Size = new Vector2(200,100),
+                Text = "Back"
+            };
+
+            backButton.Click += (sender, args) =>
+            {
+                _back();
+            };
+            backButtonPanelComponents.Add(backButton);
+            
+            UIPanel ButtonBackPanel = new UIPanel(whiteRectangle, 10, false, 0, Color.Navy)
+            {
+                Children = backButtonPanelComponents,
+                LocalPosition = new Vector2(0,graphicsDevice.Viewport.Height -120)
+            };
+            ButtonBackPanel.CalculateSize();
+            
+            
+            _panels.Add(ButtonBackPanel);
+            Program.Discord.state.Details = "Level Select";
+            Program.Discord.state.State = $"{Simfiles.Count} Simfiles loaded";
+        }
+
+        public void LoadSongs()
+        {
+            Simfiles = Program.Game.Simfiles;
             if(Simfiles == null || Simfiles.Count <= 0)
             {
                 _loadingNotif = new UIPanel(whiteRectangle, 0, false, 0, Color.Aqua)
                 {
-                    LocalPosition = new Vector2(graphicsDevice.Viewport.Width / 2 - 40,
-                        graphicsDevice.Viewport.Height / 2 - 30),
+                    LocalPosition = new Vector2(Program.Game.GraphicsDevice.Viewport.Width / 2 - 40,
+                        Program.Game.GraphicsDevice.Viewport.Height / 2 - 30),
                     Children = new List<Component>()
                     {
                         new Button(whiteRectangle, buttonFont, buttonFont2x, Color.Brown)
@@ -57,21 +102,16 @@ namespace ParaStep.Menus.Levels
                         }
                     }
                 };
-                _panels = new List<UIPanel>();
                 _loadingNotif.CalculateSize();
                 //i'll do this later, fuck that
                 //_panels.Add(_loadingNotif);
                 Simfiles = new List<Simfile.Simfile>();
                 foreach(string folder in Directory.GetDirectories(_simfileLoader._SongsPath))
                     Simfiles.Add(_simfileLoader.Load(folder));
-                game.Simfiles = Simfiles;
+                Program.Game.Simfiles = Simfiles;
             }
-             
-
-            _panels = new List<UIPanel>();
             
             
-
             List<Component> levelButtons = new List<Component>();
             if(Simfiles.Count == 0)
                 _panels.Add(
@@ -146,7 +186,7 @@ namespace ParaStep.Menus.Levels
                         Fmod.Library.Channel_Stop(fmodChannel);
                         fmodSound = _simfile.Music;
                         fmodChannel = Program.FMod.PlaySound(fmodSound);
-                        ((Channel) fmodChannel).Volume = game.settings.PreviewVolume;
+                        ((Channel) fmodChannel).Volume = Program.Game.settings.PreviewVolume;
                     };
                     
                     levelButtons.Add(levelButton);
@@ -154,56 +194,28 @@ namespace ParaStep.Menus.Levels
                 UIPanel levelButtonsPanel = new UIPanel(whiteRectangle, 10, true, 0, Color.Navy)
                 {
                     Children = levelButtons,
-                    LocalPosition = new Vector2(graphicsDevice.Viewport.Width - 420,0)
+                    LocalPosition = new Vector2(Program.Game.GraphicsDevice.Viewport.Width - 420,0)
                 };
                 levelButtonsPanel.CalculateSize();
                 _panels.Add(levelButtonsPanel);
             }
-            
-
-            List<Component> backButtonPanelComponents = new List<Component>();
-            
-                
-            Button backButton =    new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
-            {
-                LocalPosition = new Vector2(0,0),
-                PenColor = Color.Black,
-                Size = new Vector2(200,100),
-                Text = "Back"
-            };
-
-            backButton.Click += (sender, args) =>
-            {
-                _back();
-            };
-            backButtonPanelComponents.Add(backButton);
-            
-            UIPanel ButtonBackPanel = new UIPanel(whiteRectangle, 10, false, 0, Color.Navy)
-            {
-                Children = backButtonPanelComponents,
-                LocalPosition = new Vector2(0,graphicsDevice.Viewport.Height -120)
-            };
-            ButtonBackPanel.CalculateSize();
-            
-            
-            _panels.Add(ButtonBackPanel);
-            Program.Discord.state.Details = "Level Select";
-            Program.Discord.state.State = $"{Simfiles.Count} Simfiles loaded";
         }
-
+        
+        
+        
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _graphicsDevice.Clear(Color.SlateGray);
             spriteBatch.Begin();
-            foreach(UIPanel panel in _panels)
-                panel.Draw(gameTime, spriteBatch, Vector2.Zero);
+            for(int i = 0; i < _panels.Count; i++)
+                _panels[i].Draw(gameTime, spriteBatch, Vector2.Zero);
             spriteBatch.End();
         }
 
         private void _back()
         {
             Dispose();
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _controls));
+            _game.ChangeState(StateManager.Get<MenuState>());
         }
         
 

@@ -47,7 +47,7 @@ namespace ParaStep.Gameplay.Components
             _drawRectangle = new Rectangle((int)Position.X + (148 * _direction), (int)Position.Y, _texture.Width, _texture.Height);
             HitboxRectangle = new Rectangle((int)Position.X + (148 * _direction), (int)Position.Y + _texture.Height/6, _texture.Width, (int)(_texture.Height/1.5f));
             spriteBatch.Draw(_texture, _drawRectangle, _currentColor);
-            spriteBatch.Draw(_texture, HitboxRectangle, new Color(1,1,1,0.5f));
+            //spriteBatch.Draw(_texture, HitboxRectangle, new Color(1,1,1,0.5f));
         }
 
         public override void Update(GameTime gameTime)

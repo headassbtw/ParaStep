@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using FmodAudio;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,12 +10,13 @@ using Microsoft.Xna.Framework.Input;
 using ParaStep.Menus;
 using ParaStep.Menus.Main;
 using ParaStep.Settings;
+using ParaStep.User_Scripts;
 
 namespace ParaStep
 {
     public class Game1 : Game
     {
-        
+        public UserScriptLoader UserScriptLoader = new UserScriptLoader(Path.Combine(Environment.CurrentDirectory, "UserScripts"));
         public bool ListeningForKeys = true;
         public List<Simfile.Simfile> Simfiles;
         public Settings.Settings settings;
@@ -37,24 +40,29 @@ namespace ParaStep
 
         public Game1()
         {
-            settings = SettingsIO.Load();
-            controls = ControlsIO.Load();
             _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            IsMouseVisible = true;
             
-            _intro = new Intro(this);
-            Components.Add(_intro);
-            _intro.Enabled = true;
-            _intro.DrawOrder = 999;
-            _intro.Finished += (sender, args) =>
+            
+            if (!Program.args.Contains("nointro"))
             {
+                _intro = new Intro(this);
+                Components.Add(_intro);
+                _intro.Enabled = true;
+                _intro.DrawOrder = 999;
                 console = new DevConsole(this, Content, _graphics);
                 Components.Add(console);
-                console.Enabled = true;
-                Components.Remove(_intro);
-                ChangeState(new MenuState(this, _graphics.GraphicsDevice, Content, controls));
-            };
+                _intro.Finished += (sender, args) =>
+                {
+                    
+                    console.Enabled = true;
+                    Components.Remove(_intro);
+                };
+            }
+            
+            settings = SettingsIO.Load();
+            controls = ControlsIO.Load();
+            Content.RootDirectory = "Content";
+            IsMouseVisible = true;
         }
 
         protected override void OnExiting(object sender, EventArgs args)
@@ -71,6 +79,11 @@ namespace ParaStep
             _graphics.PreferredBackBufferWidth = 1600;
             base.Window.Title = "In Your Mom 2";
             _graphics.ApplyChanges();
+            //if (Program.args.Contains("nointro"))
+            {
+                ChangeState(StateManager.Get<MenuState>());
+            }
+            
             base.Initialize();
             
         }

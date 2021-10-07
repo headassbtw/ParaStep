@@ -20,7 +20,7 @@ namespace ParaStep.Menus
         private SpriteFont _unlockstep2x;
         private List<UIPanel> _panels;
         public SettingsMenu(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, Controls controls) 
-            : base(game, graphicsDevice, content)
+            : base(game, graphicsDevice, content, controls)
         {
             _controls = controls;
             Texture2D whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
@@ -142,7 +142,7 @@ namespace ParaStep.Menus
         private void _back()
         {
             Dispose();
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _controls));
+            _game.ChangeState(StateManager.Get<MenuState>());
         }
         
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
