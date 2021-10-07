@@ -7,7 +7,7 @@ namespace ParaStep
     {
         public static Vector2 Scale(this Vector2 inn, float factor)
         {
-            return new Vector2(inn.X + factor, inn.Y * factor);
+            return new Vector2(inn.X * factor, inn.Y * factor);
         }
 
         public static Rectangle Scale(this Rectangle inn, float factor)
