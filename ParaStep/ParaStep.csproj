@@ -47,9 +47,11 @@
       <AvaloniaResource Include="Icon_500.bmp" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\ParaStep.Archive\ParaStep.Archive.csproj" />
       <ProjectReference Include="..\ParaStep.GtkErrorHandler\ParaStep.GtkErrorHandler.csproj" />
     </ItemGroup>
     <ItemGroup>
+      <Folder Include="Archive" />
       <Folder Include="Libs\OSX" />
     </ItemGroup>
 </Project>

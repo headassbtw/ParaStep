@@ -1,5 +1,8 @@
 #compiled builds
 /ParaStep/bin/
+/ParaStep.Archive/bin/
 /ParaStep.GtkErrorHandler/bin/
 #rider stuff
 /ParaStep/.idea/
+/ParaStep.Archive/.idea/
+/ParaStep.GtkErrorHandler/.idea/

@@ -917,6 +917,16 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "ParaStep.Archive/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ParaStep.Archive.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ParaStep.Archive.dll": {}
+        }
+      },
       "ParaStep.GtkErrorHandler/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -2023,6 +2033,16 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "ParaStep.Archive/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ParaStep.Archive.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ParaStep.Archive.dll": {}
         }
       },
       "ParaStep.GtkErrorHandler/1.0.0": {
@@ -5120,6 +5140,11 @@
         "version.txt"
       ]
     },
+    "ParaStep.Archive/1.0.0": {
+      "type": "project",
+      "path": "../ParaStep.Archive/ParaStep.Archive.csproj",
+      "msbuildProject": "../ParaStep.Archive/ParaStep.Archive.csproj"
+    },
     "ParaStep.GtkErrorHandler/1.0.0": {
       "type": "project",
       "path": "../ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj",
@@ -5134,6 +5159,7 @@
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 3.11.0",
       "MonoGame.Content.Builder.Task >= 3.8.0.1641",
       "MonoGame.Framework.DesktopGL >= 3.8.0.1641",
+      "ParaStep.Archive >= 1.0.0",
       "ParaStep.GtkErrorHandler >= 1.0.0"
     ]
   },
@@ -5162,6 +5188,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj": {
+              "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj"
+            },
             "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj": {
               "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj"
             }

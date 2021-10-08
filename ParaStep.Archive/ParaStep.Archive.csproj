@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>ParaStep.VPK</RootNamespace>
+        <PackageId>ParaStep.Archive</PackageId>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <PlatformTarget>x64</PlatformTarget>
+      <DebugType>pdbonly</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="LzhamWrapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\ParaStep\LzhamWrapper.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
