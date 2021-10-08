@@ -19,6 +19,7 @@ namespace ParaStep.GtkErrorHandler
 
         public static void Save(Exception e)
         {
+            if (!Directory.Exists(crashFolder)) Directory.CreateDirectory(crashFolder);
             FileStream fileStream =
                 new FileStream(
                     Path.Combine(crashFolder,

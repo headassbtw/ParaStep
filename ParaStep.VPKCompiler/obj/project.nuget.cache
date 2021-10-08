@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5epJJmMIxxyPUBeXqhE7s9ONW9iAuTDlxXYhNneygzPM7WTOdoFy1Sod3wp1S0Luh0KZJmJ0KVSuN8Ccre97XA==",
+  "success": true,
+  "projectFilePath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj",
+  "expectedPackageFiles": [
+    "/home/headass/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

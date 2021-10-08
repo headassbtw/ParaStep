@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ParaStep.VPKCompiler/1.0.0": {
+        "dependencies": {
+          "ParaStep.Archive": "1.0.0"
+        },
+        "runtime": {
+          "ParaStep.VPKCompiler.dll": {}
+        }
+      },
+      "ParaStep.Archive/1.0.0": {
+        "runtime": {
+          "ParaStep.Archive.dll": {}
+        }
+      },
+      "LzhamWrapper/1.0.0.0": {
+        "runtime": {
+          "LzhamWrapper.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ParaStep.VPKCompiler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ParaStep.Archive/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LzhamWrapper/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

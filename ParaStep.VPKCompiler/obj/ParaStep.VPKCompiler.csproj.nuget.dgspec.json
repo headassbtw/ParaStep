@@ -1,0 +1,128 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj": {}
+  },
+  "projects": {
+    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj",
+        "projectName": "ParaStep.Archive",
+        "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj",
+        "packagesPath": "/home/headass/.nuget/packages/",
+        "outputPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/headass/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.205/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj",
+        "projectName": "ParaStep.VPKCompiler",
+        "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj",
+        "packagesPath": "/home/headass/.nuget/packages/",
+        "outputPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/headass/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj": {
+                "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.205/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
