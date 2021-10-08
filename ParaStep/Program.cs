@@ -25,6 +25,7 @@ namespace ParaStep
             try
             {
                 if (!Directory.Exists(VPKDirectory)) Directory.CreateDirectory(VPKDirectory);
+                if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory,"UserScripts"))) Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory,"UserScripts"));
                 ParaStep.Archive.Get.Set(VPKDirectory, "res");
                 #region UserScript templates
                 void CopyThing(string path){File.Copy(Get.File(path), Path.Combine(Environment.CurrentDirectory,path), true);}

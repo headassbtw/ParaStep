@@ -1,10 +1,4 @@
 using System;
-
-Console.WriteLine("Hello World from a user script!");
-using System;
-
-throw new System.Exception("Manual Crash");
-using System;
 using ParaStep;
 using ParaStep.Menus.Levels;
 using ParaStep.Simfile;

@@ -5,34 +5,19 @@
     <projectFile>ParaStep.REPL/ParaStep.REPL.csproj</projectFile>
     <projectFile>ParaStep.ErrorHandler/ParaStep.ErrorHandler.csproj</projectFile>
     <projectFile>ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj</projectFile>
+    <projectFile>ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1bdc6e4-17ed-48fb-b58b-0d7872a1fbf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/Crc32.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/Extensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/ParaStep.Archive.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/Utils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/VPK/DirEntry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/VPK/DirEntryBlock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/VPK/DirFile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/VPK/Header.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/LzhamWrapper.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Menus/Results/ResultsScreen.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/VPK/res_c.vpk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/UserScripts/Crash.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/UserScripts/HelloWorld.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/UserScripts/Reload Songs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/ParaStep.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/ParaStep.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/ParaStep.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/ParaStep.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/VPK/res_c.vpk" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/VPK/res_c.vpk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="157554" />
+    <option name="totalTimeSeconds" value="158337" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -80,6 +65,7 @@
     <setting file="file://$PROJECT_DIR$/ParaStep/Game1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ddc8b40c2ad9409baac4577c24da66bb8bd178/1/Interop.IOErrors.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Component.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Archive/UserScripts/Reload Songs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cbe0d78d289e456ba0069b60edf96cbc35578/74/ParserExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yecApMVoOLI7AnTzXEpCWPQPvA" />
@@ -113,21 +99,21 @@
       <method v="2" />
     </configuration>
     <configuration name="Compile VPK" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/ParaStep.Archive/bin/Debug/net5.0/ParaStep.Archive.dll" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk -pack $PROJECT_DIR$/ParaStep/Archive/" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ParaStep.Archive/bin/Debug/net5.0" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.VPKCompiler" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk -pack ../../../../ParaStep/Archive/" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/ParaStep.Archive/ParaStep.Archive.csproj" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="Unloaded" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="net5.0" />
       <method v="2">
-        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_VPK Compiler" />
+        <option name="Build" projectName="Selected project" />
       </method>
     </configuration>
     <configuration name="ParaStep" type="DotNetProject" factoryName=".NET Project">
@@ -145,6 +131,7 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="net5.0" />
       <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Compile VPK" run_configuration_type="DotNetProject" />
         <option name="Build" />
       </method>
     </configuration>
@@ -184,11 +171,30 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="ParaStep.VPKCompiler" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue=".NET Project.Compile VPK" />
       <item itemvalue=".NET Project.ParaStep" />
       <item itemvalue=".NET Project.ParaStep.ErrorHandler" />
       <item itemvalue=".NET Project.ParaStep.GtkErrorHandler" />
+      <item itemvalue=".NET Project.ParaStep.VPKCompiler" />
       <item itemvalue="Publish to folder.OSX Debug" />
       <item itemvalue="Publish to folder.Linux Debug" />
       <item itemvalue="Publish to folder.Windows Debug" />
@@ -240,7 +246,7 @@
       <workItem from="1633569416198" duration="6369000" />
       <workItem from="1633646969950" duration="3642000" />
       <workItem from="1633658735102" duration="673000" />
-      <workItem from="1633659842877" duration="433000" />
+      <workItem from="1633659842877" duration="1216000" />
     </task>
     <task id="LOCAL-00001" summary="updated gitignore">
       <created>1632615799164</created>
@@ -445,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633574998009</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="FUCK EMBEDDED RESOURCES, WE OUT HERE USING VPKS">
+      <created>1633660440483</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1633660440483</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +469,6 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fuck this." />
     <MESSAGE value="fuck off" />
     <MESSAGE value="YOO I GOT LOADING AND SPAWINING WORKING?&#10;now for timing, i'm gonna hate this..." />
     <MESSAGE value="i need to go do homework lol" />
@@ -481,7 +493,8 @@
     <MESSAGE value="rider's git is kinda wacky" />
     <MESSAGE value="timing is still beyond fucked, but you can hit the notes now" />
     <MESSAGE value="user scripts and some shitty state management" />
-    <option name="LAST_COMMIT_MESSAGE" value="user scripts and some shitty state management" />
+    <MESSAGE value="FUCK EMBEDDED RESOURCES, WE OUT HERE USING VPKS" />
+    <option name="LAST_COMMIT_MESSAGE" value="FUCK EMBEDDED RESOURCES, WE OUT HERE USING VPKS" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

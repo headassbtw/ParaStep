@@ -23,13 +23,22 @@
     <ItemGroup>
         <None Remove="Icon.ico" />
         <None Remove="Icon.bmp" />
+        <None Remove="Archive\UserScripts\**" />
+        <None Update="VPK\res_c.vpk">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="VPK\res_dir.vpk">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Icon.ico" />
         <EmbeddedResource Include="Icon.bmp" />
+        <EmbeddedResource Remove="Archive\UserScripts\**" />
     </ItemGroup>
     <ItemGroup>
         <MonoGameContentReference Include="Content\Content.mgcb" />
+        <MonoGameContentReference Remove="Archive\UserScripts\**" />
     </ItemGroup>
     <ItemGroup>
         <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
@@ -53,5 +62,11 @@
     <ItemGroup>
       <Folder Include="Archive" />
       <Folder Include="Libs\OSX" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="Archive\UserScripts\Reload Songs.cs" />
+      <Compile Remove="Archive\UserScripts\HelloWorld.cs" />
+      <Compile Remove="Archive\UserScripts\Crash.cs" />
+      <Compile Remove="Archive\UserScripts\**" />
     </ItemGroup>
 </Project>
