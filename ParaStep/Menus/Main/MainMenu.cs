@@ -90,13 +90,12 @@ namespace ParaStep.Menus.Main
             
             if (hasScripts)
             {
-                var label = new Text(titleFont, false)
+                var label = new Text(titleFont,"USER SCRIPTS", 1.0f, false)
                 {
-                    _text = "USER SCRIPTS",
                     LocalPosition = new Vector2(0, -10),
-                    Size = new Vector2(100, 50),
                     PenColor = Color.White
                 };
+                label.Size += new Vector2(0, 10);
                 var scriptsButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
                 {
                     LocalPosition = new Vector2(0, titleimage.Height + 130),
@@ -128,7 +127,7 @@ namespace ParaStep.Menus.Main
                         Children = userScriptButtons
                     };
                     userScriptPanel.Children.Add(label);
-                    userScriptPanel.CalculateSize(700);
+                    userScriptPanel.CalculateSize();
                     _panels.Add(userScriptPanel);
                 };
                 
@@ -166,7 +165,7 @@ namespace ParaStep.Menus.Main
             foreach (var panel in _panels)
             {
                 
-                panel.Draw(gameTime, spriteBatch, Vector2.Zero);
+                panel.Draw(gameTime, spriteBatch, Vector2.Zero, 1);
             }
                 
 

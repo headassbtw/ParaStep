@@ -74,14 +74,15 @@ namespace ParaStep.Menus.Components
             _hoverColor = new Color(r, g, b, _color.A);
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
+            Scale = LocalScale * scale;
             Position = LocalPosition + parentOffset;
             var color = _color;
             Rectangle rect = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
             if (_isHovering)
                 color = _hoverColor;
-            spriteBatch.Draw(_texture, rect, color);
+            spriteBatch.Draw(_texture, rect.Scale(Scale), color);
 
             if (!string.IsNullOrEmpty(Text) && SubText == null)
             {
@@ -89,14 +90,14 @@ namespace ParaStep.Menus.Components
                 var y = (rect.Y + (rect.Height / 2)) - (_mainFont.MeasureString(Text).Y / 2);
 
                 var pos = new Vector2(x, y);
-                spriteBatch.DrawString(_mainFont, Text, pos, PenColor);
+                spriteBatch.DrawString(_mainFont, Text, pos.Scale(Scale), PenColor);
             }
             else if (!string.IsNullOrEmpty(Text) && !string.IsNullOrEmpty(SubText))
             {
                 var x = (rect.X + 10);
                 var y = rect.Y + 5;
-                spriteBatch.DrawString(_mainFont, Text, new Vector2(x, y), PenColor);
-                spriteBatch.DrawString(_subFont, SubText, new Vector2(x, y + 34), PenColor);
+                spriteBatch.DrawString(_mainFont, Text, new Vector2(x, y).Scale(Scale), PenColor);
+                spriteBatch.DrawString(_subFont, SubText, new Vector2(x, y + 34).Scale(Scale), PenColor);
             }
         }
 

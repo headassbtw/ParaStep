@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace ParaStep.Menus.Components
 {
@@ -24,8 +26,9 @@ namespace ParaStep.Menus.Components
         private MouseState _currentMouse;
         private MouseState _previousMouse;
 
-        public UIPanel(Texture2D background, int padding, bool scrollable, int jiggleModifier, Color backgroundColor)
+        public UIPanel(Texture2D background, int padding, bool scrollable, int jiggleModifier, Color backgroundColor, float scale = 1.0f)
         {
+            Scale = scale;
             _bgColor = backgroundColor;
             _graphicsDevice = Program.Game.GraphicsDevice;
             _scrollable = scrollable;
@@ -35,35 +38,37 @@ namespace ParaStep.Menus.Components
             Children = new List<Component>();
         }
         //gets the size, needs to be run every time you add or remove something from it, if you want the background to show properly
-        public void CalculateSize(int manualX = 0, int manualY = 0)
+        public Vector2 CalculateSize(int manualX = 0, int manualY = 0)
         {
-            int y = _padding;
+            int y = 0;
             int x = 0;
             foreach(Component component in Children)
             {
-                y += (int)component.Size.Y;
-                y += _padding;
-                x += (int)component.Size.X;
+                int w = (int) component.Size.X + (int) component.LocalPosition.X;
+                int h = (int) component.Size.Y + (int) component.LocalPosition.Y;
+                if (w > x) x = w;
+                if (h > y) y = h;
             }
-            //since i don't plan for grids yet, this just averages the massively wide X width
-            if (manualX != 0 || manualY != 0)//this check is here because i tried to cheese a dumb effect earlier
-                x /= Children.Count;
-            x += _padding*2;
-            //override X and Y, because i contradicted myself from 2 lines up
+
+            x += _padding * 2;
+            y += _padding * 2;
+            //override X and Y
             x = (manualX != 0) ? manualX : x;
             y = (manualY != 0) ? manualY : y;
             _rect = new Rectangle((int) LocalPosition.X, (int) LocalPosition.Y, x, y);
             _size = new Vector2(x, y);
+            return _size;
         }
         
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset + _jiggleOffset;
-            _rect.X = (int)Position.X;
-            _rect.Y = (int)Position.Y;
+            Scale = LocalScale * scale;
+            _rect.X = (int)(Position.X * Scale);
+            _rect.Y = (int) (Position.Y * Scale);
             spriteBatch.Draw(_background, _rect, _bgColor);
             foreach (var component in Children)
-                component.Draw(gameTime, spriteBatch,  Position + new Vector2(_padding) + new Vector2(0,_scrollableOffset));
+                component.Draw(gameTime, spriteBatch,  Position + new Vector2(_padding) + new Vector2(0,_scrollableOffset), Scale);
         }
 
         public override void Update(GameTime gameTime)
@@ -73,7 +78,7 @@ namespace ParaStep.Menus.Components
             _previousMouse = _currentMouse;
             _currentMouse = Mouse.GetState();
             
-            var mouseRectangle = new Rectangle(_currentMouse.X, _currentMouse.Y, 1, 1);
+            var mouseRectangle = new Rectangle(_currentMouse.X, _currentMouse.Y, 1, 1).Scale(Scale);
 
             if (mouseRectangle.Intersects(_rect) && _scrollable)
                 _scrollableOffset += _currentMouse.ScrollWheelValue - _previousMouse.ScrollWheelValue;

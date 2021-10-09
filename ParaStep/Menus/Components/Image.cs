@@ -21,11 +21,12 @@ namespace ParaStep.Menus.Components
             _texture = texture;
         }
         
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
+            Scale = LocalScale * scale;
             Position = LocalPosition + parentOffset;
             
-            spriteBatch.Draw(_texture, _rect, Color.White);
+            spriteBatch.Draw(_texture, _rect.Scale(Scale), Color.White);
         }
 
         public override void Update(GameTime gameTime)

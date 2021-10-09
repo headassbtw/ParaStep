@@ -26,37 +26,70 @@ namespace ParaStep.Menus.Components
             }
         }
         
-        public Slider(Texture2D texture, SpriteFont font)
+        public Slider(Texture2D texture, Color handleColor, Color bgColor)
         {
             _square = texture;
+            color = handleColor;
+            this.bgColor = bgColor;
+            Recolor();
         }
 
-        private Color sliderDragColor;
+        private Color color;
+        private Color idleColor;
+        private Color dragColor;
+        private Color hoverColor;
+        private Color bgColor;
         
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public void Recolor()
+        {
+            float r;
+            float g;
+            float b;
+            float r2;
+            float g2;
+            float b2;
+            color.Deconstruct(out r, out g, out b);
+            r = (r / 20.0f) * 6.0f; 
+            g = (g / 20.0f) * 6.0f; 
+            b = (b / 20.0f) * 6.0f;
+            r2 = (r / 20.0f) * 14.0f; 
+            g2 = (g / 20.0f) * 14.0f; 
+            b2 = (b / 20.0f) * 14.0f;
+
+            hoverColor = new Color(r, g, b, color.A);
+            dragColor = new Color(r2, g2, b2, color.A);
+        }
+        
+        
+        
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset;
-            Vector2 sliderPos = new Vector2((int) (Size.X * value) + Position.X, Position.Y);
-            spriteBatch.Draw(_square, Position, _rect, Color.Black );
-            spriteBatch.Draw(_square, sliderPos, _sliderDragRectangle, sliderDragColor );
+            Scale = LocalScale * scale;
+            Vector2 sliderPos = new Vector2((int) (Size.X * value) + Position.X, Position.Y).Scale(Scale);
+            spriteBatch.Draw(_square, Position.Scale(Scale), _rect, bgColor );
+            spriteBatch.Draw(_square, sliderPos, _sliderDragRectangle, color );
         }
 
         private static bool IntersectingWhileDragging(Rectangle source, Rectangle dest, MouseState state)
         {
             return source.Intersects(new Rectangle(dest.X-dest.Width, dest.Y, dest.Width * 3, dest.Height)) && state.LeftButton == ButtonState.Pressed;
         }
-        
+        Color lightBlue = new Color(0.0f, 0.7f, 1.0f, 1.0f);
         public override void Update(GameTime gameTime)
         {
             MouseState _currentMouse = Mouse.GetState();
             Rectangle mouseRectangle = new Rectangle(_currentMouse.X, _currentMouse.Y, 1, 1);
 
-            sliderDragColor = Color.White;
+            
+            
+            color = lightBlue;
             if (mouseRectangle.Intersects(_sliderDragRectangle) || IntersectingWhileDragging(mouseRectangle, _sliderDragRectangle, _currentMouse))
             {
-                sliderDragColor = Color.Coral;
+                color = hoverColor;
                 if (_currentMouse.LeftButton == ButtonState.Pressed && _currentMouse.X > Position.X + (Size.Y/2) && _currentMouse.X < Position.X + Size.X-(Size.Y/2))
                 {
+                    color = dragColor;
                     value = ((_currentMouse.X - Size.Y/2) - Position.X) / Size.X;
                 }
             }

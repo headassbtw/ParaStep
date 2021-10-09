@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Encodings.Web;
 using VPK = RSPNVPK.VPK;
@@ -20,7 +21,7 @@ namespace ParaStep.Archive
 
         public static string File(string file)
         {
-            return Program.GetFile(System.IO.Path.Combine(Path, Name + "_dir.vpk"), file);
+            return Program.GetFile(System.IO.Path.Combine(OperatingSystem.IsWindows() ? Path.Replace("/", "\\") : Path, Name + "_dir.vpk"), file);
         }
     }
 
@@ -177,7 +178,7 @@ namespace ParaStep.Archive
             Console.WriteLine($"{vpk.Header.DirectorySize:X4} | {vpk.Header.EmbeddedChunkSize:X4}");
 
             var list = vpk.EntryBlocks.ToList();
-
+            k0k.Write(new byte[1]{byte.MinValue}, 0, (int)k0k.Length);
             for (var i = 0; i < list.Count; i++)
             {
                 var block = list[i];
@@ -185,7 +186,7 @@ namespace ParaStep.Archive
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Deleting {block.Path}...");
                 Console.ForegroundColor = bak;
-
+                
                 list.RemoveAt(i);
                 i--;
             }

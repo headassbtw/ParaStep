@@ -58,9 +58,9 @@
     <ItemGroup>
       <ProjectReference Include="..\ParaStep.Archive\ParaStep.Archive.csproj" />
       <ProjectReference Include="..\ParaStep.GtkErrorHandler\ParaStep.GtkErrorHandler.csproj" />
+      <ProjectReference Include="..\ParaStep.QtErrorHandler\ParaStep.QtErrorHandler.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Archive" />
       <Folder Include="Libs\OSX" />
     </ItemGroup>
     <ItemGroup>

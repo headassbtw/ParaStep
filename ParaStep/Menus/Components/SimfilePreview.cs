@@ -68,26 +68,27 @@ namespace ParaStep.Menus.Components
             PenColor = Color.Black;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset;
+            Scale = LocalScale * scale;
             var colour = Color.White;
             Rectangle rect = new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
             //spriteBatch.Draw(_texture, rect, colour);
             
             
-            spriteBatch.Draw(simfile.Banner, new Rectangle((int)Position.X, (int)Position.Y,(int)_bannerDimensions.X,(int)_bannerDimensions.Y), Color.White);
+            spriteBatch.Draw(simfile.Banner, new Rectangle((int)Position.Scale(Scale).X, (int)Position.Scale(Scale).Y,(int)_bannerDimensions.Scale(Scale).X,(int)_bannerDimensions.Scale(Scale).Y), Color.White);
             Vector2 TitlePos = new Vector2(Position.X + 10, Position.Y + simfile.Banner.Height + 10);
-            spriteBatch.DrawString(_bigFont, simfile.Title.ToUpper(), TitlePos, Color.Black);
+            spriteBatch.DrawString(_bigFont, simfile.Title.ToUpper(), TitlePos.Scale(Scale), Color.Black);
             Vector2 ArtistPos = new Vector2(Position.X + 10, Position.Y + simfile.Banner.Height + 70);
-            spriteBatch.DrawString(_bigFont, simfile.Artist.ToUpper(), ArtistPos, Color.Black);
+            spriteBatch.DrawString(_bigFont, simfile.Artist.ToUpper(), ArtistPos.Scale(Scale), Color.Black);
             Vector2 BPMPos = new Vector2(Position.X + 10, Position.Y + simfile.Banner.Height + 140);
-            spriteBatch.DrawString(_smallFont, $"BPM: {simfile.BPMs.FirstOrDefault().Value.ToString()}", BPMPos, Color.Black);
+            spriteBatch.DrawString(_smallFont, $"BPM: {simfile.BPMs.FirstOrDefault().Value.ToString()}", BPMPos.Scale(Scale), Color.Black);
             Vector2 NoteCountPos = new Vector2(Position.X + 10, Position.Y + simfile.Banner.Height + 160);
 
             string ifuckinghatethis = "";
 
-            spriteBatch.DrawString(_smallFont, ifuckinghatethis, NoteCountPos, Color.Black);
+            spriteBatch.DrawString(_smallFont, ifuckinghatethis, NoteCountPos.Scale(Scale), Color.Black);
         }
 
         public override void Update(GameTime gameTime)

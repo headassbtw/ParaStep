@@ -138,17 +138,17 @@ namespace ParaStep.Gameplay
             spriteBatch.Begin();
             
             foreach(Receptor receptor in receptors)
-                receptor.Draw(gameTime, spriteBatch, Vector2.Zero);
+                receptor.Draw(gameTime, spriteBatch, Vector2.Zero, 1);
             foreach (NotePanel panel in _noteLanes)
             {
                 double ass2 =  (0 - _simfile.Offset);
                 double ass = ass2 + _elapsedTime.TotalSeconds;
                 double shitass = MPS * 138 * 8;
-               panel.Draw(gameTime, spriteBatch, new Vector2(0, 70 - (int)(ass*shitass)));
+               panel.Draw(gameTime, spriteBatch, new Vector2(0, 70 - (int)(ass*shitass)), 1);
             }
                 
             foreach(Component comp in _overlayComponents)
-                comp.Draw(gameTime, spriteBatch, Vector2.Zero);
+                comp.Draw(gameTime, spriteBatch, Vector2.Zero, 1);
             spriteBatch.DrawString(_kremlin, (((Channel)fmodChannel).GetPosition(TimeUnit.MS) / 1000).ToString(), new Vector2(0,800), Color.Aqua);
             spriteBatch.End();
         }

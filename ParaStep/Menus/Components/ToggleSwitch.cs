@@ -43,6 +43,7 @@ namespace ParaStep.Menus.Components
             _leftButton = new Button(texture, font, font, Color.White)
             {
                 LocalPosition = new Vector2(0),
+                LocalScale = 1,
                 Size = new Vector2(Size.X / 2, Size.Y),
                 Text = LeftOption,
                 PenColor = Color.Black
@@ -50,6 +51,7 @@ namespace ParaStep.Menus.Components
             _rightButton = new Button(texture, font, font, Color.White)
             {
                 LocalPosition = new Vector2(this.Size.X / 2,0),
+                LocalScale = 1,
                 Size = new Vector2(Size.X / 2, Size.Y),
                 Text = RightOption,
                 PenColor = ActiveTextColor
@@ -96,11 +98,12 @@ namespace ParaStep.Menus.Components
 
         public event ValueChangedEvent ValueChanged;
             
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset;
-            _leftButton.Draw(gameTime, spriteBatch, LocalPosition + parentOffset);
-            _rightButton.Draw(gameTime, spriteBatch, LocalPosition + parentOffset);
+            Scale = LocalScale * scale;
+            _leftButton.Draw(gameTime, spriteBatch, LocalPosition + parentOffset, Scale);
+            _rightButton.Draw(gameTime, spriteBatch, LocalPosition + parentOffset, Scale);
         }
 
         public override void Update(GameTime gameTime)

@@ -130,6 +130,82 @@
         }
       }
     },
+    "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/ParaStep.QtErrorHandler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/ParaStep.QtErrorHandler.csproj",
+        "projectName": "ParaStep.QtErrorHandler",
+        "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/ParaStep.QtErrorHandler.csproj",
+        "packagesPath": "/home/headass/.nuget/packages/",
+        "outputPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/headass/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj": {
+                "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.Archive/ParaStep.Archive.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Qml.Net": {
+              "target": "Package",
+              "version": "[0.11.0, )"
+            },
+            "Qml.Net.LinuxBinaries": {
+              "target": "Package",
+              "version": "[0.11.0, )"
+            },
+            "Qml.Net.WindowsBinaries": {
+              "target": "Package",
+              "version": "[0.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.205/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj": {
       "version": "0.0.2",
       "restore": {
@@ -157,6 +233,9 @@
               },
               "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj": {
                 "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.GtkErrorHandler/ParaStep.GtkErrorHandler.csproj"
+              },
+              "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/ParaStep.QtErrorHandler.csproj": {
+                "projectPath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/ParaStep.QtErrorHandler.csproj"
               }
             }
           }

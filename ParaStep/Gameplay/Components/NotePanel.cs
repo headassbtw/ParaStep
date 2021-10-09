@@ -46,14 +46,15 @@ namespace ParaStep.Gameplay.Components
             _size = new Vector2(x, y);
         }
         
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
+            Scale = LocalScale * scale;
             Position = LocalPosition + parentOffset;
             _rect.X = (int)Position.X;
             _rect.Y = (int)Position.Y;
-            spriteBatch.Draw(_background, _rect, _bgColor);
+            spriteBatch.Draw(_background, _rect.Scale(Scale), _bgColor);
             foreach (var component in Children)
-                component.Draw(gameTime, spriteBatch, Position);
+                component.Draw(gameTime, spriteBatch, Position, Scale);
         }
 
         public override void Update(GameTime gameTime)

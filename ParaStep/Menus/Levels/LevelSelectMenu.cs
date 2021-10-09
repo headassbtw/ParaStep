@@ -117,8 +117,8 @@ namespace ParaStep.Menus.Levels
                 _panels.Add(
                     new UIPanel(whiteRectangle, 10, false, 40, Color.Transparent)
                         {Children = new List<Component>()
-                            {new Text(headerFont)
-                                {_text = "NO SONGS", PenColor = Color.Black, Position = new Vector2(500,100),Size = new Vector2(500,500)}}});
+                            {new Text(headerFont, "NO SONGS")
+                                {PenColor = Color.Black, Position = new Vector2(500,100)}}});
             else if (Simfiles.Count > 0)
             {
                 for (int i = 0; i < Simfiles.Count; i++)
@@ -208,7 +208,7 @@ namespace ParaStep.Menus.Levels
             _graphicsDevice.Clear(Color.SlateGray);
             spriteBatch.Begin();
             for(int i = 0; i < _panels.Count; i++)
-                _panels[i].Draw(gameTime, spriteBatch, Vector2.Zero);
+                _panels[i].Draw(gameTime, spriteBatch, Vector2.Zero, 1);
             spriteBatch.End();
         }
 

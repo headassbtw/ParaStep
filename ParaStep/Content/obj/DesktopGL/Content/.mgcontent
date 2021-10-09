@@ -7,6 +7,7 @@
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/Audio/colonclosingparenthesis.mp3</File>
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/fmod.png</File>
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/Fonts/Kremlin.spritefont</File>
+    <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/Fonts/Squares.spritefont</File>
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/Fonts/Unlockstep_2x.spritefont</File>
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/Fonts/Unlockstep.spritefont</File>
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/NoteTextures/Notes/down.png</File>
@@ -21,6 +22,7 @@
     <File>/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Content/yourmother.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

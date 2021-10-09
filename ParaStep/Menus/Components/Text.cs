@@ -30,23 +30,26 @@ namespace ParaStep.Menus.Components
 
         #region Methods
 
-        public Text(SpriteFont font, bool center = true)
+        public Text(SpriteFont font, string text, float scale = 1.0f, bool center = true)
         {
+            Scale = scale;
+            _text = text;
             _center = center;
             _font = font;
-
+            Size = font.MeasureString(text);
             PenColor = Color.Black;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset;
+            Scale = LocalScale * scale;
             if (!string.IsNullOrEmpty(_text))
             {
                 var x = _center ? (Rectangle.X + (Rectangle.Width / 2)) - (_font.MeasureString(_text).X / 2) : Rectangle.X;
                 var y = _center ? (Rectangle.Y + (Rectangle.Height / 2)) - (_font.MeasureString(_text).Y / 2) : Rectangle.Y;
 
-                spriteBatch.DrawString(_font, _text, new Vector2(x, y), PenColor);
+                spriteBatch.DrawString(_font, _text, new Vector2(x, y).Scale(Scale), PenColor, 0, Vector2.Zero, Scale, SpriteEffects.None, 0);
             }
         }
 

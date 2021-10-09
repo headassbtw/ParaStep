@@ -41,12 +41,13 @@ namespace ParaStep.Gameplay.Components
 
         }
         
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
+            Scale = LocalScale * scale;
             Position = LocalPosition + parentOffset;
             _drawRectangle = new Rectangle((int)Position.X + (148 * _direction), (int)Position.Y, _texture.Width, _texture.Height);
             HitboxRectangle = new Rectangle((int)Position.X + (148 * _direction), (int)Position.Y + _texture.Height/6, _texture.Width, (int)(_texture.Height/1.5f));
-            spriteBatch.Draw(_texture, _drawRectangle, _currentColor);
+            spriteBatch.Draw(_texture, _drawRectangle.Scale(Scale), _currentColor);
             //spriteBatch.Draw(_texture, HitboxRectangle, new Color(1,1,1,0.5f));
         }
 

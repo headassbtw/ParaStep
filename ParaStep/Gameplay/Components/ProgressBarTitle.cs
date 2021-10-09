@@ -38,18 +38,19 @@ namespace ParaStep.Gameplay.Components
             Size = _textDimensions;
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
+            Scale = LocalScale * scale;
             Position = LocalPosition + parentOffset;
             if (!string.IsNullOrEmpty(_text))
             {
                 var x = Position.X - (_textDimensions.X / 2);
                 var y = Position.Y - (_textDimensions.Y / 2);
-                spriteBatch.Draw(_bg, new Rectangle((int)x-50, (int)y-5, (int)_textDimensions.X + 100, (int)_textDimensions.Y + 20), BorderColor);
-                spriteBatch.Draw(_bg, new Rectangle((int)x-45, (int)y, (int)_textDimensions.X + 90, (int)_textDimensions.Y + 10), Color.Black);
-                spriteBatch.Draw(_bg, new Rectangle((int)x-45, (int)y, (int)((_textDimensions.X + 90) * _progress), (int)_textDimensions.Y + 10), BgColor);
+                spriteBatch.Draw(_bg, new Rectangle((int)x-50, (int)y-5, (int)_textDimensions.X + 100, (int)_textDimensions.Y + 20).Scale(Scale), BorderColor);
+                spriteBatch.Draw(_bg, new Rectangle((int)x-45, (int)y, (int)_textDimensions.X + 90, (int)_textDimensions.Y + 10).Scale(Scale), Color.Black);
+                spriteBatch.Draw(_bg, new Rectangle((int)x-45, (int)y, (int)((_textDimensions.X + 90) * _progress), (int)_textDimensions.Y + 10).Scale(Scale), BgColor);
                 
-                spriteBatch.DrawString(_font, _text, new Vector2(x,y), Color.White);
+                spriteBatch.DrawString(_font, _text, new Vector2(x,y).Scale(Scale), Color.White, 0, Vector2.Zero, Scale, SpriteEffects.None, 0);
             }
         }
 

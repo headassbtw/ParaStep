@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaStep.Archive", "ParaSte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaStep.VPKCompiler", "ParaStep.VPKCompiler\ParaStep.VPKCompiler.csproj", "{CA00F40B-586D-4648-9CA0-6736347A2E6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParaStep.QtErrorHandler", "ParaStep.QtErrorHandler\ParaStep.QtErrorHandler.csproj", "{1B24E091-1E09-4C20-98F0-6E644A77204F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -30,5 +32,9 @@ Global
 		{CA00F40B-586D-4648-9CA0-6736347A2E6B}.Release|x64.Build.0 = Release|Any CPU
 		{CA00F40B-586D-4648-9CA0-6736347A2E6B}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{CA00F40B-586D-4648-9CA0-6736347A2E6B}.Debug|x64.Build.0 = Debug|Any CPU
+		{1B24E091-1E09-4C20-98F0-6E644A77204F}.Release|x64.ActiveCfg = Release|Any CPU
+		{1B24E091-1E09-4C20-98F0-6E644A77204F}.Release|x64.Build.0 = Release|Any CPU
+		{1B24E091-1E09-4C20-98F0-6E644A77204F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1B24E091-1E09-4C20-98F0-6E644A77204F}.Debug|x64.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
