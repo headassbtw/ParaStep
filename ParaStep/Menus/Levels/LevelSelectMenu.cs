@@ -56,10 +56,9 @@ namespace ParaStep.Menus.Levels
             List<Component> backButtonPanelComponents = new List<Component>();
             
                 
-            Button backButton =    new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
+            Button backButton =    new Button(whiteRectangle, buttonFont,buttonFont2x, new UIColors(Color.LightGray), UIColors.DefaultBlack)
             {
                 LocalPosition = new Vector2(0,0),
-                PenColor = Color.Black,
                 Size = new Vector2(200,100),
                 Text = "Back"
             };
@@ -94,7 +93,7 @@ namespace ParaStep.Menus.Levels
                         Program.Game.GraphicsDevice.Viewport.Height / 2 - 30),
                     Children = new List<Component>()
                     {
-                        new Button(whiteRectangle, buttonFont, buttonFont2x, Color.Brown)
+                        new Button(whiteRectangle, buttonFont, buttonFont2x, new UIColors(Color.Brown), UIColors.DefaultBlack)
                         {
                             LocalPosition = new Vector2(10),
                             Text = "Gaming",
@@ -124,11 +123,10 @@ namespace ParaStep.Menus.Levels
                 for (int i = 0; i < Simfiles.Count; i++)
                 {
                     Simfile.Simfile _simfile = Simfiles[i];
-                    Button levelButton = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.LightGray)
+                    Button levelButton = new Button(whiteRectangle, buttonFont,buttonFont2x, new UIColors(Color.LightGray), UIColors.DefaultBlack)
                     {
                         LocalPosition = new Vector2(0,80*i),
-                        PenColor = Color.Black,
-                        Size = new Vector2(500,70),
+                        Size = new Vector2(400,70),
                         Text = Simfiles[i].Title,
                         SubText = Simfiles[i].Artist
                     };
@@ -139,17 +137,16 @@ namespace ParaStep.Menus.Levels
                         _panels.Remove(_simfilePreviewPanel);
                         
                         
-                        Button play = new Button(whiteRectangle, buttonFont,buttonFont2x, Color.Yellow)
+                        Button play = new Button(whiteRectangle, buttonFont,buttonFont2x, new UIColors(Color.Yellow), UIColors.DefaultBlack)
                         {
                             LocalPosition = new Vector2(0,0),
-                            PenColor = Color.Black,
                             Size = new Vector2(200,100),
                             Text = $"Play"
                         };
                         if ((_simfile.BPMs.Values.Count > 1))
                         {
                             play.Text = "Multiple\nBPM";
-                            play._color = Color.Red;
+                            play.BodyColor = Color.Red;
                         }
                         play.Click += (o, eventArgs) =>
                         {
@@ -194,7 +191,7 @@ namespace ParaStep.Menus.Levels
                 UIPanel levelButtonsPanel = new UIPanel(whiteRectangle, 10, true, 0, Color.Navy)
                 {
                     Children = levelButtons,
-                    LocalPosition = new Vector2(Program.Game.GraphicsDevice.Viewport.Width - 420,0)
+                    LocalPosition = new Vector2(Program.Game.GraphicsDevice.Viewport.Width - 520,0)
                 };
                 levelButtonsPanel.CalculateSize();
                 _panels.Add(levelButtonsPanel);

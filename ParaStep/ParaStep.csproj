@@ -12,6 +12,7 @@
         <Configurations>Release;Debug</Configurations>
         <Platforms>x64</Platforms>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <NeutralLanguage>en-US</NeutralLanguage>
     </PropertyGroup>
     <PropertyGroup>
         <PublishSingleFile>true</PublishSingleFile>
@@ -50,6 +51,8 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
         <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+        <PackageReference Include="MonoGame.Primitives2D" Version="1.1.1" />
+        <PackageReference Include="StbSharp" Version="0.7.2.38" />
     </ItemGroup>
     <ItemGroup>
       <None Remove="Icon_500.bmp" />

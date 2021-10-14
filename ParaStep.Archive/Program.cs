@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -21,7 +22,15 @@ namespace ParaStep.Archive
 
         public static string File(string file)
         {
-            return Program.GetFile(System.IO.Path.Combine(OperatingSystem.IsWindows() ? Path.Replace("/", "\\") : Path, Name + "_dir.vpk"), file);
+            var path = OperatingSystem.IsWindows() ? Path.Replace("/", "\\") : Path;
+            
+            return Program.GetFile(System.IO.Path.Combine(path, Name + "_dir.vpk"), file);
+        }
+        public static byte[] Bytes(string file)
+        {
+            var path = OperatingSystem.IsWindows() ? Path.Replace("/", "\\") : Path;
+            
+            return Program.GetBytes(System.IO.Path.Combine(path, Name + "_dir.vpk"), file);
         }
     }
 
@@ -53,6 +62,47 @@ namespace ParaStep.Archive
             }
         }
 
+        public static byte[] GetBytes(string vpkdir, string path)
+        {
+            string extractDir = Path.Combine(Path.GetTempPath(), "ParaStep","VPK");
+            var vpkarch = vpkdir.Replace("_dir.vpk", "_c.vpk").Replace("english", "");
+            Directory.CreateDirectory(extractDir);
+            var fstream = new FileStream(vpkdir, FileMode.Open, FileAccess.ReadWrite);
+            var cstream = new FileStream(vpkarch, FileMode.Open, FileAccess.ReadWrite);
+            var writer = new BinaryWriter(fstream);
+
+            var vpk = new VPK.DirFile(fstream);
+            Console.WriteLine($"{vpk.Header.DirectorySize:X4} | {vpk.Header.EmbeddedChunkSize:X4}");
+
+            var list = vpk.EntryBlocks.ToList();
+            for (var i = 0; i < list.Count; i++)
+            {
+                var block = list[i];
+                if (block.Path == path)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"Extracting {block.Path}...");
+                    foreach (var thing in block.Entries)
+                    {
+                        ulong size = thing.Compressed ? thing.CompressedSize : thing.DecompressedSize;
+                        byte[] byteBuffer = new byte[size];
+                        Console.WriteLine($"{thing.Offset} || {size} || Compressed: {thing.Compressed}");
+                        cstream.Seek((int) thing.Offset, SeekOrigin.Begin);
+                        cstream.Read(byteBuffer, 0, (int) size);
+                        Console.ResetColor();
+                        return byteBuffer;
+                    }
+                }
+            }
+
+            
+            writer.BaseStream.Position = 0;
+            VPK.DirFile.Write(writer, list.ToArray());
+            return null;
+            
+        }
+        
+        
         public static string GetFile(string vpkdir, string path)
         {
             string extractDir = Path.Combine(Path.GetTempPath(), "ParaStep","VPK");

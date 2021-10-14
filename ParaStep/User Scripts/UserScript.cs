@@ -23,12 +23,19 @@ namespace ParaStep.User_Scripts
 
             Invoke = () =>
             {
-                scriptState = scriptState == null
-                    ? CSharpScript.Create(Code, ScriptOptions.Default).RunAsync().Result
-                    : scriptState.ContinueWithAsync(Code).Result;
-                if (scriptState.ReturnValue != null && !string.IsNullOrEmpty(scriptState.ReturnValue.ToString()))
-                    Return = scriptState.ReturnValue;
-                Finished?.Invoke(this, EventArgs.Empty);
+                try
+                {
+                    scriptState = scriptState == null
+                        ? CSharpScript.Create(Code, ScriptOptions.Default).RunAsync().Result
+                        : scriptState.ContinueWithAsync(Code).Result;
+                    if (scriptState.ReturnValue != null && !string.IsNullOrEmpty(scriptState.ReturnValue.ToString()))
+                        Return = scriptState.ReturnValue;
+                    Finished?.Invoke(this, EventArgs.Empty);
+                }
+                catch (Exception ex)
+                {
+                    ParaStep.QtErrorHandler.Program.UserScript(ex);
+                }
             };
         }
         

@@ -40,21 +40,21 @@ namespace ParaStep.Menus.Components
             this.InactiveTextColor = InactiveTextColor;
             Size = size;
             _tex = texture;
-            _leftButton = new Button(texture, font, font, Color.White)
+            _leftButton = new Button(texture, font, font, UIColors.DefaultBlack, UIColors.DefaultWhite)
             {
                 LocalPosition = new Vector2(0),
                 LocalScale = 1,
                 Size = new Vector2(Size.X / 2, Size.Y),
                 Text = LeftOption,
-                PenColor = Color.Black
+                TextColor = Color.Black
             };
-            _rightButton = new Button(texture, font, font, Color.White)
+            _rightButton = new Button(texture, font, font, UIColors.DefaultBlack, UIColors.DefaultWhite)
             {
                 LocalPosition = new Vector2(this.Size.X / 2,0),
                 LocalScale = 1,
                 Size = new Vector2(Size.X / 2, Size.Y),
                 Text = RightOption,
-                PenColor = ActiveTextColor
+                TextColor = ActiveTextColor
             };
             _leftButton.Click += (sender, args) =>
             {
@@ -73,21 +73,13 @@ namespace ParaStep.Menus.Components
             
             void LeftEnabled()
             {
-                _leftButton._color = ActiveBodyColor;
-                _leftButton.PenColor = ActiveTextColor;
-                _rightButton._color = InactiveBodyColor;
-                _rightButton.PenColor = InactiveTextColor;
-                _leftButton.Recolor();
-                _rightButton.Recolor();
+                _leftButton.BodyColor = ActiveBodyColor;
+                _rightButton.BodyColor = InactiveBodyColor;
             }
             void RightEnabled()
             {
-                _leftButton._color = InactiveBodyColor;
-                _leftButton.PenColor = InactiveTextColor;
-                _rightButton._color = ActiveBodyColor;
-                _rightButton.PenColor = ActiveTextColor;
-                _leftButton.Recolor();
-                _rightButton.Recolor();
+                _rightButton.BodyColor = ActiveBodyColor;
+                _leftButton.BodyColor = InactiveBodyColor;
             }
             
             
@@ -101,7 +93,7 @@ namespace ParaStep.Menus.Components
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset;
-            Scale = LocalScale * scale;
+            Scale = LocalScale * Program.Game.ScreenScale * scale;
             _leftButton.Draw(gameTime, spriteBatch, LocalPosition + parentOffset, Scale);
             _rightButton.Draw(gameTime, spriteBatch, LocalPosition + parentOffset, Scale);
         }

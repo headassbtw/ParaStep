@@ -53,6 +53,8 @@ namespace ParaStep
             Execute("using System.Reflection;");
             Execute("using System.IO;");
             Execute("using ParaStep;");
+            Execute("using ParaStep.Menus;");
+            Execute("using ParaStep.Menus.Settings;");
             Execute("Console.WriteLine(\"Dev Console Init'd\");");
             _consoleBacklog.Add("This console is actually a fully functional C# REPL!");
             _consoleBacklog.Add("Type \"help\" to learn more!");

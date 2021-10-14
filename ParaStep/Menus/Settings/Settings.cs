@@ -4,8 +4,10 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using MonoGame;
 using ParaStep.Menus.Components;
 using ParaStep.Menus.Main;
+using ParaStep.Menus.Settings;
 using ParaStep.Settings;
 
 namespace ParaStep.Menus
@@ -24,6 +26,7 @@ namespace ParaStep.Menus
         private Texture2D whiteRectangle;
         private Vector2 _headerTextBounds;
         private string _headerText;
+        public SettingsHeaderComponent _header;
         private readonly Color _toggleInactiveBg= new Color(0.16f,0.16f,0.16f,1.0f);
         private readonly Color _lighterBgColor= new Color(26, 26, 26, 255);
         private readonly Color _toggleInactiveText = new Color(102, 102, 102, 255);
@@ -37,11 +40,18 @@ namespace ParaStep.Menus
             whiteRectangle = new Texture2D(graphicsDevice, 1, 1);
             whiteRectangle.SetData(new[] { Color.White });
             _headerText = "SETTINGS";
-            _kremlin = content.Load<SpriteFont>("Fonts/kremlin");
-            _squares = content.Load<SpriteFont>("Fonts/Squares");
+            _kremlin = game.FontManager.Get("Kremlin", 70);
+            _unlockstep = game.FontManager.Get("Unlockstep", 24);
+            _unlockstep2x = game.FontManager.Get("Unlockstep_2x", 48);
+            _squares = game.FontManager.Get("Squares", 50);
             _headerTextBounds = _squares.MeasureString(_headerText);
-            _unlockstep = content.Load<SpriteFont>("Fonts/unlockstep");
-            _unlockstep2x = content.Load<SpriteFont>("Fonts/unlockstep_2x");
+            
+            _header = new SettingsHeaderComponent( new Vector2(_headerTextBounds.X + 30,0), new Vector2(Program.Game.GraphicsDevice.Viewport.Width - (_headerTextBounds.X + 30), 100));
+            
+
+            
+
+            #region audio settings
             Slider previewVolumeSlider = new Slider(whiteRectangle, lightBlue, _toggleInactiveBg)
             {
                 value = game.settings.PreviewVolume,
@@ -49,6 +59,33 @@ namespace ParaStep.Menus
                 Size = new Vector2(300, 20),
                 LocalScale = 1
             };
+            UIPanel sliderPanel = new UIPanel(whiteRectangle, 10, false, 40, _lighterBgColor)
+            {
+                Children = new List<Component>()
+                {
+                    previewVolumeSlider,
+                    new Text(_kremlin,"SONG PREVIEW VOLUME")
+                    {
+                        LocalPosition = new Vector2(0, 0),
+                        PenColor = Color.White,
+                        LocalScale = 1
+                    }
+                },
+                LocalPosition = new Vector2(250,0),
+                Size = new Vector2(400,80),
+                LocalScale = 1f
+            };
+            sliderPanel.CalculateSize();
+            SettingsHeader _audioPanel = new SettingsHeader(UIColors.DefaultRed, "Audio", _header);
+            _audioPanel.UpdateItems(new List<UIPanel>()
+            {
+                sliderPanel
+            });
+            _header.AddItem(_audioPanel);
+            #endregion
+            
+            #region discord settings
+            SettingsHeader _discordPanel = new SettingsHeader(UIColors.DefaultRed, "Discord", _header);
             ToggleSwitch DiscordTimeFormat = new ToggleSwitch(whiteRectangle, _unlockstep2x, new Vector2(400,40), 
                 lightBlue, Color.Black, _toggleInactiveBg, _toggleInactiveText,
                 "Remaining", "Elapsed",
@@ -73,23 +110,6 @@ namespace ParaStep.Menus
             {
                 game.settings.DiscordShowSongDifficulty = args.Value;
             };
-            UIPanel sliderPanel = new UIPanel(whiteRectangle, 10, false, 40, _lighterBgColor)
-            {
-                Children = new List<Component>()
-                {
-                    previewVolumeSlider,
-                    new Text(_squares,"song preview volume")
-                    {
-                        LocalPosition = new Vector2(0, 0),
-                        PenColor = Color.White,
-                        LocalScale = 1
-                    }
-                },
-                LocalPosition = new Vector2(250,150),
-                Size = new Vector2(400,80),
-                LocalScale = 1f
-            };
-            var volsliderbounds = sliderPanel.CalculateSize();
             UIPanel discordTimePanel = new UIPanel(whiteRectangle, 10, false, 40, _lighterBgColor)
             {
                 Children = new List<Component>()
@@ -102,7 +122,7 @@ namespace ParaStep.Menus
                     },
                     DiscordTimeFormat
                 },
-                LocalPosition = new Vector2(250,160 + volsliderbounds.Y),
+                LocalPosition = new Vector2(250,0),
                 Size = new Vector2(400,80),
                 LocalScale = 1
             };
@@ -111,7 +131,7 @@ namespace ParaStep.Menus
             {
                 Children = new List<Component>()
                 {
-                    new Text(_squares,"show song difficulty on discord")
+                    new Text(_kremlin,"SHOW SONG DIFF ON DISCORD")
                     {
                         LocalPosition = new Vector2(0, 0),
                         PenColor = Color.White,
@@ -119,15 +139,31 @@ namespace ParaStep.Menus
                     },
                     DiscordShowDiff
                 },
-                LocalPosition = new Vector2(250,170 + volsliderbounds.Y + timeformatbounds.Y),
+                LocalPosition = new Vector2(250,10 + timeformatbounds.Y),
                 Size = new Vector2(400,80),
                 LocalScale = 1
             };
             discordShowDiffPanel.CalculateSize();
-            Button backButton =    new Button(whiteRectangle, _unlockstep,_unlockstep2x, lightBlue)
+            
+            
+            
+            
+            _discordPanel.UpdateItems(new List<UIPanel>()
+            {
+                discordTimePanel,discordShowDiffPanel
+            });
+            
+            _header.AddItem(_discordPanel);
+
+            #endregion
+
+
+            _header.SetActivePage(_audioPanel);
+
+            #region back button
+            Button backButton =    new Button(whiteRectangle, _unlockstep,_unlockstep2x, new UIColors(lightBlue), UIColors.DefaultBlack)
             {
                 LocalPosition = new Vector2(0,0),
-                PenColor = Color.Black,
                 Size = new Vector2(200,100),
                 Text = "Back",
                 LocalScale = 1
@@ -147,12 +183,13 @@ namespace ParaStep.Menus
                 LocalScale = 1
             };
             ButtonBackPanel.CalculateSize();
+
+            #endregion
+            
+            
             _panels = new List<UIPanel>()
             {
-                ButtonBackPanel,
-                discordTimePanel,
-                discordShowDiffPanel,
-                sliderPanel
+                ButtonBackPanel
             };
             
         }
@@ -167,6 +204,7 @@ namespace ParaStep.Menus
         {
             _graphicsDevice.Clear(_bgColor);
             spriteBatch.Begin();
+            
             foreach(UIPanel panel in _panels)
                 panel.Draw(gameTime, spriteBatch, new Vector2(0,0), 1);
             
@@ -181,7 +219,12 @@ namespace ParaStep.Menus
             {
                 spriteBatch.Draw(whiteRectangle, new Rectangle(0, (int)_headerTextBounds.Y + 10 + i, (int)_headerTextBounds.X + 20 - i, 1), lightBlue);
             }
-
+            for (int i = 0; i < 15; i++)
+            {
+                spriteBatch.DrawLine(_headerTextBounds.X + 20 - i, _headerTextBounds.Y + 19, _headerTextBounds.X + 40 + _headerTextBounds.Y - i, -1,
+                    lightBlue);
+            }
+            _header.Draw(gameTime, spriteBatch, Vector2.Zero,1);
             spriteBatch.End();
         }
 
@@ -194,6 +237,7 @@ namespace ParaStep.Menus
         {
             if (_game.ShouldGoBack && ListeningForKeys)
                 _back();
+            _header.Update(gameTime);
             foreach (UIPanel panel in _panels)
                 panel.Update(gameTime);
         }

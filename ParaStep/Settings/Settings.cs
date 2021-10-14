@@ -7,7 +7,7 @@ namespace ParaStep.Settings
 {
     public class SettingsIO
     {
-        public static string iniPath = Path.Combine(Directory.GetCurrentDirectory(), "settings.ini");
+        public static string iniPath = Path.Combine(Directory.GetCurrentDirectory(), "Config","settings.ini");
         public static Ini ini = new Ini(iniPath);
         public static void Save(Settings settings)
         {

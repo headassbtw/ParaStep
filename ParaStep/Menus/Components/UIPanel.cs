@@ -63,7 +63,7 @@ namespace ParaStep.Menus.Components
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset + _jiggleOffset;
-            Scale = LocalScale * scale;
+            Scale = LocalScale * Program.Game.ScreenScale;
             _rect.X = (int)(Position.X * Scale);
             _rect.Y = (int) (Position.Y * Scale);
             spriteBatch.Draw(_background, _rect, _bgColor);

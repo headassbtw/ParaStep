@@ -43,7 +43,7 @@ namespace ParaStep.Menus.Components
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 parentOffset, float scale)
         {
             Position = LocalPosition + parentOffset;
-            Scale = LocalScale * scale;
+            Scale = LocalScale * Program.Game.ScreenScale * scale;
             if (!string.IsNullOrEmpty(_text))
             {
                 var x = _center ? (Rectangle.X + (Rectangle.Width / 2)) - (_font.MeasureString(_text).X / 2) : Rectangle.X;

@@ -427,6 +427,18 @@
           }
         }
       },
+      "MonoGame.Primitives2D/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Framework.DesktopGL": "3.7.1.189"
+        },
+        "compile": {
+          "lib/net45/MonoGame.Primitives2D.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MonoGame.Primitives2D.dll": {}
+        }
+      },
       "NetNativeLibLoader/0.1.1": {
         "type": "package",
         "compile": {
@@ -495,6 +507,15 @@
             "assetType": "native",
             "rid": "win-x64"
           }
+        }
+      },
+      "StbSharp/0.7.2.38": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.1/StbSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/StbSharp.dll": {}
         }
       },
       "System.CodeDom/5.0.0": {
@@ -1157,6 +1178,18 @@
           "build/MonoGame.Framework.DesktopGL.targets": {}
         }
       },
+      "MonoGame.Primitives2D/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Framework.DesktopGL": "3.7.1.189"
+        },
+        "compile": {
+          "lib/net45/MonoGame.Primitives2D.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MonoGame.Primitives2D.dll": {}
+        }
+      },
       "NetNativeLibLoader/0.1.1": {
         "type": "package",
         "compile": {
@@ -1298,6 +1331,15 @@
         },
         "runtime": {
           "runtimes/unix/lib/netstandard1.0/System.Private.Uri.dll": {}
+        }
+      },
+      "StbSharp/0.7.2.38": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.1/StbSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/StbSharp.dll": {}
         }
       },
       "System.CodeDom/5.0.0": {
@@ -2207,6 +2249,20 @@
         "runtimes/win-x86/native/soft_oal.dll"
       ]
     },
+    "MonoGame.Primitives2D/1.1.1": {
+      "sha512": "uKTO9G9lvcI+WM0DEyRqXRMSkiZMVO4CrBcn4CUGjlqlzEmb+oRCd6rSk+VZLstNRDttuzB2Ig719R3jvJJTdg==",
+      "type": "package",
+      "path": "monogame.primitives2d/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/monogame.ico",
+        "images/monogame.png",
+        "lib/net45/MonoGame.Primitives2D.dll",
+        "monogame.primitives2d.1.1.1.nupkg.sha512",
+        "monogame.primitives2d.nuspec"
+      ]
+    },
     "NetNativeLibLoader/0.1.1": {
       "sha512": "ug45JyzBJgWYyi9RBcISoqWVv8wuKq826kxwV2C3hP/3tczkLk5Agzlg5hUFpyjW6CcASd1LAk+jTaOzZA6Fog==",
       "type": "package",
@@ -2486,6 +2542,20 @@
         "runtime.unix.system.private.uri.4.3.0.nupkg.sha512",
         "runtime.unix.system.private.uri.nuspec",
         "runtimes/unix/lib/netstandard1.0/System.Private.Uri.dll"
+      ]
+    },
+    "StbSharp/0.7.2.38": {
+      "sha512": "cFVL63Bo1CMezdaCQQ8i/6qwtObNY8ZZp0M33wRu9n8axFkiBuQ/dzK21Yep6yDos+iQ361D31y/JIUyE+sClg==",
+      "type": "package",
+      "path": "stbsharp/0.7.2.38",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/StbSharp.dll",
+        "lib/netstandard1.1/StbSharp.dll",
+        "lib/portable-net45+win+wp81+MonoAndroid10+MonoTouch10/StbSharp.dll",
+        "stbsharp.0.7.2.38.nupkg.sha512",
+        "stbsharp.nuspec"
       ]
     },
     "System.CodeDom/5.0.0": {
@@ -3391,9 +3461,11 @@
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 3.11.0",
       "MonoGame.Content.Builder.Task >= 3.8.0.1641",
       "MonoGame.Framework.DesktopGL >= 3.8.0.1641",
+      "MonoGame.Primitives2D >= 1.1.1",
       "ParaStep.Archive >= 1.0.0",
       "ParaStep.GtkErrorHandler >= 1.0.0",
-      "ParaStep.QtErrorHandler >= 1.0.0"
+      "ParaStep.QtErrorHandler >= 1.0.0",
+      "StbSharp >= 0.7.2.38"
     ]
   },
   "packageFolders": {
@@ -3466,6 +3538,14 @@
           "MonoGame.Framework.DesktopGL": {
             "target": "Package",
             "version": "[3.8.0.1641, )"
+          },
+          "MonoGame.Primitives2D": {
+            "target": "Package",
+            "version": "[1.1.1, )"
+          },
+          "StbSharp": {
+            "target": "Package",
+            "version": "[0.7.2.38, )"
           }
         },
         "imports": [
@@ -3509,5 +3589,17 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MonoGame.Primitives2D 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MonoGame.Primitives2D",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

@@ -44,7 +44,7 @@ namespace ParaStep.Menus.Main
                 LocalPosition = new Vector2(0,0),
             };
             
-            var newGameButton = new Button(buttonTexture, buttonFont,buttonFont2x, Color.DarkOrchid)
+            var newGameButton = new Button(buttonTexture, buttonFont,buttonFont2x, new UIColors(Color.DarkOrchid), UIColors.DefaultBlack)
             {
                 LocalPosition = new Vector2(0, titleimage.Height + 10),
                 Size = new Vector2(300,50),
@@ -53,7 +53,7 @@ namespace ParaStep.Menus.Main
 
             newGameButton.Click += NewGameButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
+            var loadGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,new UIColors(Color.DarkOrchid), UIColors.DefaultBlack)
             {
                 LocalPosition = new Vector2(0, titleimage.Height + 70),
                 Size = new Vector2(300,50),
@@ -69,7 +69,7 @@ namespace ParaStep.Menus.Main
             
             
             
-            var quitGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
+            var quitGameButton = new Button(buttonTexture, buttonFont,buttonFont2x,new UIColors(Color.DarkOrchid), UIColors.DefaultBlack)
             {
                 LocalPosition = new Vector2(0, titleimage.Height + (hasScripts ? 190 : 130)),
                 Size = new Vector2(300,50),
@@ -96,7 +96,7 @@ namespace ParaStep.Menus.Main
                     PenColor = Color.White
                 };
                 label.Size += new Vector2(0, 10);
-                var scriptsButton = new Button(buttonTexture, buttonFont,buttonFont2x,Color.DarkOrchid)
+                var scriptsButton = new Button(buttonTexture, buttonFont,buttonFont2x,new UIColors(Color.DarkOrchid), UIColors.DefaultBlack)
                 {
                     LocalPosition = new Vector2(0, titleimage.Height + 130),
                     Size = new Vector2(300,50),
@@ -109,7 +109,7 @@ namespace ParaStep.Menus.Main
                     for(int i = 0; i < scripts.Count; i++)
                     {
                         UserScript _script = scripts[i];
-                        Button _scriptButton = new Button(buttonTexture, buttonFont, buttonFont2x, Color.Orange)
+                        Button _scriptButton = new Button(buttonTexture, buttonFont, buttonFont2x, new UIColors(Color.Orange), UIColors.DefaultBlack)
                         {
                             LocalPosition = new Vector2(0, 60 + 60 * i),
                             Size = new Vector2(300, 50),

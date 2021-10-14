@@ -9,7 +9,7 @@ namespace ParaStep.Settings
 {
     public class ControlsIO
     {
-        public static string iniPath = Path.Combine(Directory.GetCurrentDirectory(), "controls.ini");
+        public static string iniPath = Path.Combine(Directory.GetCurrentDirectory(), "Config","controls.ini");
         public static Ini ini = new Ini(iniPath);
         public static void Save(Controls controls)
         {

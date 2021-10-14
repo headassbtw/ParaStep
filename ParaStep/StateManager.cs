@@ -17,7 +17,7 @@ namespace ParaStep
             State _state;
             if (Scenes.TryGetValue(typeof(T), out _state))
             {
-                return _state;
+                return _state as State;
             }
             else
             {

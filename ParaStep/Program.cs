@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using FmodAudio;
@@ -11,7 +12,8 @@ namespace ParaStep
 {
     public static class Program
     {
-        public static string VPKDirectory = Path.Combine(Environment.CurrentDirectory, "VPK");
+        public static bool DynamicFonts;
+        public static string VPKDirectory;
         public static Game1 Game;
         public static Discord Discord;
         public static FmodSystem FMod;
@@ -25,8 +27,12 @@ namespace ParaStep
             Program.args = _args;
             try
             {
+                if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "Config"))) Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Config"));
+                DynamicFonts = args.Contains("--dynamicfonts");
+                    VPKDirectory = Path.Combine(Environment.CurrentDirectory, "VPK");
                 Console.WriteLine($"Temp path is: {System.IO.Path.GetTempPath()}");
-                Directory.Delete(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "VPK"), true);
+                if(Directory.Exists(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "VPK")))
+                    Directory.Delete(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "VPK"), true);
                 if (!Directory.Exists(VPKDirectory)) Directory.CreateDirectory(VPKDirectory);
                 if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory,"UserScripts"))) Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory,"UserScripts"));
                 ParaStep.Archive.Get.Set(VPKDirectory, "res");
@@ -69,7 +75,7 @@ namespace ParaStep
 
                 try
                 {
-                    QtErrorHandler.Program.Main(e);
+                    QtErrorHandler.Program.Fatal(e);
                 }
                 catch (Exception ex)
                 {
