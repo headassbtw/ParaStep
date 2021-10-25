@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mdhviUC28sWEYsjniO90e979KmKgkXSJ0DFbz2u/KjwsyiZnbgJDzjxtngWNa85/y7wc+oV/vLdlv0YcOW5Awg==",
+  "dgSpecHash": "GrPXPaKYqRGwNWhyrKMmd6IW4tsi6EgIFOJ5LbaNGD2spTkwtP366+p2nYz8Lk7x/EUazdmDryL/eBWfLXFDZA==",
   "success": true,
   "projectFilePath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.QtErrorHandler/ParaStep.QtErrorHandler.csproj",
   "expectedPackageFiles": [
+    "/home/headass/.nuget/packages/k4os.compression.lz4/1.2.15/k4os.compression.lz4.1.2.15.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -13,6 +14,7 @@
     "/home/headass/.nuget/packages/qml.net.linuxbinaries/0.11.0/qml.net.linuxbinaries.0.11.0.nupkg.sha512",
     "/home/headass/.nuget/packages/qml.net.windowsbinaries/0.11.0/qml.net.windowsbinaries.0.11.0.nupkg.sha512",
     "/home/headass/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/home/headass/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/home/headass/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
     "/home/headass/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "/home/headass/.nuget/packages/system.reflection.emit.lightweight/4.3.0/system.reflection.emit.lightweight.4.3.0.nupkg.sha512",

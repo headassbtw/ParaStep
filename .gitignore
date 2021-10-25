@@ -1,8 +1,18 @@
 #compiled builds
 /ParaStep/bin/
 /ParaStep.Archive/bin/
+/ParaStep.VPKCompiler/bin/
 /ParaStep.GtkErrorHandler/bin/
+/ParaStep.QtErrorHandler/bin/
+#obj folder? idk takes up size
+/ParaStep/obj/
+/ParaStep.Archive/obj/
+/ParaStep.VPKCompiler/obj/
+/ParaStep.GtkErrorHandler/obj/
+/ParaStep.QtErrorHandler/obj/
 #rider stuff
 /ParaStep/.idea/
 /ParaStep.Archive/.idea/
+/ParaStep.VPKCompiler/.idea/
 /ParaStep.GtkErrorHandler/.idea/
+/ParaStep.QtErrorHandler/.idea/

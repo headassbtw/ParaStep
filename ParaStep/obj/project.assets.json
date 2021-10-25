@@ -101,6 +101,18 @@
           "build/GtkSharp.targets": {}
         }
       },
+      "K4os.Compression.LZ4/1.2.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/net5.0/K4os.Compression.LZ4.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/K4os.Compression.LZ4.dll": {}
+        }
+      },
       "Microsoft.CodeAnalysis.Analyzers/3.3.2": {
         "type": "package",
         "build": {
@@ -750,6 +762,9 @@
       "ParaStep.Archive/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "K4os.Compression.LZ4": "1.2.15"
+        },
         "compile": {
           "bin/placeholder/ParaStep.Archive.dll": {}
         },
@@ -886,6 +901,18 @@
         },
         "build": {
           "build/GtkSharp.targets": {}
+        }
+      },
+      "K4os.Compression.LZ4/1.2.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4"
+        },
+        "compile": {
+          "lib/net5.0/K4os.Compression.LZ4.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/K4os.Compression.LZ4.dll": {}
         }
       },
       "Microsoft.CodeAnalysis.Analyzers/3.3.2": {
@@ -1563,6 +1590,9 @@
       "ParaStep.Archive/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "K4os.Compression.LZ4": "1.2.15"
+        },
         "compile": {
           "bin/placeholder/ParaStep.Archive.dll": {}
         },
@@ -1704,6 +1734,29 @@
         "gtksharp.3.24.24.34.nupkg.sha512",
         "gtksharp.nuspec",
         "lib/netstandard2.0/GtkSharp.dll"
+      ]
+    },
+    "K4os.Compression.LZ4/1.2.15": {
+      "sha512": "aCuJEi64ptq0iovQa+WqqMsRJKn+51Qd6plIAa0c6SiM8vgl/IybXaN63LvmO9KJmE6AeHYeundISm2ryFfzAw==",
+      "type": "package",
+      "path": "k4os.compression.lz4/1.2.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "k4os.compression.lz4.1.2.15.nupkg.sha512",
+        "k4os.compression.lz4.nuspec",
+        "lib/net45/K4os.Compression.LZ4.dll",
+        "lib/net45/K4os.Compression.LZ4.xml",
+        "lib/net46/K4os.Compression.LZ4.dll",
+        "lib/net46/K4os.Compression.LZ4.xml",
+        "lib/net5.0/K4os.Compression.LZ4.dll",
+        "lib/net5.0/K4os.Compression.LZ4.xml",
+        "lib/netstandard1.6/K4os.Compression.LZ4.dll",
+        "lib/netstandard1.6/K4os.Compression.LZ4.xml",
+        "lib/netstandard2.0/K4os.Compression.LZ4.dll",
+        "lib/netstandard2.0/K4os.Compression.LZ4.xml",
+        "lib/netstandard2.1/K4os.Compression.LZ4.dll",
+        "lib/netstandard2.1/K4os.Compression.LZ4.xml"
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/3.3.2": {

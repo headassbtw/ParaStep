@@ -9,54 +9,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1bdc6e4-17ed-48fb-b58b-0d7872a1fbf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/QML_Types/NetExit._usercs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/Fonts/DroidSans.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/Fonts/DroidSansJapanese.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/Fonts/Kremlin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/Fonts/Squares.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/Fonts/Unlockstep.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/QT/Test_nonfatal.qml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Archive/QT/Window_nonfatal.qml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Fonts/FontLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Fonts/FontManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Menus/Settings/SettingsHeader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Menus/Settings/SettingsHeaderComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep/Menus/UIColors.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/dprk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/reader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/writer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/ParaStep.Archive.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/ParaStep.Archive.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.Archive/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/Class1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/Debug/net5.0/ParaStep.QtErrorHandler.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/Debug/net5.0/ParaStep.QtErrorHandler.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/ParaStep.QtErrorHandler.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/ParaStep.QtErrorHandler.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.VPKCompiler.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.VPKCompiler.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.VPKCompiler.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.VPKCompiler.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/ParaStep.VPKCompiler.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/ParaStep.VPKCompiler.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Dev/Console.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Dev/Console.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Components/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Components/Button.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Components/Text.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Components/Text.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Components/ToggleSwitch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Components/ToggleSwitch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Components/UIPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Components/UIPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Levels/LevelSelectMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Levels/LevelSelectMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Main/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Main/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Main/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Settings/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/ParaStep.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/ParaStep.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Settings/MainControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Settings/MainControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Settings/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Settings/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/StateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/StateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/User Scripts/UserScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/User Scripts/UserScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/VPK/res_c.vpk" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/VPK/res_c.vpk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Settings/SettingsHeader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Settings/SettingsHeader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/obj/ParaStep.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/ParaStep.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +42,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="190418" />
+    <option name="totalTimeSeconds" value="190873" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -86,31 +63,28 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Levels/LevelSelectMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/SimfilePreview.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Settings/MainControls.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Gameplay/GameState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Simfile/Loader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ddc8b40c2ad9409baac4577c24da66bb8bd178/1/Interop.IOErrors.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/UIPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cbe0d78d289e456ba0069b60edf96cbc35578/74/ParserExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Component.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Utils.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Settings/Settings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Game1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Crc32.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Gameplay/GameState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Settings/MainControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep.Archive/VPK/DirEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep.Archive/VPK/DirFile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep/Archive/UserScripts/Reload Songs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Simfile/Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Component.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/SimfilePreview.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Archive/UserScripts/Reload Songs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/UIPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Levels/LevelSelectMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Main/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ddc8b40c2ad9409baac4577c24da66bb8bd178/1/Interop.IOErrors.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Game1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Settings/Settings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cbe0d78d289e456ba0069b60edf96cbc35578/74/ParserExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yecApMVoOLI7AnTzXEpCWPQPvA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -302,7 +276,11 @@
       <workItem from="1633732863205" duration="6683000" />
       <workItem from="1633766236422" duration="2415000" />
       <workItem from="1634006370328" duration="1367000" />
-      <workItem from="1634156977689" duration="13028000" />
+      <workItem from="1634156977689" duration="13265000" />
+      <workItem from="1634176438431" duration="105000" />
+      <workItem from="1634265037043" duration="65000" />
+      <workItem from="1634513656367" duration="96000" />
+      <workItem from="1635205121789" duration="113000" />
     </task>
     <task id="LOCAL-00001" summary="updated gitignore">
       <created>1632615799164</created>
@@ -535,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633740110369</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="stuff">
+      <created>1634170158033</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1634170158033</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,9 +529,19 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fixed windows" />
     <MESSAGE value="man" />
     <MESSAGE value="added a toggle UI element and some other settings" />
     <MESSAGE value="i hate everything" />
@@ -571,7 +566,8 @@
     <MESSAGE value="vpk compiler in the toolchain, if i actually used git correctly" />
     <MESSAGE value="forgot to add it to git lol" />
     <MESSAGE value="tried to do scaling but didn't do it very well, need to refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="tried to do scaling but didn't do it very well, need to refactor" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

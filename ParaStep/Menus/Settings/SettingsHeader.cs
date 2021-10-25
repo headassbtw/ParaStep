@@ -15,6 +15,8 @@ namespace ParaStep.Menus.Settings
         public event EventHandler Click;
         public string Name { private set; get; }
         private Vector2 _stringBounds;
+        public string Desc { private set; get; }
+        private Vector2 _descBounds;
         private float _scale = 0;
         public UIColors Colors { private set; get; }
         private Color _drawColor;

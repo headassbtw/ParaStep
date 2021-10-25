@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5epJJmMIxxyPUBeXqhE7s9ONW9iAuTDlxXYhNneygzPM7WTOdoFy1Sod3wp1S0Luh0KZJmJ0KVSuN8Ccre97XA==",
+  "dgSpecHash": "4xNhcLVTbmtKiqJolldjnpi334q8ir8yTbFgIf/CG+3riIKjhRRmxDm3IgfY2f5i/VJo6ybrwJSc6UvCWyRUJQ==",
   "success": true,
   "projectFilePath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj",
   "expectedPackageFiles": [
+    "/home/headass/.nuget/packages/k4os.compression.lz4/1.2.15/k4os.compression.lz4.1.2.15.nupkg.sha512",
+    "/home/headass/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "40tXYqFeVRj18Eb3nUyyfzvTsoi0JkDZFuE58LqKFxUTo0TDhpNBkRQVDF6IEZZP23cdkV+UjdnAyBPlQDazFg==",
+  "dgSpecHash": "fCfdvysD2wiOTNL8ORNud7ZOPg4RbLgJd08tdViXgVz7MMO9LksGXsGzTOVDV2wJ72YR6VZKMfIIJWmCakzziQ==",
   "success": true,
   "projectFilePath": "/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/ParaStep.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "/home/headass/.nuget/packages/giosharp/3.24.24.34/giosharp.3.24.24.34.nupkg.sha512",
     "/home/headass/.nuget/packages/glibsharp/3.24.24.34/glibsharp.3.24.24.34.nupkg.sha512",
     "/home/headass/.nuget/packages/gtksharp/3.24.24.34/gtksharp.3.24.24.34.nupkg.sha512",
+    "/home/headass/.nuget/packages/k4os.compression.lz4/1.2.15/k4os.compression.lz4.1.2.15.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.2/microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.codeanalysis.common/3.11.0/microsoft.codeanalysis.common.3.11.0.nupkg.sha512",
     "/home/headass/.nuget/packages/microsoft.codeanalysis.csharp/3.11.0/microsoft.codeanalysis.csharp.3.11.0.nupkg.sha512",
