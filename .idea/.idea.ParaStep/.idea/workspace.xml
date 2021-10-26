@@ -8,32 +8,39 @@
     <projectFile>ParaStep.VPKCompiler/ParaStep.VPKCompiler.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1bdc6e4-17ed-48fb-b58b-0d7872a1fbf6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/dprk.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/reader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/writer.cs" afterDir="false" />
+    <list default="true" id="a1bdc6e4-17ed-48fb-b58b-0d7872a1fbf6" name="Changes" comment="introduction of prk file format (in github wiki) still unimplemented, as i'm running out of time">
+      <change afterPath="$PROJECT_DIR$/ParaStep.Archive/Interface.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParaStep/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/ParaStep.Archive.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/ParaStep.Archive.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/Crc32.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/Extensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/dprk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/dprk.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/reader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/reader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/writer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.Archive/PRK_V1/writer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/Utils.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/VPK/DirEntry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/VPK/DirEntryBlock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/VPK/DirFile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.Archive/VPK/Header.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/Debug/net5.0/ParaStep.GtkErrorHandler.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.GtkErrorHandler/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/Class1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/Debug/net5.0/ParaStep.QtErrorHandler.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/Debug/net5.0/ParaStep.QtErrorHandler.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/ParaStep.QtErrorHandler.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/ParaStep.QtErrorHandler.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/bin/Debug/net5.0/ParaStep.Archive.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/Debug/net5.0/ParaStep.VPKCompiler.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/ParaStep.VPKCompiler.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/ParaStep.VPKCompiler.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.VPKCompiler/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/Menus/Settings/SettingsHeader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Menus/Settings/SettingsHeader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/Fonts/FontLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Fonts/FontLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/ParaStep.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/ParaStep.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/VPK/res_c.vpk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParaStep/VPK/res_dir.vpk" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/obj/ParaStep.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/ParaStep.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParaStep/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParaStep/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParaStep/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +49,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="190873" />
+    <option name="totalTimeSeconds" value="194392" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -63,16 +70,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Crc32.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Gameplay/GameState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/Utils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Settings/MainControls.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/VPK/DirEntry.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ParaStep.Archive/VPK/DirFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Simfile/Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ParaStep.VPKCompiler/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Component.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep.QtErrorHandler/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParaStep/Menus/Components/Button.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,9 +108,7 @@
   <component name="RunManager" selected=".NET Project.ParaStep">
     <configuration name="Linux Debug" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="x64" runtime="linux-x64" target_folder="$PROJECT_DIR$/ParaStep/bin/publish/Linux_x64_Debug" target_framework="net5.0" uuid_high="-8151499640772802864" uuid_low="-4874252454349389710" />
-      <method v="2">
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Compile VPK" run_configuration_type="DotNetProject" />
-      </method>
+      <method v="2" />
     </configuration>
     <configuration name="OSX Debug" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Debug" platform="x64" runtime="osx-x64" target_folder="$PROJECT_DIR$/ParaStep/bin/publish/OSX_x64_Debug" target_framework="net5.0" uuid_high="-8151499640772802864" uuid_low="-4874252454349389710" />
@@ -155,7 +155,6 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="net5.0" />
       <method v="2">
-        <option name="RunConfigurationTask" enabled="true" run_configuration_name="Compile VPK" run_configuration_type="DotNetProject" />
         <option name="Build" />
       </method>
     </configuration>
@@ -280,7 +279,7 @@
       <workItem from="1634176438431" duration="105000" />
       <workItem from="1634265037043" duration="65000" />
       <workItem from="1634513656367" duration="96000" />
-      <workItem from="1635205121789" duration="113000" />
+      <workItem from="1635205121789" duration="4470000" />
     </task>
     <task id="LOCAL-00001" summary="updated gitignore">
       <created>1632615799164</created>
@@ -520,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634170158033</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="introduction of prk file format (in github wiki) still unimplemented, as i'm running out of time">
+      <created>1635205377836</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1635205377836</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +548,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="man" />
     <MESSAGE value="added a toggle UI element and some other settings" />
     <MESSAGE value="i hate everything" />
     <MESSAGE value="shitfuck" />
@@ -567,7 +572,8 @@
     <MESSAGE value="forgot to add it to git lol" />
     <MESSAGE value="tried to do scaling but didn't do it very well, need to refactor" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="introduction of prk file format (in github wiki) still unimplemented, as i'm running out of time" />
+    <option name="LAST_COMMIT_MESSAGE" value="introduction of prk file format (in github wiki) still unimplemented, as i'm running out of time" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

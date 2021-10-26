@@ -9,6 +9,7 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/home/headass/RiderProjects/YetAnotherITGClone/ParaStep/Libs/ManagedBass.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=ca00f40b_002D586d_002D4648_002D9ca0_002D6736347a2e6b_0023ParaStep_002EVPKCompiler/@EntryIndexedValue">True</s:Boolean>
 	
 	
 	</wpf:ResourceDictionary>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CompressionTest
+namespace ParaStep.PRK.V1
 {
     public class dprk
     {

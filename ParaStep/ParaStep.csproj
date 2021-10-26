@@ -25,10 +25,22 @@
         <None Remove="Icon.ico" />
         <None Remove="Icon.bmp" />
         <None Remove="Archive\UserScripts\**" />
-        <None Update="VPK\res_c.vpk">
+        <None Update="res\font.prk">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Update="VPK\res_dir.vpk">
+        <None Update="res\font_001.prkc">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="res\qt.prk">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="res\qt_001.prkc">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="res\scripts.prk">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="res\scripts_001.prkc">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
@@ -65,6 +77,7 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Libs\OSX" />
+      <Folder Include="res" />
     </ItemGroup>
     <ItemGroup>
       <Compile Remove="Archive\UserScripts\Reload Songs.cs" />

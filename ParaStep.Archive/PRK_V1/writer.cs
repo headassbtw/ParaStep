@@ -5,21 +5,11 @@ using System.Text;
 using K4os.Compression.LZ4;
 using K4os.Compression.LZ4.Encoders;
 
-namespace CompressionTest
+namespace ParaStep.PRK.V1
 {
     public class writer
     {
-        //this is just a testing funciton, making sure it works type beat
-        public void WriteAll(string[] files)
-        {
-            var ents = WriteContPrk(files, 0);
-            dprk dir = new dprk();
-            dir.ver = 1;
-            dir.numfiles = (short)files.Length;
-            dir.files = ents;
-            WriteDirPrk(dir);
-        }
-        
+
         public void WriteDirPrk(dprk contents)
         {
             BinaryWriter writer = new BinaryWriter(File.Create(Path.Combine(Environment.CurrentDirectory, "ass.prk")));
@@ -40,7 +30,7 @@ namespace CompressionTest
             writer.Close();
         }
 
-        public List<prkent> WriteContPrk(string[] files, int idx)
+        public List<prkent> WriteContPrk(string[] files, int idx, string filepath, string name)
         {
             BinaryWriter writer =
                 new BinaryWriter(File.OpenWrite(Path.Combine(Environment.CurrentDirectory, $"ass_{idx.ToString("X").PadLeft(3, '0')}.prkc")));

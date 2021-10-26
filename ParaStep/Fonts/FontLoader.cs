@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -5,6 +6,7 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using ParaStep.PRK;
 using StbSharp;
 
 namespace ParaStep.Fonts
@@ -22,7 +24,9 @@ namespace ParaStep.Fonts
 
 	    public static readonly FontBakerCharacterRange TfCharacters = new FontBakerCharacterRange((char) 0x0400, (char) 0x04FF);
 	    public static readonly FontBakerCharacterRange Kanji = new FontBakerCharacterRange((char) 0x4e00, (char) 0x9faf);
-	    
+
+	    private static Interface FontInterface =
+		    new Interface(Path.Combine(Environment.CurrentDirectory, "res", "font.prk"));
 	    
 	    private Texture2D _image;
 	    private DynamicSoundEffectInstance _effect;
@@ -34,9 +38,9 @@ namespace ParaStep.Fonts
 
 	        
 	        
-	        byte[] buffer = Archive.Get.Bytes($"Fonts/{name}.ttf");
-	        byte[] buffer2 = Archive.Get.Bytes($"Fonts/DroidSans.ttf");
-	        byte[] buffer3 = Archive.Get.Bytes($"Fonts/DroidSansJapanese.ttf");
+	        byte[] buffer = FontInterface.GetFile($"{name}.ttf");
+	        byte[] buffer2 = FontInterface.GetFile($"DroidSans.ttf");
+	        byte[] buffer3 = FontInterface.GetFile($"DroidSansJapanese.ttf");
 
 	        var tempBitmap = new byte[FontBitmapWidth * FontBitmapHeight];
 

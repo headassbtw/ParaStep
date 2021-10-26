@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using FmodAudio;
 using FmodAudio.Base;
-using ParaStep.Archive;
+using ParaStep.PRK;
 using ParaStep.QtErrorHandler;
 
 namespace ParaStep
@@ -13,7 +13,7 @@ namespace ParaStep
     public static class Program
     {
         public static bool DynamicFonts;
-        public static string VPKDirectory;
+        public static PRK.Interface Interface;
         public static Game1 Game;
         public static Discord Discord;
         public static FmodSystem FMod;
@@ -29,23 +29,23 @@ namespace ParaStep
             {
                 if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory, "Config"))) Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Config"));
                 DynamicFonts = args.Contains("--dynamicfonts");
-                    VPKDirectory = Path.Combine(Environment.CurrentDirectory, "VPK");
+                string prkDir = Path.Combine(Environment.CurrentDirectory, "res");
                 Console.WriteLine($"Temp path is: {System.IO.Path.GetTempPath()}");
-                if(Directory.Exists(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "VPK")))
-                    Directory.Delete(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "VPK"), true);
-                if (!Directory.Exists(VPKDirectory)) Directory.CreateDirectory(VPKDirectory);
+                if(Directory.Exists(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "res")))
+                    Directory.Delete(System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ParaStep", "res"), true);
+                if (!Directory.Exists(prkDir)) Directory.CreateDirectory(prkDir);
                 if (!Directory.Exists(Path.Combine(Environment.CurrentDirectory,"UserScripts"))) Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory,"UserScripts"));
-                ParaStep.Archive.Get.Set(VPKDirectory, "res");
+                var UserScriptInterface = new Interface(Path.Combine(prkDir, "scripts.prk"));
+                
 
 
-                
-                
+
                 #region UserScript templates
-                void CopyThing(string path){File.Copy(Get.File(path), Path.Combine(Environment.CurrentDirectory,path), true);}
+                void CopyThing(string path){File.WriteAllBytes(Path.Combine(Environment.CurrentDirectory, "UserScripts", path),UserScriptInterface.GetFile(path));}
                 
-                CopyThing("UserScripts/HelloWorld.cs");
-                CopyThing("UserScripts/Crash.cs");
-                CopyThing("UserScripts/Reload Songs.cs");
+                CopyThing("HelloWorld.cs");
+                //CopyThing("Crash.cs");
+                //CopyThing("Reload Songs.cs");
                 
                 #endregion
 
@@ -73,15 +73,18 @@ namespace ParaStep
                     Discord.state.State = "Staring at a stack trace";
                 }
 
-                try
+                //try
                 {
-                    QtErrorHandler.Program.Fatal(e);
+                    //QtErrorHandler.Program.Fatal(e);
+                 
+                    //QT BIG BROKEY AND I CBA TO FIX IT LOL
+                    
                 }
-                catch (Exception ex)
+                //catch (Exception ex)
                 {
                     try
                     {
-                        GtkErrorHandler.Program.ShowError(ex);
+                        GtkErrorHandler.Program.ShowError(e);
                     }
                     catch (Exception gx)
                     {
